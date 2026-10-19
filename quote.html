@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Page not found — Watthaus Strategy</title>
-<meta name="description" content="The page you&#x27;re looking for has moved or doesn&#x27;t exist.">
+<title>Get Your Solar Plan — Watthaus Solar Planner</title>
+<meta name="description" content="Answer a few quick questions and get an indicative solar system, savings estimate and a booked free site assessment from Watthaus, in about a minute.">
 <meta name="theme-color" content="#09090a">
-<link rel="canonical" href="https://www.watthausstrategy.co.nz/404.html">
+<link rel="canonical" href="https://www.watthausstrategy.co.nz/quote.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Watthaus Strategy">
-<meta property="og:title" content="Page not found — Watthaus Strategy">
-<meta property="og:description" content="The page you&#x27;re looking for has moved or doesn&#x27;t exist.">
-<meta property="og:url" content="https://www.watthausstrategy.co.nz/404.html">
+<meta property="og:title" content="Get Your Solar Plan — Watthaus Solar Planner">
+<meta property="og:description" content="Answer a few quick questions and get an indicative solar system, savings estimate and a booked free site assessment from Watthaus, in about a minute.">
+<meta property="og:url" content="https://www.watthausstrategy.co.nz/quote.html">
 <meta property="og:image" content="https://www.watthausstrategy.co.nz/assets/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
@@ -19,13 +19,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/css/main.css?v=1792428862">
+<link rel="stylesheet" href="assets/css/main.css?v=1792428914">
 <script>
   document.documentElement.classList.add('js');
   try { if (sessionStorage.getItem('wh-seen') || matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('no-loader'); } catch (e) {}
 </script>
 </head>
-<body class="page-404">
+<body class="q-body">
 <a class="skip" href="#main">Skip to content</a>
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
   <defs>
@@ -112,19 +112,46 @@
 </div>
 
 <main id="main">
-<section class="cta" style="min-height:100svh;display:grid;place-items:center">
-  <div class="cta__rays" aria-hidden="true"></div>
-  <div class="cta__sun" aria-hidden="true"></div>
-  <div class="wrap rel">
-    <span class="eyebrow">Error 404</span>
-    <h1 class="display h1 mt-m" data-split>This page is <em>off-grid.</em></h1>
-    <p class="lead">The page you're after has moved or never existed. Let's get you back into the sun.</p>
-    <div class="cta__actions">
-      <a class="btn btn--gold" href="index.html">Back to home <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-      <a class="btn btn--ghost" href="quote.html">Get my solar plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+<section class="q" data-quote>
+  <aside class="q__side">
+    <div class="q__side-img" aria-hidden="true"><img src="assets/img/roof-hills.webp" alt="" data-q-img></div>
+    <div>
+      <span class="eyebrow">Solar planner</span>
+      <h1>Your solar plan, <em class="gold-text">in about a minute.</em></h1>
+      <p class="muted q__desk">A few quick questions. You'll get an indicative system and savings estimate, then pick a time for a free site assessment. No pressure.</p>
+    </div>
+    <div>
+      <div class="hr-label mono muted">Your plan so far</div>
+      <dl class="q__summary" data-q-summary><div class="empty">Your answers will appear here</div></dl>
+      <div class="q__trust">
+        <span class="chip"><svg aria-hidden="true"><use href="#i-shield"/></svg>CEC-certified</span>
+        <span class="chip"><svg aria-hidden="true"><use href="#i-clock"/></svg>Reply in 1 business day</span>
+        <span class="chip"><svg aria-hidden="true"><use href="#i-check"/></svg>No obligation</span>
+      </div>
+    </div>
+  </aside>
+
+  <div class="q__main">
+    <div class="q__progress">
+      <span class="q__count" data-q-count>Step 1</span>
+      <div class="q__bar" role="progressbar" aria-label="Planner progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-q-progress><i data-q-bar></i></div>
+      <span class="q__saved" data-q-saved>✓ Progress saved</span>
+    </div>
+    <div class="q__stage">
+      <div class="resume" data-q-resume role="region" aria-label="Resume your plan">
+        <span><b>Welcome back.</b> Pick up your solar plan where you left off?</span>
+        <div><button type="button" class="yes" data-q-resume-yes>Resume</button><button type="button" class="no" data-q-resume-no>Start over</button></div>
+      </div>
+      <div data-q-steps aria-live="polite"></div>
+    </div>
+    <div class="q__nav">
+      <button type="button" class="q__back" data-q-back disabled><svg aria-hidden="true"><use href="#i-arrow-r"/></svg>Back</button>
+      <span class="q__hint" data-q-hint>Press <b>Enter ↵</b> to continue</span>
+      <button type="button" class="btn btn--gold q__next" data-q-next>Continue <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
     </div>
   </div>
 </section>
+<noscript><div class="wrap section"><p class="lead">The solar planner needs JavaScript. You can call us on <a href="tel:+642109058051">+64 21 090 58051</a> or email <a href="mailto:inquiries@watthausstrategy.co.nz">inquiries@watthausstrategy.co.nz</a>.</p></div></noscript>
 </main>
 <footer class="footer">
   <div class="wrap">
@@ -184,7 +211,8 @@
 
 <div class="cursor" aria-hidden="true"><div class="cursor__ring"><span>View</span></div><div class="cursor__dot"></div></div>
 
-<script src="assets/js/config.js?v=1792428862"></script>
-<script src="assets/js/main.js?v=1792428862" defer></script>
+<script src="assets/js/config.js?v=1792428914"></script>
+<script src="assets/js/main.js?v=1792428914" defer></script>
+<script src="assets/js/quote.js?v=1792428914" defer></script>
 </body>
 </html>
