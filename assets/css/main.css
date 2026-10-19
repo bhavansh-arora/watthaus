@@ -143,45 +143,32 @@ a.pill:hover { border-color: var(--ink); color: var(--ink); }
 .pill--accent { border-color: color-mix(in srgb, var(--accent) 45%, transparent); color: var(--accent-hi); }
 .icon { width: 20px; height: 20px; flex: none; }
 
-/* ---------- preloader + curtain ---------- */
-.preloader { position: fixed; inset: 0; z-index: 1000; background: var(--bg); display: none; clip-path: inset(0 0 0 0); }
-html.is-loading .preloader { display: block; }
-html.is-loaded .preloader { display: block; animation: preOut 1s var(--ease-io) forwards; }
-@keyframes preOut { to { clip-path: inset(0 0 100% 0); } }
-.preloader__inner { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 18px; text-align: center; }
-.preloader__mark { width: 64px; height: 64px; color: var(--ink); }
-.preloader__mark path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1.3s var(--ease-io) forwards; }
-.preloader__mark path + path { animation-delay: .35s; }
-@keyframes draw { to { stroke-dashoffset: 0; } }
-.preloader__name { font-size: 1.35rem; font-weight: 500; letter-spacing: -0.03em; overflow: hidden; padding-bottom: .1em; }
-.preloader__name span, .preloader__tag span { display: inline-block; transform: translateY(115%); animation: rise .9s var(--ease-out) .4s forwards; }
-.preloader__tag { font-family: var(--serif); font-style: italic; color: var(--accent-hi); font-size: 1.2rem; overflow: hidden; margin-top: -12px; padding-bottom: .15em; }
-.preloader__tag span { animation-delay: .55s; }
-@keyframes rise { to { transform: none; } }
-.preloader__foot { position: absolute; left: var(--gutter); right: var(--gutter); bottom: 36px; display: flex; justify-content: space-between; align-items: end; font-family: var(--mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
-.preloader__count { font-family: var(--sans); font-size: clamp(3rem, 8vw, 6rem); line-height: .8; letter-spacing: -0.06em; color: var(--ink); }
-.preloader__bar { position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--line); }
-.preloader__bar span { display: block; height: 100%; background: var(--gold-grad); transform-origin: left; transform: scaleX(var(--p, 0)); }
-
-.curtain { position: fixed; inset: 0; z-index: 990; pointer-events: none; transform: translateY(100%); background: radial-gradient(70% 80% at 88% 8%, rgba(226,178,94,.14), transparent 60%), var(--bg-2); }
-.curtain__inner { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-start; padding: calc(var(--frame) + 26px) var(--gutter) 40px; }
-.curtain__row { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-.curtain__brand { display: inline-flex; align-items: center; gap: 12px; }
-.curtain__mark { width: 28px; height: 28px; color: var(--ink); }
-.curtain__title { font-size: clamp(3.4rem, 1rem + 9.4vw, 11.5rem); font-weight: 500; letter-spacing: -0.062em; line-height: .9; overflow: hidden; padding: .14em .1em .26em 0; margin: auto 0 clamp(18px, 2.6vw, 36px); }
-.curtain__title em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; color: var(--gold-hi); }
-.curtain__title span { display: inline-block; transform: translateY(120%); }
-.curtain__bar { position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--line); }
-.curtain__bar span { display: block; height: 100%; background: var(--gold-grad); transform-origin: left; transform: scaleX(0); }
-html.is-leaving .curtain { transform: none; transition: transform .7s var(--ease-io); pointer-events: all; }
-html.is-leaving .curtain__title span { transform: none; transition: transform .75s var(--ease-out) .2s; }
-html.is-leaving .curtain__bar span { transform: scaleX(.8); transition: transform .9s var(--ease-out) .15s; }
-html.is-entering .curtain { transform: none; }
-html.is-entering .curtain__title span { transform: none; }
-html.is-entering .curtain__bar span { transform: scaleX(.8); }
-html.is-entered .curtain { transform: translateY(-100%); transition: transform .95s var(--ease-io) .15s; }
-html.is-entered .curtain__title span { transform: translateY(-120%); transition: transform .6s var(--ease-io); }
-html.is-entered .curtain__bar span { transform: scaleX(1); transition: transform .3s var(--ease-out); }
+/* ---------- page veil: one transition for every page load ---------- */
+.veil { position: fixed; inset: 0; z-index: 990; pointer-events: none; }
+.veil__panel { position: absolute; inset: -2px 0; display: grid; place-items: center; will-change: transform;
+  background: radial-gradient(40% 40% at 50% 48%, rgba(226,178,94,.09), transparent 70%), #0d0d0f;
+  transform: translate3d(0, 102%, 0); border-radius: 50% 50% 0 0 / 16vh 16vh 0 0; }
+html.veil-in .veil__panel, html.veil-cover .veil__panel { transform: none; border-radius: 0; }
+html.veil-cover .veil__panel { pointer-events: all; transition: transform .7s var(--ease-io), border-radius .7s var(--ease-io); }
+html.veil-out .veil__panel { transform: translate3d(0, -102%, 0); border-radius: 0 0 50% 50% / 0 0 16vh 16vh; transition: transform 1s var(--ease-io), border-radius 1s var(--ease-io); }
+/* if scripts never run, never leave the page covered */
+html.veil-in:not(.veil-out) .veil__panel { animation: veilSafety .01s 5s forwards; }
+@keyframes veilSafety { to { transform: translate3d(0, -102%, 0); } }
+.veil__center { display: grid; justify-items: center; gap: 22px; transition: opacity .45s var(--ease-io), transform .7s var(--ease-io); }
+html.veil-out .veil__center { opacity: 0; transform: translate3d(0, -28px, 0); }
+.veil__mark { width: 58px; height: 58px; color: var(--ink); overflow: visible; }
+.veil__mark path { stroke-dasharray: 1; stroke-dashoffset: 1; }
+html.veil-in:not(.veil-nav) .veil__mark path { animation: veilDraw 1s var(--ease-io) .1s forwards; }
+html.veil-in:not(.veil-nav) .veil__mark path + path { animation-delay: .4s; }
+html.veil-nav .veil__mark path { stroke-dashoffset: 0; }
+html.veil-cover .veil__mark path { stroke-dashoffset: 1; animation: veilDraw .7s var(--ease-io) .15s forwards; }
+html.veil-cover .veil__mark path + path { animation-delay: .32s; }
+@keyframes veilDraw { to { stroke-dashoffset: 0; } }
+.veil__line { position: relative; width: 96px; height: 1px; background: rgba(237,235,228,.14); overflow: hidden; }
+.veil__line i { position: absolute; inset: 0; background: var(--gold-grad); transform-origin: left; transform: scaleX(var(--vp, 0)); transition: transform .35s var(--ease-out); }
+html.veil-nav .veil__line i { --vp: 1; }
+html.veil-cover .veil__line i { animation: veilFill .8s var(--ease-out) .15s both; }
+@keyframes veilFill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 
 .scroll-progress { position: fixed; left: 0; right: 0; top: 0; z-index: 700; height: 2px; pointer-events: none; }
 .scroll-progress span { display: block; height: 100%; background: var(--gold-grad); transform-origin: left; transform: scaleX(var(--sp, 0)); }

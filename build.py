@@ -44,8 +44,9 @@ LAYOUT = """<!doctype html>
     h.classList.add('js');
     try {{
       if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      var n = sessionStorage.getItem('wh-nav'); if (n) {{ sessionStorage.removeItem('wh-nav'); h.classList.add('is-entering'); h.setAttribute('data-nav', n); }}
-      else if (!sessionStorage.getItem('wh-seen')) h.classList.add('is-loading');
+      h.classList.add('veil-in');
+      if (sessionStorage.getItem('wh-nav') || sessionStorage.getItem('wh-seen')) h.classList.add('veil-nav');
+      sessionStorage.removeItem('wh-nav');
     }} catch (e) {{}}
   }})(document.documentElement);
 </script>

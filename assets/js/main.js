@@ -126,55 +126,39 @@
     initReveals();
     initHero();
   };
-  const finishLoading = () => { html.classList.remove("is-loading"); try { sessionStorage.setItem("wh-seen", "1"); } catch (e) {} };
-
-  if (html.classList.contains("is-loading")) {
-    const count = $("[data-count-loader]");
-    const bar = $(".preloader__bar");
+  // Every page load opens behind the same veil: the W mark (drawn on a first
+  // visit), a gold line that fills while the hero loads, then the veil lifts.
+  const lift = () => {
+    html.classList.add("veil-out");
+    start();
+    try { sessionStorage.setItem("wh-seen", "1"); } catch (e) {}
+    setTimeout(() => html.classList.remove("veil-in", "veil-nav", "veil-out"), 1100);
+  };
+  if (html.classList.contains("veil-in")) {
+    const quick = html.classList.contains("veil-nav");
+    const line = $(".veil__line i");
     let fontsReady = false, imgReady = false;
     (d.fonts ? d.fonts.ready : Promise.resolve()).then(() => (fontsReady = true));
     const firstImg = $(".hero img, .page-hero img");
     if (!firstImg || firstImg.complete) imgReady = true;
     else { firstImg.addEventListener("load", () => (imgReady = true)); firstImg.addEventListener("error", () => (imgReady = true)); }
-    const t0 = performance.now();
-    let shown = 0;
-    const MIN = 1500, MAX = 3500;
+    const t0 = performance.now(), MIN = quick ? 380 : 1450, MAX = quick ? 1600 : 3000;
+    let shown = quick ? 1 : 0;
     const tick = (now) => {
       const el = now - t0;
       const ready = (fontsReady && imgReady) || el > MAX;
-      const target = ready ? 100 : Math.min(90, el / MIN * 90);
-      shown += (Math.min(target, Math.min(100, el / MIN * 100)) - shown) * 0.12;
-      if (ready && el >= MIN && shown > 99.4) shown = 100;
-      const n = Math.round(shown);
-      if (count) count.textContent = String(n).padStart(3, "0");
-      if (bar) bar.style.setProperty("--p", (shown / 100).toFixed(3));
-      if (n < 100) return requestAnimationFrame(tick);
-      setTimeout(() => {
-        html.classList.add("is-loaded");
-        finishLoading();
-        setTimeout(start, 250);
-        setTimeout(() => html.classList.remove("is-loaded"), 1200);
-      }, 160);
+      shown += ((ready ? 1 : Math.min(.85, el / MAX)) - shown) * .09;
+      if (line && !quick) line.style.setProperty("--vp", shown.toFixed(3));
+      if (ready && el >= MIN && shown > .96) {
+        if (line) line.style.setProperty("--vp", 1);
+        setTimeout(lift, 160);
+        return;
+      }
+      requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
-  } else if (html.classList.contains("is-entering")) {
-    // hold the destination title briefly, then lift the curtain
-    setTimeout(() => {
-      html.classList.add("is-entered");
-      setTimeout(start, 200);
-      setTimeout(() => html.classList.remove("is-entering", "is-entered"), 1300);
-    }, 320);
   } else start();
 
-  const PAGES = {
-    "index.html": "Home|Energy engineered forward",
-    "solar.html": "Home Solar|Rooftop solar & batteries",
-    "consultancy.html": "Consultancy|Land to energisation",
-    "projects.html": "Our Projects|Auckland Residence case study",
-    "about.html": "About Us|The people behind the power",
-    "contact.html": "Let's Talk|Reply within one business day",
-    "quote.html": "Solar Planner|Your plan in about a minute"
-  };
   if (!reduce) {
     d.addEventListener("click", (e) => {
       const a = e.target.closest("a[href]");
@@ -183,14 +167,11 @@
       const url = new URL(a.getAttribute("href"), location.href);
       if (url.origin !== location.origin || !/(\.html|\/)$/.test(url.pathname) || url.pathname === location.pathname) return;
       e.preventDefault();
-      const page = url.pathname.split("/").pop() || "index.html";
-      const label = PAGES[page] || "Watthaus|Energy engineered forward";
-      if (window.whCurtain) window.whCurtain(label);
-      try { sessionStorage.setItem("wh-nav", label); } catch (err) {}
-      html.classList.add("is-leaving");
-      setTimeout(() => (location.href = url.href), 820);
+      try { sessionStorage.setItem("wh-nav", "1"); } catch (err) {}
+      html.classList.add("veil-cover");
+      setTimeout(() => (location.href = url.href), 760);
     });
-    addEventListener("pageshow", (e) => { if (e.persisted) html.classList.remove("is-leaving", "is-entering", "is-entered"); });
+    addEventListener("pageshow", (e) => { if (e.persisted) html.classList.remove("veil-cover", "veil-in", "veil-nav", "veil-out"); });
   }
 
   /* ------------------------------------------------------------------
