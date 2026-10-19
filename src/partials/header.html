@@ -1,46 +1,54 @@
-<div class="loader" aria-hidden="true">
-  <div class="loader__inner">
-    <img class="loader__mark" src="assets/img/logos/mark-silver.png" alt="" width="72" height="68">
-    <div class="loader__bar"><span></span></div>
-    <div class="loader__txt">Energy engineered forward</div>
+<div class="preloader" aria-hidden="true">
+  <div class="preloader__inner">
+    <svg class="preloader__mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linejoin="miter"><path pathLength="1" d="M5.2 16.8 21 55.6 32 29.6 43 55.6 58.8 16.8"/><path pathLength="1" d="M20 34 32 5.8 44 34"/></svg>
+    <p class="preloader__name"><span>Watthaus Strategy</span></p>
+    <p class="preloader__tag"><span>Energy engineered forward</span></p>
   </div>
+  <div class="preloader__foot"><span>Solar · Consultancy · Auckland</span><span class="preloader__count" data-count-loader>000</span></div>
+  <div class="preloader__bar"><span></span></div>
 </div>
+<div class="curtain" aria-hidden="true"><svg class="curtain__mark"><use href="#mark"/></svg></div>
+<div class="scroll-progress" aria-hidden="true"><span></span></div>
+<div class="cursor" aria-hidden="true"><span class="cursor__ring"><span class="cursor__label"></span></span><span class="cursor__dot"></span></div>
 
-<header class="nav" data-nav>
-  <div class="nav__inner wrap">
-    <a class="nav__brand" href="index.html" aria-label="Watthaus Strategy, home">
-      <img class="nav__mark" src="assets/img/logos/mark-silver.png" alt="" width="30" height="28">
-      <img class="nav__word" src="assets/img/logos/wordmark-silver.webp" alt="Watthaus Strategy" width="127" height="30">
-    </a>
-    <nav class="nav__links" aria-label="Primary">
-      <a href="solar.html"{{cur:solar}}>Home Solar</a>
-      <a href="consultancy.html"{{cur:consultancy}}>Consultancy</a>
-      <a href="projects.html"{{cur:projects}}>Projects</a>
-      <a href="about.html"{{cur:about}}>About</a>
-      <a href="contact.html"{{cur:contact}}>Contact</a>
+<header class="site-header" data-header>
+  <div class="site-header__inner">
+    <a class="brand" href="index.html" aria-label="Watthaus Strategy, home"><svg class="brand__mark" aria-hidden="true"><use href="#mark"/></svg><span class="brand__name">Watthaus<em>strategy</em></span></a>
+    <nav class="nav" aria-label="Primary">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="solar.html"{{cur:solar}}>Home Solar</a></li>
+        <li><a class="nav__link" href="consultancy.html"{{cur:consultancy}}>Consultancy</a></li>
+        <li><a class="nav__link" href="projects.html"{{cur:projects}}>Projects</a></li>
+        <li><a class="nav__link" href="about.html"{{cur:about}}>About</a></li>
+        <li><a class="nav__link" href="contact.html"{{cur:contact}}>Contact</a></li>
+      </ul>
     </nav>
-    <div class="nav__actions">
-      <a class="nav__phone" href="tel:+642109058051"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>+64 21 090 58051</span></a>
+    <div class="header-actions">
+      <a class="header-phone" href="tel:+642109058051"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>+64 21 090 58051</span></a>
       <a class="btn btn--gold btn--sm" href="quote.html" data-magnetic>Get my solar plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-      <button class="nav__burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu" data-burger><span></span><span></span></button>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" data-menu-toggle>Menu<span class="menu-toggle__bars" aria-hidden="true"><span></span><span></span></span></button>
     </div>
   </div>
 </header>
 
-<div class="menu" id="menu" aria-label="Site menu">
-  <ul class="menu__links">
-    <li><a href="index.html"{{cur:home}}><span>00</span>Home</a></li>
-    <li><a href="solar.html"{{cur:solar}}><span>01</span>Home Solar</a></li>
-    <li><a href="consultancy.html"{{cur:consultancy}}><span>02</span>Consultancy</a></li>
-    <li><a href="projects.html"{{cur:projects}}><span>03</span>Projects</a></li>
-    <li><a href="about.html"{{cur:about}}><span>04</span>About</a></li>
-    <li><a href="contact.html"{{cur:contact}}><span>05</span>Contact</a></li>
-  </ul>
-  <div class="menu__foot">
-    <a class="btn btn--gold" href="quote.html">Get my solar plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-    <div class="menu__contact">
-      <a href="tel:+642109058051">+64 21 090 58051</a>
-      <a href="mailto:inquiries@watthausstrategy.co.nz">inquiries@watthausstrategy.co.nz</a>
+<div class="mobile-menu" id="mobile-menu">
+  <nav aria-label="Mobile">
+    <ul class="mobile-menu__list">
+      <li><a href="index.html"{{cur:home}}>Home<small>01</small></a></li>
+      <li><a href="solar.html"{{cur:solar}}>Home Solar<small>02</small></a></li>
+      <li><a href="consultancy.html"{{cur:consultancy}}>Consultancy<small>03</small></a></li>
+      <li><a href="projects.html"{{cur:projects}}>Projects<small>04</small></a></li>
+      <li><a href="about.html"{{cur:about}}>About<small>05</small></a></li>
+      <li><a href="contact.html"{{cur:contact}}>Contact<small>06</small></a></li>
+    </ul>
+  </nav>
+  <div class="mobile-menu__foot">
+    <a class="btn btn--gold btn--block" href="quote.html">Get my solar plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+    <div class="row">
+      <a class="pill" href="tel:+642109058051"><svg aria-hidden="true"><use href="#i-phone"/></svg>+64 21 090 58051</a>
+      <a class="pill" href="mailto:inquiries@watthausstrategy.co.nz"><svg aria-hidden="true"><use href="#i-mail"/></svg>Email us</a>
+      <a class="pill" href="https://www.instagram.com/watthaussolar" target="_blank" rel="noopener">Instagram</a>
+      <a class="pill" href="https://nz.linkedin.com/company/watthaus-strategy-ltd" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </div>
 </div>

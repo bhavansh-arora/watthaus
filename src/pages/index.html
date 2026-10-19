@@ -2,203 +2,157 @@ title: Watthaus Strategy — Energy Engineered Forward | Solar for NZ homes, lan
 description: Auckland-based solar specialists bridging real estate and renewable energy. CEC-certified rooftop solar and batteries for homes, and land acquisition to construction for utility-scale solar farms.
 active: home
 body: page-home
-preload: assets/img/farm-hero.webp
+preload: assets/img/family.webp
 ---
-<section class="hero">
-  <div class="hero__media" aria-hidden="true"><img src="assets/img/farm-hero.webp" alt="" fetchpriority="high"></div>
-  <div class="hero__shade" aria-hidden="true"></div>
-  <canvas class="hero__canvas" data-hero-canvas aria-hidden="true"></canvas>
+<section class="hero" aria-label="Introduction">
+  <div class="hero__frame" data-hero>
+    <div class="hero__slides" aria-hidden="true">
+      <div class="hero__slide is-active"><img src="assets/img/family.webp" alt="" fetchpriority="high"></div>
+      <div class="hero__slide"><img src="assets/img/farm-hero.webp" alt="" loading="lazy"></div>
+      <div class="hero__slide"><img src="assets/img/install-roof.webp" alt="" loading="lazy"></div>
+      <div class="hero__slide"><img src="assets/img/roof-hills.webp" alt="" loading="lazy"></div>
+    </div>
+    <div class="hero__shade" aria-hidden="true"></div>
+    <canvas class="hero__glow" data-hero-glow aria-hidden="true"></canvas>
 
-  <div class="wrap hero__top">
-    <span class="eyebrow" data-reveal style="--d:.1s">New Zealand's solar specialists</span>
-    <span class="scroll-cue" data-reveal style="--d:.3s"><i></i>Scroll</span>
-  </div>
-
-  <div class="wrap">
-    <h1 class="display h-hero hero__title" data-split>
-      <span class="row">Energy,</span>
-      <span class="row row--indent"><em class="gold-text">engineered</em></span>
-      <span class="row">forward.</span>
-    </h1>
-
-    <div class="hero__foot">
-      <div class="stack" data-reveal style="--d:.5s">
-        <p class="hero__intro">Bridging real estate and renewable energy. From utility-scale solar farms to residential rooftops, built to last.</p>
-        <div class="ticker">
-          <span class="chip"><span class="dot-live"></span>1.2 GWh generated</span>
-          <span class="chip">780 t CO₂ saved</span>
-          <span class="chip">15.9% average ROI p.a.</span>
-        </div>
+    <a class="live-card" href="#live" data-live-card data-reveal style="--d:.6s">
+      <div class="live-card__top"><span class="label label--dot label--live">Live · Auckland <span data-live="time">—</span></span><span class="live-card__go"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></div>
+      <div class="live-card__nums">
+        <div><b><span data-live="kw">0.0</span><em>kW</em></b><span>Generating now</span></div>
+        <div><b><span data-live="kwh">0</span><em>kWh</em></b><span data-live="kwh-label">Today so far</span></div>
       </div>
-      <div class="hero__paths" data-reveal style="--d:.65s">
-        <a class="path" href="solar.html">
-          <div class="path__head"><img src="assets/img/logos/watthaus_solar.webp" alt="" width="34" height="34"><span class="path__go"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></div>
-          <div>
-            <div class="path__label">For homeowners</div>
-            <div class="path__title">Watthaus Solar</div>
-            <div class="path__sub">Rooftop solar &amp; batteries</div>
-          </div>
-        </a>
-        <a class="path path--green" href="consultancy.html">
-          <div class="path__head"><img src="assets/img/logos/watthaus_consultancy.webp" alt="" width="34" height="34"><span class="path__go"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></div>
-          <div>
-            <div class="path__label">Land, investors &amp; developers</div>
-            <div class="path__title">Watthaus Consultancy</div>
-            <div class="path__sub">Utility-scale solar farms</div>
-          </div>
-        </a>
+      <svg class="spark" viewBox="0 0 260 46" preserveAspectRatio="none" aria-hidden="true"><path class="spark-ghost" d="" fill="none" stroke="rgba(237,235,228,.18)" stroke-width="1.2" stroke-dasharray="3 4"/><path class="spark-line" d="" fill="none" stroke="#e2b25e" stroke-width="2" stroke-linecap="round"/></svg>
+    </a>
+
+    <div class="hero__inner">
+      <p class="label label--dot hero__kicker" data-reveal style="--d:.1s">Energy engineered forward · Auckland, Aotearoa</p>
+      <h1 class="h-display hero__title" data-lines>
+        <span class="line">Solar, engineered</span>
+        <span class="line">for your <span class="rotator"><span class="rotator__word"><em>home.</em></span><span class="rotator__word"><em>land.</em></span><span class="rotator__word"><em>business.</em></span><span class="rotator__word"><em>future.</em></span></span></span>
+      </h1>
+      <div class="hero__foot" data-reveal style="--d:.5s">
+        <p class="lede">Bridging real estate and renewable energy. From utility-scale solar farms to residential rooftops, built to last.</p>
+        <div class="row">
+          <span class="hero__count" aria-hidden="true"><span data-hero-count>01</span><i></i><span>04</span></span>
+          <a class="btn btn--gold" href="quote.html" data-magnetic>Get my solar plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+          <a class="btn btn--glass btn--plain" href="consultancy.html">Land &amp; utility-scale</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Statement -->
+<!-- 01 Who we are -->
 <section class="section">
-  <div class="grid-lines" aria-hidden="true"></div>
-  <div class="wrap rel">
-    <div class="statement-wrap">
-      <div><span class="eyebrow">Who we are</span></div>
-      <div>
-        <p class="statement" data-scrub>Watthaus Strategy bridges the gap between real estate and renewable energy. We partner with landowners, investors, developers and homeowners to unlock high-potential land and rooftops, from feasibility to switch-on.</p>
-        <div class="row-actions mt-m" data-reveal>
-          <a class="btn btn--ghost" href="about.html">Meet the team <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-        </div>
-      </div>
-    </div>
-    <div class="vm" data-reveal>
-      <div><span class="eyebrow eyebrow--plain">Our vision</span><p>Empowering a sustainable future by connecting land, capital and innovation in clean energy.</p></div>
-      <div><span class="eyebrow eyebrow--plain">Our mission</span><p>To accelerate renewable projects through strategic insight, collaboration and seamless execution.</p></div>
+  <div class="container">
+    <div class="head__top" style="margin-bottom:clamp(28px,3.6vw,48px)"><span class="label">(01) — Who we are</span><span class="label">Real estate × renewable energy</span></div>
+    <p class="statement" data-scrub>Watthaus Strategy bridges <span class="ipill"><img src="assets/img/farm-rows.webp" alt=""></span> real estate and renewable energy. We partner with landowners, investors, developers and homeowners <span class="ipill ipill--round"><img src="assets/img/family.webp" alt=""></span> to unlock high-potential land and rooftops <span class="ipill"><img src="assets/img/roof-topdown.webp" alt=""></span> from feasibility to <em>switch-on.</em></p>
+    <div class="statement-foot" data-reveal>
+      <div class="row"><span class="pill"><svg aria-hidden="true"><use href="#i-shield"/></svg>CEC-certified installs</span><span class="pill"><svg aria-hidden="true"><use href="#i-pin"/></svg>Auckland-based team</span><span class="pill"><svg aria-hidden="true"><use href="#i-land"/></svg>Land to switch-on</span></div>
+      <a class="link" href="about.html">Meet the team <svg aria-hidden="true"><use href="#i-arrow-r"/></svg></a>
     </div>
   </div>
 </section>
 
-<!-- Two streams -->
-<section class="section section--tight" style="padding-top:0">
-  <div class="wrap">
-    <div class="head">
-      <div class="head__title">
-        <span class="eyebrow">Two ways in</span>
-        <h2 class="display h2" data-split>One team. From one roof <em>to a thousand acres.</em></h2>
-      </div>
-      <p class="lead" data-reveal>Whether you want lower power bills at home or you're sitting on land with grid potential, you'll deal with the same engineers from first call to final handover.</p>
+<!-- 02 Two ways in -->
+<section class="section section--flush">
+  <div class="container">
+    <div class="head head--split">
+      <div class="head__top"><span class="label">(02) — Two ways in</span><span class="label">Solar · Consultancy</span></div>
+      <h2 class="h-xl" data-lines>One team, <em>every scale.</em></h2>
+      <p class="lede" data-reveal>Whether you want lower power bills at home or you're sitting on land with grid potential, you deal with the same engineers from first call to final handover.</p>
     </div>
-    <div class="streams">
-      <a class="stream" href="solar.html" data-cursor="view" data-reveal>
-        <div class="stream__img"><img src="assets/img/family.webp" alt="A family relaxing on their deck beside rooftop solar panels" loading="lazy"></div>
-        <div class="stream__badge"><img src="assets/img/logos/watthaus_solar.webp" alt="" width="52" height="52" loading="lazy"><span class="mono">Watthaus Solar · Residential</span></div>
-        <div>
-          <h3>Your power.<br><em>Your choice.</em></h3>
-          <p>Tier 1 JA Solar panels, Sigenergy inverters and SigenStor batteries, installed by our Auckland-based team. CEC-certified, with a 10-year workmanship warranty.</p>
-          <div class="stream__tags"><span class="chip">Grid-tie</span><span class="chip">Hybrid + battery</span><span class="chip">Green finance</span></div>
-          <span class="btn btn--gold">Explore home solar <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
+    <div class="bento">
+      <a class="tile tile--media s-7" href="solar.html" data-cursor="Explore" data-reveal>
+        <div class="tile__img"><img src="assets/img/roof-boost.webp" alt="Aerial view of a family home with a large rooftop solar array" loading="lazy"></div>
+        <div class="tile__top"><span class="pill pill--glass">01 — Watthaus Solar</span><span class="pill pill--glass">Residential</span></div>
+        <div class="tile__body">
+          <div><h3 class="h-lg">Home <em>solar.</em></h3><p>Tier 1 JA Solar panels, Sigenergy inverters and SigenStor batteries, installed by our Auckland-based team with a 10-year workmanship warranty.</p></div>
+          <span class="tile__go"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
         </div>
       </a>
-      <a class="stream" href="consultancy.html" data-cursor="view" data-reveal style="--d:.12s">
-        <div class="stream__img"><img src="assets/img/farm-aerial.webp" alt="Aerial view of a utility-scale solar farm in green New Zealand farmland" loading="lazy"></div>
-        <div class="stream__badge"><img src="assets/img/logos/watthaus_consultancy.webp" alt="" width="52" height="52" loading="lazy"><span class="mono">Watthaus Consultancy · Utility-scale</span></div>
-        <div>
-          <h3>From paddock<br><em>to power.</em></h3>
-          <p>Land acquisition, engineering, procurement and construction for commercial and utility-scale solar farms, with a bankable foundation from day one.</p>
-          <div class="stream__tags"><span class="chip">Land acquisition</span><span class="chip">EPC</span><span class="chip">PPA structuring</span></div>
-          <span class="btn btn--green">Explore consultancy <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
+      <a class="tile tile--media s-5 t-green" href="consultancy.html" data-cursor="Explore" data-reveal style="--d:.08s">
+        <div class="tile__img"><img src="assets/img/farm-aerial.webp" alt="Aerial view of a utility-scale solar farm in New Zealand farmland" loading="lazy"></div>
+        <div class="tile__top"><span class="pill pill--glass">02 — Watthaus Consultancy</span></div>
+        <div class="tile__body">
+          <div><h3 class="h-lg">Utility-<em>scale.</em></h3><p>Land acquisition, engineering, procurement and construction for commercial and utility-scale solar farms.</p></div>
+          <span class="tile__go"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
         </div>
       </a>
+      <div class="tile s-4" data-reveal>
+        <div class="tile__head"><span class="label">Energy generated</span><span class="pill">All systems</span></div>
+        <div><p class="num"><span data-count="1.2" data-decimals="1">0</span><em>GWh</em></p><p class="small mt-s">Clean energy produced by Watthaus systems so far.</p></div>
+      </div>
+      <div class="tile s-4" data-reveal style="--d:.06s">
+        <div class="tile__head"><span class="label">Carbon avoided</span><span class="pill">CO₂</span></div>
+        <div><p class="num"><span data-count="780">0</span><em>tonnes</em></p><p class="small mt-s">CO₂ emissions saved across every installation we've completed.</p></div>
+      </div>
+      <a class="tile tile--gold s-4" href="solar.html#calculator" data-reveal style="--d:.12s">
+        <div class="tile__head"><span class="label label--dot">Average return</span><span class="tile__go"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></div>
+        <div><p class="num"><span data-count="15.9" data-decimals="1">0</span><em>% p.a.</em></p><p class="small mt-s">Average ROI. See what the sun could save you.</p></div>
+      </a>
+      <div class="tile tile--quote s-8" data-reveal>
+        <div class="tile__head"><span class="qmark" aria-hidden="true">“</span><span class="label">Partner words</span></div>
+        <blockquote>
+          <p>Our partnership with Watthaus Strategy makes perfect sense. By combining their renewable energy expertise with our focus on supporting landlords, developers and homeowners, we can turn unused roof space into real opportunities.</p>
+          <footer class="row row--between mt-m"><span class="h-sm">The WORX Real Estate</span><a class="link" href="#partnership">The partnership <svg aria-hidden="true"><use href="#i-arrow-r"/></svg></a></footer>
+        </blockquote>
+      </div>
+      <div class="tile s-4" data-reveal style="--d:.06s">
+        <div class="tile__head"><span class="label">Peace of mind</span><span class="pill">Every package</span></div>
+        <div><p class="num" style="color:var(--ink)">10<em>years</em></p><p class="small mt-s">Workmanship warranty, plus commissioning and performance monitoring as standard.</p></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Horizontal services -->
-<section class="hs section--ink2" data-hscroll aria-label="Our services">
+<!-- 03 Services (horizontal) -->
+<section class="hs" data-hscroll aria-label="Our services">
   <div class="hs__sticky">
-    <div class="wrap hs__bar">
-      <div class="head__title">
-        <span class="eyebrow">Strategy · Our services</span>
-        <h2 class="display h2">Every stage, <em>one partner.</em></h2>
+    <div class="container">
+      <div class="head head--split" style="margin-bottom:clamp(24px,3vw,40px)">
+        <div class="head__top"><span class="label">(03) — Strategy · our services</span><span class="label">Scroll →</span></div>
+        <h2 class="h-xl">Every stage, <em>one partner.</em></h2>
+        <p class="lede">From identifying the right land to commissioning the final installation, we manage every stage.</p>
       </div>
-      <div class="hs__progress" aria-hidden="true"><span></span></div>
     </div>
     <div class="hs__track">
-      <article class="svc">
-        <div class="svc__img"><img src="assets/img/farm-rows.webp" alt="Rows of solar panels across rural land" loading="lazy"><span class="svc__num">01</span></div>
-        <div class="svc__body">
-          <span class="svc__tag">Identify. Secure. De-risk.</span>
-          <h3 class="display">Land Acquisition</h3>
-          <ul>
-            <li>Identify land with optimal solar potential and grid proximity</li>
-            <li>Engage and negotiate directly with landowners</li>
-            <li>Land term sheets, HOAs and exclusivity agreements</li>
-            <li>Planning, zoning, overlay and environmental checks</li>
-            <li>Geotechnical, soil, flood and ecological screening</li>
-          </ul>
-          <div class="svc__outcome"><b>Outcome</b>Bankable, development-ready land with strong landowner relationships and minimal early-stage risk.</div>
-        </div>
-      </article>
-      <article class="svc">
-        <div class="svc__img"><img src="assets/img/install-roof.webp" alt="Engineers in hi-vis working on a solar array" loading="lazy"><span class="svc__num">02</span></div>
-        <div class="svc__body">
-          <span class="svc__tag">Design. Optimise. De-risk.</span>
-          <h3 class="display">Engineering</h3>
-          <ul>
-            <li>Preliminary engineering, site layouts and yield modelling</li>
-            <li>Concept, detailed and IFC-level system design</li>
-            <li>DC/AC, MV/HV and SCADA integration design</li>
-            <li>Grid connection studies, submissions and regulatory liaison</li>
-            <li>QA/QC and compliance with NZ/AU standards</li>
-          </ul>
-          <div class="svc__outcome"><b>Outcome</b>Optimised, compliant, technically validated designs that maximise long-term performance.</div>
-        </div>
-      </article>
-      <article class="svc">
-        <div class="svc__img"><img src="assets/img/shipping.webp" alt="Container ship carrying equipment at sea" loading="lazy"><span class="svc__num">03</span></div>
-        <div class="svc__body">
-          <span class="svc__tag">Source. Secure. Deliver.</span>
-          <h3 class="display">Procurement</h3>
-          <ul>
-            <li>Global sourcing of panels, inverters, trackers, transformers and BESS</li>
-            <li>Supplier due diligence, tenders and RFP management</li>
-            <li>Contract negotiation: warranties, guarantees and SLAs</li>
-            <li>International logistics, customs and just-in-time delivery</li>
-            <li>Value engineering to reduce CAPEX</li>
-          </ul>
-          <div class="svc__outcome"><b>Outcome</b>Tier 1 equipment at competitive prices, delivered with supply-chain certainty.</div>
-        </div>
-      </article>
-      <article class="svc">
-        <div class="svc__img"><img src="assets/img/install-panel.webp" alt="Installers lifting a solar panel into place" loading="lazy"><span class="svc__num">04</span></div>
-        <div class="svc__body">
-          <span class="svc__tag">Execute. Commission. Energise.</span>
-          <h3 class="display">Construction</h3>
-          <ul>
-            <li>Site establishment, civil works and access</li>
-            <li>Mechanical and electrical installation of all solar and BOS systems</li>
-            <li>Subcontractor management and on-site supervision</li>
-            <li>Health &amp; safety, QA/QC and compliance reporting</li>
-            <li>Testing, commissioning and O&amp;M onboarding</li>
-          </ul>
-          <div class="svc__outcome"><b>Outcome</b>Predictable timelines, consistent build quality and smooth energisation.</div>
-        </div>
-      </article>
-      <article class="svc svc--end">
-        <span class="eyebrow">Have land or a project?</span>
-        <div>
-          <h3 class="display h3" style="margin-bottom:20px">Tell us about your site. We'll give you a straight assessment.</h3>
-          <a class="btn btn--green" href="quote.html?path=land">Start a land enquiry <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-        </div>
-      </article>
+      <a class="hcard" href="consultancy.html#land" data-cursor="Read">
+        <div class="hcard__img"><img src="assets/img/farm-rows.webp" alt="Solar arrays across rural land" loading="lazy"><span class="pill pill--glass">Identify. Secure. De-risk.</span><span class="hcard__n">01</span></div>
+        <div class="hcard__cap"><h3>Land <em>acquisition</em></h3><span class="label">Stage 01</span></div>
+        <p>We source, assess and secure viable solar farm land, with strong, data-driven, market-aligned opportunities.</p>
+      </a>
+      <a class="hcard" href="consultancy.html#engineering" data-cursor="Read">
+        <div class="hcard__img"><img src="assets/img/install-roof.webp" alt="Engineers in hi-vis reviewing a solar array" loading="lazy"><span class="pill pill--glass">Design. Optimise. De-risk.</span><span class="hcard__n">02</span></div>
+        <div class="hcard__cap"><h3><em>Engineering</em></h3><span class="label">Stage 02</span></div>
+        <p>Early-stage engineering, layouts and yield studies for informed solar investment decisions, through to grid connection.</p>
+      </a>
+      <a class="hcard" href="consultancy.html#procurement" data-cursor="Read">
+        <div class="hcard__img"><img src="assets/img/shipping.webp" alt="Container ship carrying equipment at sea" loading="lazy"><span class="pill pill--glass">Source. Secure. Deliver.</span><span class="hcard__n">03</span></div>
+        <div class="hcard__cap"><h3><em>Procurement</em></h3><span class="label">Stage 03</span></div>
+        <p>As Master EPC coordinator: Tier 1 equipment, cost certainty and reliable delivery timelines.</p>
+      </a>
+      <a class="hcard" href="consultancy.html#construction" data-cursor="Read">
+        <div class="hcard__img"><img src="assets/img/install-panel.webp" alt="Installers lifting a solar panel into place" loading="lazy"><span class="pill pill--glass">Execute. Commission. Energise.</span><span class="hcard__n">04</span></div>
+        <div class="hcard__cap"><h3><em>Construction</em></h3><span class="label">Stage 04</span></div>
+        <p>Safe, efficient construction management for commercial and utility-scale solar, through to energisation.</p>
+      </a>
+      <a class="hcard hcard--end" href="quote.html?path=land">
+        <div class="hcard__img"><span class="circle-btn"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span><span class="h-md">Have land or<br><em>a project?</em></span><span class="label">Start a land enquiry</span></div>
+      </a>
     </div>
+    <div class="hs__progress" aria-hidden="true"><span></span></div>
   </div>
 </section>
 
-<!-- Packages -->
-<section class="section section--bone" data-toggle-scope>
-  <div class="wrap">
-    <div class="head">
-      <div class="head__title">
-        <span class="eyebrow">Choose your package</span>
-        <h2 class="display h2" data-split>Solar packages, <em>sized for Kiwi homes.</em></h2>
-      </div>
-      <div class="stack" style="justify-items:start" data-reveal>
-        <p class="lead">Fully installed and CEC-certified. Every package includes commissioning, performance monitoring and a 10-year workmanship warranty.</p>
+<!-- 04 Packages -->
+<section class="section" data-toggle-scope>
+  <div class="container">
+    <div class="head head--split">
+      <div class="head__top"><span class="label">(04) — Choose your package</span><span class="label">Fully installed · CEC-certified</span></div>
+      <h2 class="h-xl" data-lines>Solar packages, <em>sized for Kiwi homes.</em></h2>
+      <div class="stack" data-reveal>
+        <p class="lede">Every package includes commissioning, performance monitoring and a 10-year workmanship warranty.</p>
         <div class="toggle" data-toggle role="group" aria-label="Package type">
           <span class="toggle__pill" aria-hidden="true"></span>
           <button type="button" data-target="grid" aria-pressed="true">Grid-tie</button>
@@ -206,190 +160,189 @@ preload: assets/img/farm-hero.webp
         </div>
       </div>
     </div>
-
-    <div class="pkgs pkg-set is-active" data-set="grid">
+    <div class="pkgs is-active" data-set="grid">
       <article class="pkg" data-reveal>
-        <div class="pkg__img"><img src="assets/img/roof-aerial.webp" alt="Aerial view of a home with rooftop solar" loading="lazy"><span class="pkg__flag">Grid-tie</span></div>
+        <div class="pkg__img"><img src="assets/img/roof-aerial.webp" alt="Aerial view of a home with rooftop solar" loading="lazy"><div class="row"><span class="pill pill--glass">Grid-tie</span><span class="pill pill--glass">8.16 kWp</span></div></div>
         <div class="pkg__body">
-          <div class="pkg__name"><h3>Bright Start</h3><span class="pkg__kw">8.16 kWp</span></div>
-          <div class="pkg__specs"><div><b>16</b><span>JA Solar panels</span></div><div><b>510W</b><span>Per panel, Tier 1</span></div><div><b>5kW</b><span>Sigenergy controller</span></div></div>
-          <ul class="pkg__list"><li><svg aria-hidden="true"><use href="#i-check"/></svg>Sigenergy Controller &amp; Gateway</li><li><svg aria-hidden="true"><use href="#i-check"/></svg>Great for smaller households and daytime use</li></ul>
-          <div class="pkg__cta"><a class="btn btn--ink btn--sm" href="quote.html?package=bright-start">Get this plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a><a class="link-arrow" href="solar.html#packages">Details <svg aria-hidden="true"><use href="#i-arrow-r"/></svg></a></div>
+          <div class="pkg__name"><h3 class="h-md">Bright <em>Start</em></h3><span class="label">Package 01</span></div>
+          <div class="pkg__specs"><div><b>16</b><span>JA Solar panels</span></div><div><b>510<em>W</em></b><span>Per panel, Tier 1</span></div><div><b>5<em>kW</em></b><span>Sigenergy controller</span></div></div>
+          <ul class="ticks"><li>Sigenergy Controller &amp; Gateway</li><li>Great for smaller households and daytime use</li></ul>
+          <div class="pkg__cta"><a class="btn btn--sm" href="quote.html?package=bright-start">Get this plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a><a class="link" href="solar.html#packages">Full details <svg aria-hidden="true"><use href="#i-arrow-r"/></svg></a></div>
         </div>
       </article>
-      <article class="pkg" data-reveal style="--d:.1s">
-        <div class="pkg__img"><img src="assets/img/roof-boost.webp" alt="Large rooftop solar array on a family home" loading="lazy"><span class="pkg__flag pkg__flag--gold">Most generation</span></div>
+      <article class="pkg" data-reveal style="--d:.08s">
+        <div class="pkg__img"><img src="assets/img/roof-boost.webp" alt="Large rooftop solar array on a family home" loading="lazy"><div class="row"><span class="pill pill--glass">Most generation</span><span class="pill pill--glass">15.3 kWp</span></div></div>
         <div class="pkg__body">
-          <div class="pkg__name"><h3>Bright Boost</h3><span class="pkg__kw">15.3 kWp</span></div>
-          <div class="pkg__specs"><div><b>30</b><span>JA Solar panels</span></div><div><b>510W</b><span>Per panel, Tier 1</span></div><div><b>10kW</b><span>Sigenergy controller</span></div></div>
-          <ul class="pkg__list"><li><svg aria-hidden="true"><use href="#i-check"/></svg>Sigenergy Controller &amp; Gateway</li><li><svg aria-hidden="true"><use href="#i-check"/></svg>Built for larger homes, heat pumps and EVs</li></ul>
-          <div class="pkg__cta"><a class="btn btn--ink btn--sm" href="quote.html?package=bright-boost">Get this plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a><a class="link-arrow" href="solar.html#packages">Details <svg aria-hidden="true"><use href="#i-arrow-r"/></svg></a></div>
-        </div>
-      </article>
-    </div>
-    <div class="pkgs pkg-set" data-set="hybrid">
-      <article class="pkg">
-        <div class="pkg__img"><img src="assets/img/battery-install.webp" alt="SigenStor battery installed on the side of a home" loading="lazy"><span class="pkg__flag">Hybrid + battery</span></div>
-        <div class="pkg__body">
-          <div class="pkg__name"><h3>Sunny Reserve</h3><span class="pkg__kw">8.16 kWp · 6 kWh</span></div>
-          <div class="pkg__specs"><div><b>16</b><span>JA Solar panels</span></div><div><b>5kW</b><span>Sigenergy controller</span></div><div><b>6kWh</b><span>SigenStor battery</span></div></div>
-          <ul class="pkg__list"><li><svg aria-hidden="true"><use href="#i-check"/></svg>Store daytime sun for the evening peak</li><li><svg aria-hidden="true"><use href="#i-check"/></svg>Backup-ready with time-of-use optimisation</li></ul>
-          <div class="pkg__cta"><a class="btn btn--ink btn--sm" href="quote.html?package=sunny-reserve&amp;battery=1">Get this plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a><a class="link-arrow" href="solar.html#packages">Details <svg aria-hidden="true"><use href="#i-arrow-r"/></svg></a></div>
-        </div>
-      </article>
-      <article class="pkg">
-        <div class="pkg__img"><img src="assets/img/roof-topdown.webp" alt="Top-down drone view of rooftop solar" loading="lazy"><span class="pkg__flag pkg__flag--gold">Most independence</span></div>
-        <div class="pkg__body">
-          <div class="pkg__name"><h3>Sunny Reserve Plus</h3><span class="pkg__kw">15.3 kWp · 10 kWh</span></div>
-          <div class="pkg__specs"><div><b>30</b><span>JA Solar panels</span></div><div><b>10kW</b><span>Sigenergy controller</span></div><div><b>10kWh</b><span>SigenStor battery</span></div></div>
-          <ul class="pkg__list"><li><svg aria-hidden="true"><use href="#i-check"/></svg>Maximum self-consumption, day and night</li><li><svg aria-hidden="true"><use href="#i-check"/></svg>Grid-outage resilience for the whole family</li></ul>
-          <div class="pkg__cta"><a class="btn btn--ink btn--sm" href="quote.html?package=sunny-reserve-plus&amp;battery=1">Get this plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a><a class="link-arrow" href="solar.html#packages">Details <svg aria-hidden="true"><use href="#i-arrow-r"/></svg></a></div>
+          <div class="pkg__name"><h3 class="h-md">Bright <em>Boost</em></h3><span class="label">Package 02</span></div>
+          <div class="pkg__specs"><div><b>30</b><span>JA Solar panels</span></div><div><b>510<em>W</em></b><span>Per panel, Tier 1</span></div><div><b>10<em>kW</em></b><span>Sigenergy controller</span></div></div>
+          <ul class="ticks"><li>Sigenergy Controller &amp; Gateway</li><li>Built for larger homes, heat pumps and EVs</li></ul>
+          <div class="pkg__cta"><a class="btn btn--sm" href="quote.html?package=bright-boost">Get this plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a><a class="link" href="solar.html#packages">Full details <svg aria-hidden="true"><use href="#i-arrow-r"/></svg></a></div>
         </div>
       </article>
     </div>
-    <div class="inc" data-reveal>
-      <span class="chip"><svg aria-hidden="true"><use href="#i-shield"/></svg>CEC-certified install</span>
-      <span class="chip"><svg aria-hidden="true"><use href="#i-check"/></svg>Commissioning included</span>
-      <span class="chip"><svg aria-hidden="true"><use href="#i-chart"/></svg>Performance monitoring</span>
-      <span class="chip"><svg aria-hidden="true"><use href="#i-clock"/></svg>10-year workmanship warranty</span>
-      <a class="link-arrow" href="solar.html#finance" style="margin-left:auto">Financing from 0% <svg aria-hidden="true"><use href="#i-arrow-r"/></svg></a>
+    <div class="pkgs" data-set="hybrid">
+      <article class="pkg">
+        <div class="pkg__img"><img src="assets/img/battery-install.webp" alt="SigenStor battery installed on the side of a home" loading="lazy"><div class="row"><span class="pill pill--glass">Hybrid + battery</span><span class="pill pill--glass">6 kWh</span></div></div>
+        <div class="pkg__body">
+          <div class="pkg__name"><h3 class="h-md">Sunny <em>Reserve</em></h3><span class="label">Package 03</span></div>
+          <div class="pkg__specs"><div><b>16</b><span>JA Solar panels</span></div><div><b>5<em>kW</em></b><span>Sigenergy controller</span></div><div><b>6<em>kWh</em></b><span>SigenStor battery</span></div></div>
+          <ul class="ticks"><li>Store daytime sun for the evening peak</li><li>Backup-ready, with time-of-use optimisation</li></ul>
+          <div class="pkg__cta"><a class="btn btn--sm" href="quote.html?package=sunny-reserve&amp;battery=1">Get this plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a><a class="link" href="solar.html#packages">Full details <svg aria-hidden="true"><use href="#i-arrow-r"/></svg></a></div>
+        </div>
+      </article>
+      <article class="pkg">
+        <div class="pkg__img"><img src="assets/img/roof-topdown.webp" alt="Top-down drone view of rooftop solar" loading="lazy"><div class="row"><span class="pill pill--glass">Most independence</span><span class="pill pill--glass">10 kWh</span></div></div>
+        <div class="pkg__body">
+          <div class="pkg__name"><h3 class="h-md">Sunny <em>Reserve Plus</em></h3><span class="label">Package 04</span></div>
+          <div class="pkg__specs"><div><b>30</b><span>JA Solar panels</span></div><div><b>10<em>kW</em></b><span>Sigenergy controller</span></div><div><b>10<em>kWh</em></b><span>SigenStor battery</span></div></div>
+          <ul class="ticks"><li>Maximum self-consumption, day and night</li><li>Grid-outage resilience for the whole family</li></ul>
+          <div class="pkg__cta"><a class="btn btn--sm" href="quote.html?package=sunny-reserve-plus&amp;battery=1">Get this plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a><a class="link" href="solar.html#packages">Full details <svg aria-hidden="true"><use href="#i-arrow-r"/></svg></a></div>
+        </div>
+      </article>
+    </div>
+    <div class="strip" data-reveal>
+      <span class="pill"><svg aria-hidden="true"><use href="#i-shield"/></svg>CEC-certified install</span>
+      <span class="pill"><svg aria-hidden="true"><use href="#i-check"/></svg>Commissioning included</span>
+      <span class="pill"><svg aria-hidden="true"><use href="#i-chart"/></svg>Performance monitoring</span>
+      <span class="pill"><svg aria-hidden="true"><use href="#i-clock"/></svg>10-year workmanship warranty</span>
+      <a class="link" href="solar.html#finance">Finance from 0% <svg aria-hidden="true"><use href="#i-arrow-r"/></svg></a>
     </div>
   </div>
 </section>
 
-<!-- Live performance -->
-<section class="section">
-  <div class="wrap">
-    <div class="head">
-      <div class="head__title">
-        <span class="eyebrow">Live performance</span>
-        <h2 class="display h2" data-split>See your sunshine <em class="gold-text">work.</em></h2>
-      </div>
-      <p class="lead" data-reveal>Every Watthaus system comes with real-time monitoring: what you're generating, what you're saving and the carbon you've offset. Here's a sample system, running on Auckland's sun right now.</p>
+<!-- 05 Live performance -->
+<section class="section section--flush" id="live">
+  <div class="container">
+    <div class="head head--split">
+      <div class="head__top"><span class="label">(05) — Live performance</span><span class="label label--dot label--live">Running on Auckland time</span></div>
+      <h2 class="h-xl" data-lines>See your sunshine <em>work.</em></h2>
+      <p class="lede" data-reveal>Watch your panels turn sunlight into savings. Every system comes with real-time monitoring of what you generate, what you save and the carbon you offset.</p>
     </div>
-    <div class="dash">
-      <div class="panel panel--glow" data-sun-dash data-reveal>
-        <div class="dash__head">
-          <div class="dash__live"><span class="dot-live"></span>Auckland · <span data-dash-time>—</span></div>
-          <span class="chip">Sample 10.12 kW + 20 kWh system</span>
+    <div class="bento">
+      <div class="panel panel--glow s-8" data-sun-dash data-reveal>
+        <div class="row row--between"><span class="label label--dot label--live">Auckland · <span data-dash="time">—</span></span><span class="pill">Sample 10.12 kW + 20 kWh system</span></div>
+        <div class="dash__nums">
+          <div><b><span data-dash="kw">0.0</span><em>kW</em></b><span class="label">Generating now</span></div>
+          <div><b><span data-dash="kwh">0.0</span><em>kWh</em></b><span class="label">Today so far</span></div>
+          <div><b data-dash="save">$0.00</b><span class="label">Saved today</span></div>
         </div>
-        <div class="dash__now">
-          <div><b><span data-dash-kw>0.0</span><small>kW</small></b><span>Generating now</span></div>
-          <div><b><span data-dash-kwh>0.0</span><small>kWh</small></b><span>Today so far</span></div>
-          <div><b data-dash-save>$0.00</b><span>Saved today</span></div>
-        </div>
-        <svg class="sunchart" viewBox="0 0 600 240" role="img" aria-label="Today's solar generation curve for Auckland">
+        <svg class="sunchart" viewBox="0 0 600 236" role="img" aria-label="Today's modelled solar generation curve for Auckland">
           <defs>
-            <linearGradient id="gGold" x1="0" x2="1"><stop offset="0" stop-color="#d97a2b"/><stop offset=".5" stop-color="#e9b04a"/><stop offset="1" stop-color="#f8d98f"/></linearGradient>
-            <linearGradient id="gArea" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#e9b04a" stop-opacity=".35"/><stop offset="1" stop-color="#e9b04a" stop-opacity="0"/></linearGradient>
+            <linearGradient id="gGold" x1="0" x2="1"><stop offset="0" stop-color="#b07a35"/><stop offset=".5" stop-color="#e2b25e"/><stop offset="1" stop-color="#f2d49c"/></linearGradient>
+            <linearGradient id="gArea" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#e2b25e" stop-opacity=".32"/><stop offset="1" stop-color="#e2b25e" stop-opacity="0"/></linearGradient>
           </defs>
+          <line class="grid" x1="20" x2="580" y1="115" y2="115"/><line class="grid" x1="20" x2="580" y1="30" y2="30"/>
           <line class="axis" x1="20" x2="580" y1="200" y2="200"/>
-          <path class="curve-ghost" d=""/>
-          <path class="area" d=""/>
-          <path class="curve" d=""/>
-          <circle class="sun-halo" r="16" cx="-50" cy="-50"/>
-          <circle class="sun" r="7" cx="-50" cy="-50"/>
-          <text class="tick" x="82" y="224" text-anchor="middle">6am</text>
-          <text class="tick" x="175" y="224" text-anchor="middle">9am</text>
-          <text class="tick" x="268" y="224" text-anchor="middle">12pm</text>
-          <text class="tick" x="362" y="224" text-anchor="middle">3pm</text>
-          <text class="tick" x="455" y="224" text-anchor="middle">6pm</text>
-          <text class="tick" x="548" y="224" text-anchor="middle">9pm</text>
+          <path class="ghost" d=""/><path class="area" d=""/><path class="curve" d=""/>
+          <circle class="halo" r="16" cx="-50" cy="-50"/><circle class="sun" r="7" cx="-50" cy="-50"/>
+          <text class="tick" x="82" y="224" text-anchor="middle">6am</text><text class="tick" x="175" y="224" text-anchor="middle">9am</text><text class="tick" x="268" y="224" text-anchor="middle">12pm</text><text class="tick" x="362" y="224" text-anchor="middle">3pm</text><text class="tick" x="455" y="224" text-anchor="middle">6pm</text><text class="tick" x="548" y="224" text-anchor="middle">9pm</text>
         </svg>
-        <p class="dash__note"><b data-dash-state style="color:var(--silver);font-weight:500">—</b> · Expected today: <span data-dash-total>—</span> kWh. Modelled from real Auckland daylight for a system like our Auckland Residence install.</p>
+        <p class="fine mt-s"><b data-dash="state" style="color:var(--ink);font-weight:500">—</b> · Expected today: <span data-dash="total">—</span> kWh. Modelled from Auckland daylight for a system like our Auckland Residence install.</p>
       </div>
-      <div class="stats" data-reveal style="--d:.1s">
-        <div class="stat"><b><span data-count="1.2" data-decimals="1">0</span> <span class="gold-text">GWh</span></b><span>Total energy generated by Watthaus systems</span></div>
-        <div class="stat"><b><span data-count="780">0</span> <span class="gold-text">t</span></b><span>CO₂ emissions saved</span></div>
-        <div class="stat"><b><span data-count="15.9" data-decimals="1">0</span><span class="gold-text">%</span></b><span>Average ROI per annum</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Featured project -->
-<section class="section section--bone">
-  <div class="wrap">
-    <div class="split">
-      <a class="frame frame--tall" href="projects.html" data-cursor="view" data-reveal="clip">
-        <img src="assets/img/roof-scaffold.webp" alt="Multi-level Auckland home with scaffolding and new rooftop solar" loading="lazy" data-parallax="0.06">
-        <div class="frame__cap"><span class="chip">Auckland · Residential</span><span class="chip">Case study</span></div>
-      </a>
-      <div class="stack">
-        <span class="eyebrow">Featured project</span>
-        <h2 class="display h2" data-split>Residential solar, <em>done right.</em></h2>
-        <p class="lead" data-reveal>A multi-level Auckland home across two roof pitches, with purpose-engineered scaffolding, careful routing through finished living spaces and a 20 kWh battery stack for genuine energy independence.</p>
-        <div class="kv" data-reveal>
-          <div><span class="k">System size</span><span class="v">10.12 kW</span></div>
-          <div><span class="k">Battery storage</span><span class="v">20 kWh</span></div>
-          <div><span class="k">Annual production</span><span class="v">13,765 kWh</span></div>
-          <div><span class="k">Diverted from landfill</span><span class="v">99%</span></div>
+      <div class="tile s-4" data-reveal style="--d:.08s">
+        <div class="tile__pic"><img src="assets/img/sigenstor-product.webp" alt="Sigenergy SigenStor home battery" loading="lazy" style="object-fit:contain"></div>
+        <div class="tile__head"><span class="label">In the Sigen app</span><span class="pill">Real time</span></div>
+        <div>
+          <h3 class="h-md">Everything, <em>at a glance.</em></h3>
+          <ul class="ticks mt-m"><li>Live generation and consumption</li><li>Battery state and backup reserve</li><li>Savings and carbon offset</li><li>Annual performance reviews with our team</li></ul>
         </div>
-        <div data-reveal><a class="btn btn--ink" href="projects.html">Read the case study <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Partnership -->
+<!-- 06 Process (stacking) -->
+<section class="section section--flush">
+  <div class="container">
+    <div class="head head--split">
+      <div class="head__top"><span class="label">(06) — How it works</span><span class="label">Assess · Design · Install · Monitor</span></div>
+      <h2 class="h-xl" data-lines>Four steps, <em>no shortcuts.</em></h2>
+      <p class="lede" data-reveal>Our process is straightforward. We don't cut corners, and we never upsell hardware you don't need.</p>
+    </div>
+    <div class="stack-cards">
+      <article class="scard" style="--i:0">
+        <div class="scard__text"><div class="row row--between"><span class="label label--accent">Step 01 / 04</span><span class="pill">Roof · switchboard · usage</span></div><div><h3 class="h-lg">Site <em>assessment.</em></h3><p>We look at your roof, switchboard and power usage, in person or from aerial imagery first, so the system fits your home and not a template.</p></div></div>
+        <div class="scard__img"><img src="assets/img/roof-scaffold.webp" alt="Scaffolding staged around a multi-level Auckland home" loading="lazy"></div>
+      </article>
+      <article class="scard" style="--i:1">
+        <div class="scard__text"><div class="row row--between"><span class="label label--accent">Step 02 / 04</span><span class="pill">Fixed quote</span></div><div><h3 class="h-lg">Tailored <em>design.</em></h3><p>Every system is modelled for your roof planes, orientation and usage, with clear pricing, honest timelines and realistic ROI before you sign anything.</p></div></div>
+        <div class="scard__img"><img src="assets/img/flatlay.webp" alt="Hard hat, plans and tools laid out for system design" loading="lazy"></div>
+      </article>
+      <article class="scard" style="--i:2">
+        <div class="scard__text"><div class="row row--between"><span class="label label--accent">Step 03 / 04</span><span class="pill">CEC-certified</span></div><div><h3 class="h-lg">Professional <em>installation.</em></h3><p>A site-specific safety plan, flashed and sealed roof penetrations, careful cable runs and a home that stays fully liveable throughout.</p></div></div>
+        <div class="scard__img"><img src="assets/img/install-panel.webp" alt="Installer placing a solar panel" loading="lazy"></div>
+      </article>
+      <article class="scard" style="--i:3">
+        <div class="scard__text"><div class="row row--between"><span class="label label--accent">Step 04 / 04</span><span class="pill">Sigen app</span></div><div><h3 class="h-lg">Long-term <em>monitoring.</em></h3><p>Live data from commissioning day, and annual performance reviews built into the relationship. We stay with you for the life of the system.</p></div></div>
+        <div class="scard__img"><img src="assets/img/battery-install.webp" alt="SigenStor battery and energy controller installed outside a home" loading="lazy"></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="marquee words" aria-hidden="true">
+  <div class="marquee__track"><span>Rooftop solar</span><span>Utility-scale</span><span>Battery storage</span><span>Land acquisition</span><span>Grid connection</span><span>Green finance</span></div>
+  <div class="marquee__track"><span>Rooftop solar</span><span>Utility-scale</span><span>Battery storage</span><span>Land acquisition</span><span>Grid connection</span><span>Green finance</span></div>
+</div>
+
+<!-- 07 Featured project -->
 <section class="section">
-  <div class="wrap">
-    <div class="split split--rev">
-      <div class="frame frame--tall" data-reveal="clip">
-        <img src="assets/img/worx-team.webp" alt="The Watthaus and The WORX Real Estate teams at the partnership launch" loading="lazy" style="object-position:center 72%">
-        <div class="frame__cap"><span class="chip">Partnership</span></div>
+  <div class="container">
+    <div class="head head--split">
+      <div class="head__top"><span class="label">(07) — Featured project</span><a class="link" href="projects.html">All projects <svg aria-hidden="true"><use href="#i-arrow-r"/></svg></a></div>
+      <h2 class="h-xl" data-lines>Residential solar, <em>done right.</em></h2>
+      <p class="lede" data-reveal>A commercial-grade mindset on a family home: bankable hardware, purpose-engineered access and a battery-first design.</p>
+    </div>
+    <a class="feature" href="projects.html" data-cursor="View" data-reveal="clip">
+      <div class="feature__img"><img src="assets/img/roof-topdown.webp" alt="Top-down drone view of the Auckland Residence with solar across two roof planes" loading="lazy" data-parallax=".06"></div>
+      <div class="feature__top"><span class="pill pill--glass">Case study · Auckland Residence</span><span class="pill pill--glass">Multi-level · Hybrid</span></div>
+      <div class="feature__inner">
+        <div><span class="label">22 × 510W JA Solar · Sigen EC 10.0 SP · 2 × SigenStor</span><h3 class="h-lg mt-s">The Auckland <em>Residence.</em></h3></div>
+        <span class="btn btn--gold">Read the case study <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
+        <div class="facts">
+          <div><span class="label">System size</span><b>10.12 <em>kW</em></b></div>
+          <div><span class="label">Battery storage</span><b>20 <em>kWh</em></b></div>
+          <div><span class="label">Annual production</span><b>13,765 <em>kWh</em></b></div>
+          <div><span class="label">Diverted from landfill</span><b>99 <em>%</em></b></div>
+        </div>
       </div>
-      <div class="stack">
-        <span class="eyebrow">Watthaus × The WORX Real Estate</span>
-        <h2 class="display h2" data-split>Powering real estate <em>with renewable energy.</em></h2>
-        <p class="lead" data-reveal>Together we're turning rooftops and open land into productive, income-generating solar assets for property owners across New Zealand.</p>
-        <ul class="ticks" data-reveal style="display:grid;gap:10px">
+    </a>
+  </div>
+</section>
+
+<!-- 08 Partnership -->
+<section class="section section--flush" id="partnership">
+  <div class="container">
+    <div class="head__top" style="margin-bottom:clamp(32px,4vw,56px)"><span class="label">(08) — Partnership</span><span class="label">Watthaus × The WORX Real Estate</span></div>
+    <div class="split">
+      <div class="media media--land" data-reveal="clip"><img src="assets/img/worx-team.webp" alt="The Watthaus and The WORX Real Estate teams at the partnership launch" loading="lazy" style="object-position:center 62%"><span class="pill pill--glass">New partnership</span></div>
+      <div class="stack" style="--stack:26px">
+        <h2 class="h-lg" data-lines>Powering real estate <em>with renewable energy.</em></h2>
+        <div class="body" data-reveal>
+          <p>We're delighted to announce a new partnership between Watthaus Strategy Ltd and The WORX Real Estate. By combining WORX's proven expertise in property sales, management and investment with our specialisation in solar and energy strategy, homeowners and landowners can future-proof their assets, strengthen long-term returns and contribute to New Zealand's transition to clean energy.</p>
+          <p>Together, Watthaus and WORX will identify viable rooftops and properties for solar integration, helping clients enhance property value while reducing their carbon footprint.</p>
+        </div>
+        <ul class="ticks ticks--cols" data-reveal>
           <li>Unlock new income from underused roof and land space</li>
-          <li>Increase long-term property value through solar integration</li>
+          <li>Increase long-term property value through solar</li>
           <li>Support New Zealand's clean energy transition</li>
           <li>Create sustainable investments for future generations</li>
         </ul>
-        <blockquote class="mt-m" data-reveal>
-          <p class="quote" style="font-size:clamp(1.3rem,2vw,1.8rem)">This isn't just about today's returns, it's about creating sustainable, long-term value for the future.</p>
-          <div class="quote-by"><div><b>The WORX Real Estate</b><span class="muted">Partnership announcement</span></div></div>
-        </blockquote>
+        <p class="muted small" data-reveal>We're excited to work alongside Tim and his dedicated team at The WORX Real Estate to pioneer the next chapter of sustainable property development in New Zealand.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Partners -->
-<section class="section section--tight" style="padding-top:0">
-  <div class="wrap"><div class="hr-label mono muted">Our trusted partners &amp; suppliers</div></div>
-  <div class="marquee" aria-label="Partners and suppliers">
+<section class="section section--tight">
+  <div class="container"><div class="head__top" style="margin-bottom:clamp(24px,3vw,40px)"><span class="label">Our trusted partners &amp; suppliers</span><span class="label">Tier 1 hardware</span></div></div>
+  <div class="marquee logos" aria-label="Partners and suppliers">
     <div class="marquee__track">
-      <div class="logo-tile"><img src="assets/img/logos/sigenergy.webp" alt="Sigenergy" loading="lazy"></div>
-      <div class="logo-tile"><img src="assets/img/logos/panasonic.webp" alt="Panasonic" loading="lazy"></div>
-      <div class="logo-tile"><img src="assets/img/logos/nord.webp" alt="Nord Electrical" loading="lazy"></div>
-      <div class="logo-tile"><img src="assets/img/logos/ktm.webp" alt="KTM Electrical" loading="lazy"></div>
-      <div class="logo-tile"><img src="assets/img/logos/abc.webp" alt="Auckland Business Chamber" loading="lazy"></div>
+      <img style="height:clamp(34px,3.4vw,50px)" src="assets/img/logos/mono/sigenergy.webp" alt="Sigenergy" loading="lazy"><img style="height:clamp(20px,2vw,28px)" src="assets/img/logos/mono/panasonic.webp" alt="Panasonic" loading="lazy"><img src="assets/img/logos/mono/nord.webp" alt="Nord Electrical" loading="lazy"><img style="height:clamp(38px,3.8vw,56px)" src="assets/img/logos/mono/ktm.webp" alt="KTM Electrical" loading="lazy"><span class="logo-type">Auckland Business<br>Chamber</span>
     </div>
     <div class="marquee__track" aria-hidden="true">
-      <div class="logo-tile"><img src="assets/img/logos/sigenergy.webp" alt="" loading="lazy"></div>
-      <div class="logo-tile"><img src="assets/img/logos/panasonic.webp" alt="" loading="lazy"></div>
-      <div class="logo-tile"><img src="assets/img/logos/nord.webp" alt="" loading="lazy"></div>
-      <div class="logo-tile"><img src="assets/img/logos/ktm.webp" alt="" loading="lazy"></div>
-      <div class="logo-tile"><img src="assets/img/logos/abc.webp" alt="" loading="lazy"></div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta">
-  <div class="cta__rays" aria-hidden="true"></div>
-  <div class="cta__sun" aria-hidden="true" data-parallax="-0.12"></div>
-  <div class="wrap rel">
-    <span class="eyebrow">Ready when you are</span>
-    <h2 class="display h1 mt-m" data-split>Start your <em>solar journey.</em></h2>
-    <p class="lead" data-reveal>Answer six quick questions and get an indicative system, savings estimate and a booked site assessment, in about a minute.</p>
-    <div class="cta__actions" data-reveal>
-      <a class="btn btn--gold" href="quote.html" data-magnetic>Get my solar plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-      <a class="btn btn--ghost" href="tel:+642109058051">Call +64 21 090 58051 <span class="btn__icon"><svg aria-hidden="true"><use href="#i-phone"/></svg></span></a>
+      <img style="height:clamp(34px,3.4vw,50px)" src="assets/img/logos/mono/sigenergy.webp" alt="" loading="lazy"><img style="height:clamp(20px,2vw,28px)" src="assets/img/logos/mono/panasonic.webp" alt="" loading="lazy"><img src="assets/img/logos/mono/nord.webp" alt="" loading="lazy"><img style="height:clamp(38px,3.8vw,56px)" src="assets/img/logos/mono/ktm.webp" alt="" loading="lazy"><span class="logo-type">Auckland Business<br>Chamber</span>
     </div>
   </div>
 </section>

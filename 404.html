@@ -14,21 +14,29 @@
 <meta property="og:url" content="https://www.watthausstrategy.co.nz/404.html">
 <meta property="og:image" content="https://www.watthausstrategy.co.nz/assets/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/css/main.css?v=1792428914">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/main.css?v=1792431243">
 <script>
-  document.documentElement.classList.add('js');
-  try { if (sessionStorage.getItem('wh-seen') || matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('no-loader'); } catch (e) {}
+  (function (h) {
+    h.classList.add('js');
+    try {
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (sessionStorage.getItem('wh-nav')) { sessionStorage.removeItem('wh-nav'); h.classList.add('is-entering'); }
+      else if (!sessionStorage.getItem('wh-seen')) h.classList.add('is-loading');
+    } catch (e) {}
+  })(document.documentElement);
 </script>
 </head>
 <body class="page-404">
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip-link" href="#main">Skip to content</a>
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
   <defs>
+    <symbol id="mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="5.4" stroke-linejoin="miter" stroke-miterlimit="10"><path d="M5.2 16.8 21 55.6 32 29.6 43 55.6 58.8 16.8"/><path d="M20 34 32 5.8 44 34"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></symbol>
     <symbol id="i-arrow-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
     <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
@@ -64,127 +72,136 @@
   </defs>
 </svg>
 
-<div class="loader" aria-hidden="true">
-  <div class="loader__inner">
-    <img class="loader__mark" src="assets/img/logos/mark-silver.png" alt="" width="72" height="68">
-    <div class="loader__bar"><span></span></div>
-    <div class="loader__txt">Energy engineered forward</div>
+<div class="preloader" aria-hidden="true">
+  <div class="preloader__inner">
+    <svg class="preloader__mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linejoin="miter"><path pathLength="1" d="M5.2 16.8 21 55.6 32 29.6 43 55.6 58.8 16.8"/><path pathLength="1" d="M20 34 32 5.8 44 34"/></svg>
+    <p class="preloader__name"><span>Watthaus Strategy</span></p>
+    <p class="preloader__tag"><span>Energy engineered forward</span></p>
   </div>
+  <div class="preloader__foot"><span>Solar · Consultancy · Auckland</span><span class="preloader__count" data-count-loader>000</span></div>
+  <div class="preloader__bar"><span></span></div>
 </div>
+<div class="curtain" aria-hidden="true"><svg class="curtain__mark"><use href="#mark"/></svg></div>
+<div class="scroll-progress" aria-hidden="true"><span></span></div>
+<div class="cursor" aria-hidden="true"><span class="cursor__ring"><span class="cursor__label"></span></span><span class="cursor__dot"></span></div>
 
-<header class="nav" data-nav>
-  <div class="nav__inner wrap">
-    <a class="nav__brand" href="index.html" aria-label="Watthaus Strategy, home">
-      <img class="nav__mark" src="assets/img/logos/mark-silver.png" alt="" width="30" height="28">
-      <img class="nav__word" src="assets/img/logos/wordmark-silver.webp" alt="Watthaus Strategy" width="127" height="30">
-    </a>
-    <nav class="nav__links" aria-label="Primary">
-      <a href="solar.html">Home Solar</a>
-      <a href="consultancy.html">Consultancy</a>
-      <a href="projects.html">Projects</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+<header class="site-header" data-header>
+  <div class="site-header__inner">
+    <a class="brand" href="index.html" aria-label="Watthaus Strategy, home"><svg class="brand__mark" aria-hidden="true"><use href="#mark"/></svg><span class="brand__name">Watthaus<em>strategy</em></span></a>
+    <nav class="nav" aria-label="Primary">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="solar.html">Home Solar</a></li>
+        <li><a class="nav__link" href="consultancy.html">Consultancy</a></li>
+        <li><a class="nav__link" href="projects.html">Projects</a></li>
+        <li><a class="nav__link" href="about.html">About</a></li>
+        <li><a class="nav__link" href="contact.html">Contact</a></li>
+      </ul>
     </nav>
-    <div class="nav__actions">
-      <a class="nav__phone" href="tel:+642109058051"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>+64 21 090 58051</span></a>
+    <div class="header-actions">
+      <a class="header-phone" href="tel:+642109058051"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>+64 21 090 58051</span></a>
       <a class="btn btn--gold btn--sm" href="quote.html" data-magnetic>Get my solar plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-      <button class="nav__burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu" data-burger><span></span><span></span></button>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" data-menu-toggle>Menu<span class="menu-toggle__bars" aria-hidden="true"><span></span><span></span></span></button>
     </div>
   </div>
 </header>
 
-<div class="menu" id="menu" aria-label="Site menu">
-  <ul class="menu__links">
-    <li><a href="index.html"><span>00</span>Home</a></li>
-    <li><a href="solar.html"><span>01</span>Home Solar</a></li>
-    <li><a href="consultancy.html"><span>02</span>Consultancy</a></li>
-    <li><a href="projects.html"><span>03</span>Projects</a></li>
-    <li><a href="about.html"><span>04</span>About</a></li>
-    <li><a href="contact.html"><span>05</span>Contact</a></li>
-  </ul>
-  <div class="menu__foot">
-    <a class="btn btn--gold" href="quote.html">Get my solar plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-    <div class="menu__contact">
-      <a href="tel:+642109058051">+64 21 090 58051</a>
-      <a href="mailto:inquiries@watthausstrategy.co.nz">inquiries@watthausstrategy.co.nz</a>
+<div class="mobile-menu" id="mobile-menu">
+  <nav aria-label="Mobile">
+    <ul class="mobile-menu__list">
+      <li><a href="index.html">Home<small>01</small></a></li>
+      <li><a href="solar.html">Home Solar<small>02</small></a></li>
+      <li><a href="consultancy.html">Consultancy<small>03</small></a></li>
+      <li><a href="projects.html">Projects<small>04</small></a></li>
+      <li><a href="about.html">About<small>05</small></a></li>
+      <li><a href="contact.html">Contact<small>06</small></a></li>
+    </ul>
+  </nav>
+  <div class="mobile-menu__foot">
+    <a class="btn btn--gold btn--block" href="quote.html">Get my solar plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+    <div class="row">
+      <a class="pill" href="tel:+642109058051"><svg aria-hidden="true"><use href="#i-phone"/></svg>+64 21 090 58051</a>
+      <a class="pill" href="mailto:inquiries@watthausstrategy.co.nz"><svg aria-hidden="true"><use href="#i-mail"/></svg>Email us</a>
+      <a class="pill" href="https://www.instagram.com/watthaussolar" target="_blank" rel="noopener">Instagram</a>
+      <a class="pill" href="https://nz.linkedin.com/company/watthaus-strategy-ltd" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </div>
 </div>
 
 <main id="main">
-<section class="cta" style="min-height:100svh;display:grid;place-items:center">
-  <div class="cta__rays" aria-hidden="true"></div>
-  <div class="cta__sun" aria-hidden="true"></div>
-  <div class="wrap rel">
-    <span class="eyebrow">Error 404</span>
-    <h1 class="display h1 mt-m" data-split>This page is <em>off-grid.</em></h1>
-    <p class="lead">The page you're after has moved or never existed. Let's get you back into the sun.</p>
-    <div class="cta__actions">
-      <a class="btn btn--gold" href="index.html">Back to home <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-      <a class="btn btn--ghost" href="quote.html">Get my solar plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+<section class="page-hero">
+  <div class="page-hero__frame" style="min-height:70svh">
+    <div class="page-hero__media"><img src="assets/img/sky-dusk.webp" alt="" fetchpriority="high"></div>
+    <div class="page-hero__inner">
+      <span class="label label--dot">Error 404</span>
+      <h1 class="page-hero__title mt-m" data-lines>Lost the <em>signal.</em></h1>
+      <div class="page-hero__foot">
+        <p class="lede">The page you're after has moved or never existed.</p>
+        <div class="row">
+          <a class="btn btn--gold" href="index.html">Back to home <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+          <a class="btn btn--glass btn--plain" href="quote.html">Get my solar plan</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 </main>
-<footer class="footer">
-  <div class="wrap">
-    <div class="footer__top">
-      <div class="footer__brand">
-        <img src="assets/img/logos/wordmark-silver.webp" alt="Watthaus Strategy" width="200" height="47" loading="lazy">
-        <p>Powering New Zealand's transition to clean energy, one installation at a time.</p>
-        <div class="footer__social">
+<footer class="site-footer">
+  <div class="footer-card">
+    <div class="footer-cta">
+      <div>
+        <span class="label label--dot label--live">Error 404</span>
+        <p class="h-xl mt-m" data-lines>This page is<br><em>off-grid.</em></p>
+        <p class="lede">The page you're after has moved or never existed. Let's get you back into the sun.</p>
+      </div>
+      <a class="footer-cta__btn" href="index.html" data-magnetic><span>Back<br>home<svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+    </div>
+    <div class="footer-grid">
+      <div class="footer-col footer-col--intro">
+        <a class="brand" href="index.html"><svg class="brand__mark" aria-hidden="true"><use href="#mark"/></svg><span class="brand__name">Watthaus<em>strategy</em></span></a>
+        <p>Bridging real estate and renewable energy. Powering New Zealand's transition to clean energy, one installation at a time.</p>
+        <div class="footer-social">
           <a href="https://nz.linkedin.com/company/watthaus-strategy-ltd" target="_blank" rel="noopener" aria-label="Watthaus on LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a>
           <a href="https://www.instagram.com/watthaussolar" target="_blank" rel="noopener" aria-label="Watthaus Solar on Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
           <a href="mailto:inquiries@watthausstrategy.co.nz" aria-label="Email Watthaus"><svg aria-hidden="true"><use href="#i-mail"/></svg></a>
+          <a href="tel:+642109058051" aria-label="Call Watthaus"><svg aria-hidden="true"><use href="#i-phone"/></svg></a>
         </div>
       </div>
-      <div>
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="solar.html">Home Solar</a></li>
-          <li><a href="consultancy.html">Utility-scale Consultancy</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="about.html">About us</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Get started</h4>
-        <ul>
-          <li><a href="quote.html">Get my solar plan</a></li>
-          <li><a href="quote.html?path=land">Land &amp; project enquiry</a></li>
-          <li><a href="solar.html#calculator">Savings calculator</a></li>
-          <li><a href="solar.html#finance">Finance options</a></li>
-          <li><a href="contact.html#faq">FAQs</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Talk to us</h4>
-        <address>
-          <a href="tel:+642109058051">+64 21 090 58051</a>
-          <a href="mailto:inquiries@watthausstrategy.co.nz">inquiries@watthausstrategy.co.nz</a>
-          <a href="https://maps.google.com/?q=4/51+Point+England+Road,+Auckland+1072" target="_blank" rel="noopener">4/51 Point England Road<br>Auckland 1072, New Zealand</a>
-        </address>
-      </div>
+      <div class="footer-col"><h3>Explore</h3><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="solar.html">Home Solar</a></li>
+        <li><a href="consultancy.html">Consultancy</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h3>Get started</h3><ul>
+        <li><a href="quote.html">Solar planner</a></li>
+        <li><a href="quote.html?path=land">Land &amp; project enquiry</a></li>
+        <li><a href="solar.html#calculator">Savings calculator</a></li>
+        <li><a href="solar.html#finance">Finance options</a></li>
+        <li><a href="contact.html#faq">FAQs</a></li>
+      </ul></div>
+      <div class="footer-col"><h3>Talk to us</h3><ul>
+        <li><a href="tel:+642109058051">+64 21 090 58051</a></li>
+        <li><a href="mailto:inquiries@watthausstrategy.co.nz">inquiries@watthausstrategy.co.nz</a></li>
+        <li><a href="https://maps.google.com/?q=4/51+Point+England+Road,+Auckland+1072" target="_blank" rel="noopener">4/51 Point England Road<br>Auckland 1072, New Zealand</a></li>
+      </ul></div>
     </div>
-  </div>
-  <div class="footer__word" aria-hidden="true"><img src="assets/img/logos/wordmark-silver.webp" alt="" loading="lazy"></div>
-  <div class="wrap">
-    <div class="footer__bottom">
-      <span>© <span data-year>2026</span> Watthaus Strategy Ltd. All rights reserved.</span>
-      <span>Energy engineered forward · Auckland, Aotearoa</span>
+    <span class="footer-wordmark" aria-hidden="true">Watthaus</span>
+    <div class="footer-bottom">
+      <span class="label">© <span data-year>2026</span> Watthaus Strategy Ltd</span>
+      <span class="label">Energy engineered forward · Aotearoa</span>
+      <a class="label" href="#main" data-top>Back to top ↑</a>
     </div>
   </div>
 </footer>
 
-<nav class="mbar" aria-label="Quick actions" data-mbar>
-  <a class="mbar__call" href="tel:+642109058051" aria-label="Call Watthaus"><svg aria-hidden="true"><use href="#i-phone"/></svg></a>
-  <a class="mbar__quote" href="quote.html">Get my solar plan <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-</nav>
+<div class="sticky-cta" aria-label="Quick actions" data-sticky-cta>
+  <a class="btn btn--ghost btn--call" href="tel:+642109058051" aria-label="Call Watthaus"><svg aria-hidden="true"><use href="#i-phone"/></svg></a>
+  <a class="btn btn--gold btn--plain" href="quote.html">Get my solar plan</a>
+</div>
 
-<div class="cursor" aria-hidden="true"><div class="cursor__ring"><span>View</span></div><div class="cursor__dot"></div></div>
-
-<script src="assets/js/config.js?v=1792428914"></script>
-<script src="assets/js/main.js?v=1792428914" defer></script>
+<script src="assets/js/config.js?v=1792431243"></script>
+<script src="assets/js/main.js?v=1792431243" defer></script>
 </body>
 </html>

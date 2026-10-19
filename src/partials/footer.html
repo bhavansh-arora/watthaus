@@ -1,57 +1,55 @@
-<footer class="footer">
-  <div class="wrap">
-    <div class="footer__top">
-      <div class="footer__brand">
-        <img src="assets/img/logos/wordmark-silver.webp" alt="Watthaus Strategy" width="200" height="47" loading="lazy">
-        <p>Powering New Zealand's transition to clean energy, one installation at a time.</p>
-        <div class="footer__social">
+<footer class="site-footer">
+  <div class="footer-card">
+    <div class="footer-cta">
+      <div>
+        <span class="label label--dot label--live">{{cta_label}}</span>
+        <p class="h-xl mt-m" data-lines>{{cta_title}}</p>
+        <p class="lede">{{cta_lede}}</p>
+      </div>
+      <a class="footer-cta__btn" href="{{cta_href}}" data-magnetic><span>{{cta_btn}}<svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+    </div>
+    <div class="footer-grid">
+      <div class="footer-col footer-col--intro">
+        <a class="brand" href="index.html"><svg class="brand__mark" aria-hidden="true"><use href="#mark"/></svg><span class="brand__name">Watthaus<em>strategy</em></span></a>
+        <p>Bridging real estate and renewable energy. Powering New Zealand's transition to clean energy, one installation at a time.</p>
+        <div class="footer-social">
           <a href="https://nz.linkedin.com/company/watthaus-strategy-ltd" target="_blank" rel="noopener" aria-label="Watthaus on LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a>
           <a href="https://www.instagram.com/watthaussolar" target="_blank" rel="noopener" aria-label="Watthaus Solar on Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
           <a href="mailto:inquiries@watthausstrategy.co.nz" aria-label="Email Watthaus"><svg aria-hidden="true"><use href="#i-mail"/></svg></a>
+          <a href="tel:+642109058051" aria-label="Call Watthaus"><svg aria-hidden="true"><use href="#i-phone"/></svg></a>
         </div>
       </div>
-      <div>
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="solar.html">Home Solar</a></li>
-          <li><a href="consultancy.html">Utility-scale Consultancy</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="about.html">About us</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Get started</h4>
-        <ul>
-          <li><a href="quote.html">Get my solar plan</a></li>
-          <li><a href="quote.html?path=land">Land &amp; project enquiry</a></li>
-          <li><a href="solar.html#calculator">Savings calculator</a></li>
-          <li><a href="solar.html#finance">Finance options</a></li>
-          <li><a href="contact.html#faq">FAQs</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Talk to us</h4>
-        <address>
-          <a href="tel:+642109058051">+64 21 090 58051</a>
-          <a href="mailto:inquiries@watthausstrategy.co.nz">inquiries@watthausstrategy.co.nz</a>
-          <a href="https://maps.google.com/?q=4/51+Point+England+Road,+Auckland+1072" target="_blank" rel="noopener">4/51 Point England Road<br>Auckland 1072, New Zealand</a>
-        </address>
-      </div>
+      <div class="footer-col"><h3>Explore</h3><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="solar.html">Home Solar</a></li>
+        <li><a href="consultancy.html">Consultancy</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h3>Get started</h3><ul>
+        <li><a href="quote.html">Solar planner</a></li>
+        <li><a href="quote.html?path=land">Land &amp; project enquiry</a></li>
+        <li><a href="solar.html#calculator">Savings calculator</a></li>
+        <li><a href="solar.html#finance">Finance options</a></li>
+        <li><a href="contact.html#faq">FAQs</a></li>
+      </ul></div>
+      <div class="footer-col"><h3>Talk to us</h3><ul>
+        <li><a href="tel:+642109058051">+64 21 090 58051</a></li>
+        <li><a href="mailto:inquiries@watthausstrategy.co.nz">inquiries@watthausstrategy.co.nz</a></li>
+        <li><a href="https://maps.google.com/?q=4/51+Point+England+Road,+Auckland+1072" target="_blank" rel="noopener">4/51 Point England Road<br>Auckland 1072, New Zealand</a></li>
+      </ul></div>
     </div>
-  </div>
-  <div class="footer__word" aria-hidden="true"><img src="assets/img/logos/wordmark-silver.webp" alt="" loading="lazy"></div>
-  <div class="wrap">
-    <div class="footer__bottom">
-      <span>© <span data-year>2026</span> Watthaus Strategy Ltd. All rights reserved.</span>
-      <span>Energy engineered forward · Auckland, Aotearoa</span>
+    <span class="footer-wordmark" aria-hidden="true">Watthaus</span>
+    <div class="footer-bottom">
+      <span class="label">© <span data-year>2026</span> Watthaus Strategy Ltd</span>
+      <span class="label">Energy engineered forward · Aotearoa</span>
+      <a class="label" href="#main" data-top>Back to top ↑</a>
     </div>
   </div>
 </footer>
 
-<nav class="mbar" aria-label="Quick actions" data-mbar>
-  <a class="mbar__call" href="tel:+642109058051" aria-label="Call Watthaus"><svg aria-hidden="true"><use href="#i-phone"/></svg></a>
-  <a class="mbar__quote" href="quote.html">Get my solar plan <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-</nav>
-
-<div class="cursor" aria-hidden="true"><div class="cursor__ring"><span>View</span></div><div class="cursor__dot"></div></div>
+<div class="sticky-cta" aria-label="Quick actions" data-sticky-cta>
+  <a class="btn btn--ghost btn--call" href="tel:+642109058051" aria-label="Call Watthaus"><svg aria-hidden="true"><use href="#i-phone"/></svg></a>
+  <a class="btn btn--gold btn--plain" href="quote.html">Get my solar plan</a>
+</div>

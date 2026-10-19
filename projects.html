@@ -14,22 +14,30 @@
 <meta property="og:url" content="https://www.watthausstrategy.co.nz/projects.html">
 <meta property="og:image" content="https://www.watthausstrategy.co.nz/assets/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/css/main.css?v=1792428914">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/main.css?v=1792431243">
 <link rel="preload" as="image" href="assets/img/roof-topdown.webp">
 <script>
-  document.documentElement.classList.add('js');
-  try { if (sessionStorage.getItem('wh-seen') || matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('no-loader'); } catch (e) {}
+  (function (h) {
+    h.classList.add('js');
+    try {
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (sessionStorage.getItem('wh-nav')) { sessionStorage.removeItem('wh-nav'); h.classList.add('is-entering'); }
+      else if (!sessionStorage.getItem('wh-seen')) h.classList.add('is-loading');
+    } catch (e) {}
+  })(document.documentElement);
 </script>
 </head>
 <body class="page-projects">
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip-link" href="#main">Skip to content</a>
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
   <defs>
+    <symbol id="mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="5.4" stroke-linejoin="miter" stroke-miterlimit="10"><path d="M5.2 16.8 21 55.6 32 29.6 43 55.6 58.8 16.8"/><path d="M20 34 32 5.8 44 34"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></symbol>
     <symbol id="i-arrow-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
     <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
@@ -65,278 +73,238 @@
   </defs>
 </svg>
 
-<div class="loader" aria-hidden="true">
-  <div class="loader__inner">
-    <img class="loader__mark" src="assets/img/logos/mark-silver.png" alt="" width="72" height="68">
-    <div class="loader__bar"><span></span></div>
-    <div class="loader__txt">Energy engineered forward</div>
+<div class="preloader" aria-hidden="true">
+  <div class="preloader__inner">
+    <svg class="preloader__mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linejoin="miter"><path pathLength="1" d="M5.2 16.8 21 55.6 32 29.6 43 55.6 58.8 16.8"/><path pathLength="1" d="M20 34 32 5.8 44 34"/></svg>
+    <p class="preloader__name"><span>Watthaus Strategy</span></p>
+    <p class="preloader__tag"><span>Energy engineered forward</span></p>
   </div>
+  <div class="preloader__foot"><span>Solar · Consultancy · Auckland</span><span class="preloader__count" data-count-loader>000</span></div>
+  <div class="preloader__bar"><span></span></div>
 </div>
+<div class="curtain" aria-hidden="true"><svg class="curtain__mark"><use href="#mark"/></svg></div>
+<div class="scroll-progress" aria-hidden="true"><span></span></div>
+<div class="cursor" aria-hidden="true"><span class="cursor__ring"><span class="cursor__label"></span></span><span class="cursor__dot"></span></div>
 
-<header class="nav" data-nav>
-  <div class="nav__inner wrap">
-    <a class="nav__brand" href="index.html" aria-label="Watthaus Strategy, home">
-      <img class="nav__mark" src="assets/img/logos/mark-silver.png" alt="" width="30" height="28">
-      <img class="nav__word" src="assets/img/logos/wordmark-silver.webp" alt="Watthaus Strategy" width="127" height="30">
-    </a>
-    <nav class="nav__links" aria-label="Primary">
-      <a href="solar.html">Home Solar</a>
-      <a href="consultancy.html">Consultancy</a>
-      <a href="projects.html" aria-current="page">Projects</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+<header class="site-header" data-header>
+  <div class="site-header__inner">
+    <a class="brand" href="index.html" aria-label="Watthaus Strategy, home"><svg class="brand__mark" aria-hidden="true"><use href="#mark"/></svg><span class="brand__name">Watthaus<em>strategy</em></span></a>
+    <nav class="nav" aria-label="Primary">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="solar.html">Home Solar</a></li>
+        <li><a class="nav__link" href="consultancy.html">Consultancy</a></li>
+        <li><a class="nav__link" href="projects.html" aria-current="page">Projects</a></li>
+        <li><a class="nav__link" href="about.html">About</a></li>
+        <li><a class="nav__link" href="contact.html">Contact</a></li>
+      </ul>
     </nav>
-    <div class="nav__actions">
-      <a class="nav__phone" href="tel:+642109058051"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>+64 21 090 58051</span></a>
+    <div class="header-actions">
+      <a class="header-phone" href="tel:+642109058051"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>+64 21 090 58051</span></a>
       <a class="btn btn--gold btn--sm" href="quote.html" data-magnetic>Get my solar plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-      <button class="nav__burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu" data-burger><span></span><span></span></button>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" data-menu-toggle>Menu<span class="menu-toggle__bars" aria-hidden="true"><span></span><span></span></span></button>
     </div>
   </div>
 </header>
 
-<div class="menu" id="menu" aria-label="Site menu">
-  <ul class="menu__links">
-    <li><a href="index.html"><span>00</span>Home</a></li>
-    <li><a href="solar.html"><span>01</span>Home Solar</a></li>
-    <li><a href="consultancy.html"><span>02</span>Consultancy</a></li>
-    <li><a href="projects.html" aria-current="page"><span>03</span>Projects</a></li>
-    <li><a href="about.html"><span>04</span>About</a></li>
-    <li><a href="contact.html"><span>05</span>Contact</a></li>
-  </ul>
-  <div class="menu__foot">
-    <a class="btn btn--gold" href="quote.html">Get my solar plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-    <div class="menu__contact">
-      <a href="tel:+642109058051">+64 21 090 58051</a>
-      <a href="mailto:inquiries@watthausstrategy.co.nz">inquiries@watthausstrategy.co.nz</a>
+<div class="mobile-menu" id="mobile-menu">
+  <nav aria-label="Mobile">
+    <ul class="mobile-menu__list">
+      <li><a href="index.html">Home<small>01</small></a></li>
+      <li><a href="solar.html">Home Solar<small>02</small></a></li>
+      <li><a href="consultancy.html">Consultancy<small>03</small></a></li>
+      <li><a href="projects.html" aria-current="page">Projects<small>04</small></a></li>
+      <li><a href="about.html">About<small>05</small></a></li>
+      <li><a href="contact.html">Contact<small>06</small></a></li>
+    </ul>
+  </nav>
+  <div class="mobile-menu__foot">
+    <a class="btn btn--gold btn--block" href="quote.html">Get my solar plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+    <div class="row">
+      <a class="pill" href="tel:+642109058051"><svg aria-hidden="true"><use href="#i-phone"/></svg>+64 21 090 58051</a>
+      <a class="pill" href="mailto:inquiries@watthausstrategy.co.nz"><svg aria-hidden="true"><use href="#i-mail"/></svg>Email us</a>
+      <a class="pill" href="https://www.instagram.com/watthaussolar" target="_blank" rel="noopener">Instagram</a>
+      <a class="pill" href="https://nz.linkedin.com/company/watthaus-strategy-ltd" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </div>
 </div>
 
 <main id="main">
-<section class="phero">
-  <div class="phero__media" data-parallax="0.12"><img src="assets/img/roof-topdown.webp" alt="Top-down drone view of the Auckland Residence with solar across two roof planes" fetchpriority="high"></div>
-  <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Projects</span><span>/</span><span>Auckland Residence</span></nav>
-    <div class="phero__grid">
-      <div>
-        <span class="eyebrow" data-reveal>Case study · Auckland · Residential</span>
-        <h1 class="display h1 mt-m" data-split>The Auckland <em>Residence.</em></h1>
+<section class="page-hero">
+  <div class="page-hero__frame">
+    <div class="page-hero__media"><img src="assets/img/roof-topdown.webp" alt="Top-down drone view of the Auckland Residence with solar across two roof planes" fetchpriority="high" data-parallax=".08"></div>
+    <div class="page-hero__inner">
+      <nav class="crumbs label" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Projects</span><span>/</span><span>Auckland Residence</span></nav>
+      <h1 class="page-hero__title" data-lines>The Auckland <em>Residence.</em></h1>
+      <div class="page-hero__foot" data-reveal style="--d:.4s">
+        <p class="lede">Multi-level, split roof pitches, an occupied family home and a 20 kWh battery stack. Residential solar, done right.</p>
+        <div class="row"><span class="pill pill--glass">Auckland · Residential</span><span class="pill pill--glass">Hybrid + battery</span></div>
       </div>
-      <div class="phero__aside" data-reveal style="--d:.4s">
-        <p class="lead">Multi-level, split roof pitches, an occupied family home, and a 20 kWh battery stack. Residential solar, done right.</p>
+      <div class="facts" data-reveal style="--d:.55s">
+        <div><span class="label">System size</span><b>10.12 <em>kW</em></b></div>
+        <div><span class="label">Solar panels</span><b>22 × 510W <em>JA Solar</em></b></div>
+        <div><span class="label">Energy controller</span><b>Sigen EC <em>10.0 SP</em></b></div>
+        <div><span class="label">Battery storage</span><b>2 × SigenStor, <em>20 kWh</em></b></div>
       </div>
-    </div>
-    <div class="specbar mt-l" data-reveal>
-      <div><span>System size</span><b>10.12 kW</b></div>
-      <div><span>Solar panels</span><b>22 × 510W JA Solar</b></div>
-      <div><span>Energy controller</span><b>Sigen EC 10.0 SP</b></div>
-      <div><span>Battery storage</span><b>2 × SigenStor, 20 kWh</b></div>
     </div>
   </div>
 </section>
 
-<!-- Overview -->
+<!-- 01 Overview -->
 <section class="section">
-  <div class="wrap">
-    <div class="statement-wrap">
-      <div><span class="eyebrow">Project overview</span></div>
-      <div class="stack">
-        <p class="statement" data-scrub>Installed across a multi-level Auckland home, this project needed purpose-engineered scaffolding, split-level panel placement across two roof pitches, and careful electrical penetrations through finished living spaces.</p>
-        <p class="lead" data-reveal>Twenty-two high-efficiency Tier 1 JA Solar panels pair with a Sigen Energy Controller and a 20 kWh SigenStor battery stack, giving the homeowner energy independence, time-of-use optimisation and grid-outage resilience from day one.</p>
-      </div>
+  <div class="container">
+    <div class="head__top" style="margin-bottom:clamp(28px,3.6vw,48px)"><span class="label">(01) — Project overview</span><span class="label">Multi-level · Two roof pitches</span></div>
+    <p class="statement" data-scrub>Installed across a multi-level Auckland home <span class="ipill"><img src="assets/img/roof-scaffold.webp" alt=""></span> this project needed purpose-engineered scaffolding, split-level panel placement across two roof pitches and careful electrical penetrations through <em>finished living spaces.</em></p>
+    <div class="statement-foot" data-reveal>
+      <p class="lede" style="max-width:62ch">Twenty-two high-efficiency Tier 1 JA Solar panels pair with a Sigen Energy Controller and a 20 kWh SigenStor battery stack, giving the homeowner energy independence, time-of-use optimisation and grid-outage resilience from day one.</p>
     </div>
   </div>
 </section>
 
-<!-- Numbers -->
-<section class="section section--bone">
-  <div class="wrap">
-    <div class="head">
-      <div class="head__title">
-        <span class="eyebrow">Performance</span>
-        <h2 class="display h2" data-split>The numbers, <em>a year on.</em></h2>
-      </div>
-      <p class="lead" data-reveal>Modelled at design and tracked live in the Sigen app, with annual performance reviews built into the relationship.</p>
+<!-- 02 Numbers -->
+<section class="section section--flush">
+  <div class="container">
+    <div class="head head--split">
+      <div class="head__top"><span class="label">(02) — Performance</span><span class="label">Tracked in the Sigen app</span></div>
+      <h2 class="h-xl" data-lines>The numbers, <em>in full.</em></h2>
+      <p class="lede" data-reveal>Modelled at design, tracked live in the Sigen app, with annual performance reviews built into the relationship.</p>
     </div>
-    <div class="bigstats" data-reveal>
-      <div><span>Annual production</span><b><span data-count="13765">0</span><small>kWh</small></b></div>
-      <div><span>Estimated ROI</span><b><span data-count="15.9" data-decimals="1">0</span><small>% p.a.</small></b></div>
-      <div><span>CO₂e avoided</span><b><span data-count="1.4" data-decimals="1">0</span><small>t p.a.</small></b></div>
-      <div><span>Operating life</span><b><span data-count="30">0</span>+<small>years</small></b></div>
+    <div class="bigstats">
+      <div class="tile tile--gold" data-reveal><span class="label">Annual production</span><p class="num"><span data-count="13765">0</span><em>kWh</em></p></div>
+      <div class="tile" data-reveal style="--d:.06s"><span class="label">Estimated ROI</span><p class="num"><span data-count="15.9" data-decimals="1">0</span><em>% p.a.</em></p></div>
+      <div class="tile" data-reveal style="--d:.12s"><span class="label">CO₂e avoided</span><p class="num"><span data-count="1.4" data-decimals="1">0</span><em>t p.a.</em></p></div>
+      <div class="tile" data-reveal style="--d:.18s"><span class="label">Operating life</span><p class="num"><span data-count="30">0</span>+<em>years</em></p></div>
     </div>
   </div>
 </section>
 
-<!-- Gallery -->
-<section class="section section--tight">
-  <div class="wrap">
+<!-- 03 Gallery -->
+<section class="section">
+  <div class="container">
+    <div class="head__top" style="margin-bottom:clamp(24px,3vw,40px)"><span class="label">(03) — On site</span><span class="label">Scaffold · Storage · Array</span></div>
     <div class="gallery">
-      <div class="frame" data-reveal="clip"><img src="assets/img/roof-scaffold.webp" alt="Full perimeter scaffolding around the multi-level home" loading="lazy"></div>
-      <div class="frame" data-reveal="clip" style="--d:.1s"><img src="assets/img/battery-install.webp" alt="SigenStor battery stack and energy controller installed in an external service area" loading="lazy"></div>
-      <div class="frame frame--full" data-reveal="clip"><img src="assets/img/roof-aerial.webp" alt="Aerial view of the finished rooftop array" loading="lazy" data-parallax="0.04"></div>
+      <div class="media" data-reveal="clip"><img src="assets/img/roof-scaffold.webp" alt="Full perimeter scaffolding around the multi-level home" loading="lazy"><span class="pill pill--glass">Structural access</span></div>
+      <div class="media" data-reveal="clip" style="--d:.1s"><img src="assets/img/battery-install.webp" alt="SigenStor battery stack and energy controller in an external service area" loading="lazy"><span class="pill pill--glass">Battery integration</span></div>
+      <div class="media" data-reveal="clip"><img src="assets/img/roof-aerial.webp" alt="Aerial view of a finished Watthaus rooftop array" loading="lazy" data-parallax=".04"><span class="pill pill--glass">The finished array</span></div>
     </div>
   </div>
 </section>
 
-<!-- Approach -->
+<!-- 04 Approach -->
+<section class="section section--flush">
+  <div class="container">
+    <div class="head head--split">
+      <div class="head__top"><span class="label">(04) — Energy engineered forward</span><span class="label">Our approach</span></div>
+      <h2 class="h-xl" data-lines>Commercial-grade, <em>at home.</em></h2>
+      <p class="lede" data-reveal>Systems designed for long-term performance, specified with bankable hardware, and installed by a team that puts quality work above everything else.</p>
+    </div>
+    <div class="grid-3">
+      <article class="card" data-reveal><div class="card__top"><span class="card__ic"><svg aria-hidden="true"><use href="#i-shield"/></svg></span><span class="label">01</span></div><h3>Quality hardware</h3><p>The JA Solar JAM54D40 series and Sigenergy SigenStor platform, chosen for long-term reliability and warranty depth, not margin.</p></article>
+      <article class="card" data-reveal style="--d:.08s"><div class="card__top"><span class="card__ic"><svg aria-hidden="true"><use href="#i-battery"/></svg></span><span class="label">02</span></div><h3>Battery-first thinking</h3><p>20 kWh of storage engineered to maximise self-consumption, deliver backup resilience and use time-of-use tariffs to the full.</p></article>
+      <article class="card" data-reveal style="--d:.16s"><div class="card__top"><span class="card__ic"><svg aria-hidden="true"><use href="#i-home"/></svg></span><span class="label">03</span></div><h3>Whole-home approach</h3><p>We assessed the existing electrical infrastructure, future EV charging and consumption profile, so the system delivers measurable lifetime value.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- 05 Design considerations -->
 <section class="section">
-  <div class="wrap">
-    <div class="head">
-      <div class="head__title">
-        <span class="eyebrow">Energy engineered forward</span>
-        <h2 class="display h2" data-split>A commercial-grade mindset, <em>at home.</em></h2>
-      </div>
-      <p class="lead" data-reveal>Systems designed for long-term performance, specified with bankable hardware, and installed by a team that puts quality first.</p>
-    </div>
-    <div class="cards">
-      <article class="card card--num" data-n="01" data-reveal><div class="card__ic"><svg aria-hidden="true"><use href="#i-shield"/></svg></div><h3>Quality hardware</h3><p>The JA Solar JAM54D40 series and Sigenergy SigenStor platform, chosen for long-term reliability and warranty depth, not margin.</p></article>
-      <article class="card card--num" data-n="02" data-reveal style="--d:.1s"><div class="card__ic"><svg aria-hidden="true"><use href="#i-battery"/></svg></div><h3>Battery-first thinking</h3><p>20 kWh of storage, engineered to maximise self-consumption, deliver backup resilience and take full advantage of time-of-use tariffs.</p></article>
-      <article class="card card--num" data-n="03" data-reveal style="--d:.2s"><div class="card__ic"><svg aria-hidden="true"><use href="#i-home"/></svg></div><h3>Whole-home approach</h3><p>We assessed the existing electrical infrastructure, future EV charging and consumption profile, so the system delivers measurable lifetime value.</p></article>
-    </div>
-  </div>
-</section>
-
-<!-- Design considerations -->
-<section class="section section--ink2">
-  <div class="wrap">
-    <div class="head">
-      <div class="head__title">
-        <span class="eyebrow">Design considerations</span>
-        <h2 class="display h2" data-split>Planned well before <em>a single panel went up.</em></h2>
-      </div>
-      <p class="lead" data-reveal>Multi-level installs demand more than standard planning: roof access, structural loading, electrical routing and finished interiors all need careful coordination.</p>
+  <div class="container">
+    <div class="head head--split">
+      <div class="head__top"><span class="label">(05) — Design considerations</span><span class="label">Six disciplines</span></div>
+      <h2 class="h-xl" data-lines>Planned before <em>a panel went up.</em></h2>
+      <p class="lede" data-reveal>Multi-level installs demand more than standard planning. Roof access, structural loading, electrical routing and finished interiors all need careful coordination.</p>
     </div>
     <div class="acc" data-reveal>
-      <details open>
-        <summary><span class="idx">01</span><h3>Structural access</h3><span class="acc__plus" aria-hidden="true"></span></summary>
-        <div class="acc__body"><div class="acc__inner"><p>Purpose-built scaffolding was staged across the full perimeter. Panel placement was optimised across two roof bearings to maximise generation without compromising structural loading or roof integrity.</p></div></div>
-      </details>
-      <details>
-        <summary><span class="idx">02</span><h3>Electrical routing</h3><span class="acc__plus" aria-hidden="true"></span></summary>
-        <div class="acc__body"><div class="acc__inner"><p>Cable runs were planned to avoid finished living spaces. The Sigen Energy Controller sits in an accessible external service area, with the switchboard sized for current load and future EV charging.</p></div></div>
-      </details>
-      <details>
-        <summary><span class="idx">03</span><h3>Battery integration</h3><span class="acc__plus" aria-hidden="true"></span></summary>
-        <div class="acc__body"><div class="acc__inner"><p>The 20 kWh SigenStor stack provides meaningful overnight coverage and outage resilience. Placement was chosen for ventilation clearance, weight distribution and short cable runs to the main switchboard.</p></div></div>
-      </details>
-      <details>
-        <summary><span class="idx">04</span><h3>Architecture &amp; aesthetics</h3><span class="acc__plus" aria-hidden="true"></span></summary>
-        <div class="acc__body"><div class="acc__inner"><p>The layout sits cleanly within each roof plane and presents well from the street. Every roof penetration was flashed and sealed to manufacturer specification, preserving the weathertightness of the existing envelope.</p></div></div>
-      </details>
-      <details>
-        <summary><span class="idx">05</span><h3>Safety &amp; site management</h3><span class="acc__plus" aria-hidden="true"></span></summary>
-        <div class="acc__body"><div class="acc__inner"><p>The home stayed fully habitable throughout. A site-specific safety plan covered fall protection, daily reinstatement and tool management, with no disruption to the household routine.</p></div></div>
-      </details>
-      <details>
-        <summary><span class="idx">06</span><h3>Long-term performance</h3><span class="acc__plus" aria-hidden="true"></span></summary>
-        <div class="acc__body"><div class="acc__inner"><p>Monitoring runs through the Sigen app, with real-time generation, consumption and battery data. Annual performance reviews are built in from commissioning day.</p></div></div>
-      </details>
+      <details open><summary><span class="label">01</span><h3>Structural access</h3><span class="acc__plus" aria-hidden="true"></span></summary><div class="acc__body"><div class="acc__inner"><p>Purpose-built scaffolding was staged across the full perimeter. Panel placement was optimised across two roof bearings to maximise generation without compromising structural loading or roof integrity.</p></div></div></details>
+      <details><summary><span class="label">02</span><h3>Electrical routing</h3><span class="acc__plus" aria-hidden="true"></span></summary><div class="acc__body"><div class="acc__inner"><p>Cable runs were planned to avoid finished living spaces. The Sigen Energy Controller sits in an accessible external service area, with the switchboard sized for current load and future EV charging capacity.</p></div></div></details>
+      <details><summary><span class="label">03</span><h3>Battery integration</h3><span class="acc__plus" aria-hidden="true"></span></summary><div class="acc__body"><div class="acc__inner"><p>The 20 kWh SigenStor stack provides meaningful overnight coverage and grid-outage resilience. Placement was chosen for ventilation clearance, weight distribution and short cable runs to the main switchboard.</p></div></div></details>
+      <details><summary><span class="label">04</span><h3>Architecture &amp; aesthetics</h3><span class="acc__plus" aria-hidden="true"></span></summary><div class="acc__body"><div class="acc__inner"><p>The layout sits cleanly within each roof plane and presents well from the street. Every roof penetration was flashed and sealed to manufacturer specification, preserving the weathertightness of the existing envelope.</p></div></div></details>
+      <details><summary><span class="label">05</span><h3>Safety &amp; site management</h3><span class="acc__plus" aria-hidden="true"></span></summary><div class="acc__body"><div class="acc__inner"><p>The occupied home stayed fully habitable throughout. A formal site-specific safety plan covered fall protection, daily reinstatement and tool management, with no disruption to the household routine.</p></div></div></details>
+      <details><summary><span class="label">06</span><h3>Long-term performance</h3><span class="acc__plus" aria-hidden="true"></span></summary><div class="acc__body"><div class="acc__inner"><p>Monitoring runs through the Sigen app, with real-time generation, consumption and battery state data. Annual performance reviews are built into the relationship from commissioning day.</p></div></div></details>
     </div>
   </div>
 </section>
 
-<!-- Waste audit -->
-<section class="section">
-  <div class="wrap">
+<!-- 06 Waste audit -->
+<section class="section section--flush t-green">
+  <div class="container">
+    <div class="head__top" style="margin-bottom:clamp(32px,4vw,56px)"><span class="label">(06) — Waste audit</span><span class="label">Responsible site management</span></div>
     <div class="split">
-      <div class="donut" data-reveal="scale" data-donut="99">
-        <svg viewBox="0 0 200 200" aria-hidden="true">
-          <defs><linearGradient id="gGreen" x1="0" x2="1"><stop offset="0" stop-color="#a6e8b3"/><stop offset="1" stop-color="#44c063"/></linearGradient></defs>
-          <circle class="bg" cx="100" cy="100" r="86"/>
-          <circle class="fg" cx="100" cy="100" r="86"/>
-        </svg>
-        <div class="donut__c"><b><span data-count="99">0</span>%</b><span>Diverted from landfill</span></div>
-      </div>
-      <div class="stack">
-        <span class="eyebrow" style="--accent:var(--green)">Waste audit</span>
-        <h2 class="display h2" data-split>Only <em class="green-text">1%</em> went to landfill.</h2>
-        <p class="lead" data-reveal>Disciplined packaging removal, material segregation and recycling partnerships meant almost nothing from this job ended up in the ground.</p>
-        <div class="kv kv--dark" data-reveal>
-          <div><span class="k">Recycled</span><span class="v">107 kg</span><span class="small muted">Packaging, cable offcuts, plastic wrap and foam protectors</span></div>
-          <div><span class="k">Landfill</span><span class="v">1 kg</span><span class="small muted">Contaminated and mixed materials</span></div>
-        </div>
-        <div class="badges" data-reveal>
-          <div class="badge"><b>TOTIKA</b><span>Certification in progress</span></div>
-          <div class="badge"><b>SEANZ</b><span>Membership in progress</span></div>
+      <div class="panel" data-reveal style="padding:clamp(28px,4vw,56px) 20px">
+        <div class="donut" data-donut="99">
+          <svg viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="gGreen" x1="0" x2="1"><stop offset="0" stop-color="#b0e6c0"/><stop offset="1" stop-color="#5cc47e"/></linearGradient></defs><circle class="bg" cx="100" cy="100" r="86"/><circle class="fg" cx="100" cy="100" r="86"/></svg>
+          <div class="donut__c"><b><span data-count="99">0</span>%</b><span class="label">Diverted from landfill</span></div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="cta">
-  <div class="cta__rays" aria-hidden="true"></div>
-  <div class="cta__sun" aria-hidden="true"></div>
-  <div class="wrap rel">
-    <span class="eyebrow">Your home next?</span>
-    <h2 class="display h1 mt-m" data-split>Let's engineer <em>your system.</em></h2>
-    <p class="lead" data-reveal>We'll assess your roof, model your savings and send a fixed quote. No pressure.</p>
-    <div class="cta__actions" data-reveal>
-      <a class="btn btn--gold" href="quote.html" data-magnetic>Get my solar plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-      <a class="btn btn--ghost" href="solar.html#packages">See packages <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow-r"/></svg></span></a>
+      <div class="stack" style="--stack:24px">
+        <h2 class="h-lg" data-lines>Only <em>1%</em> went to landfill.</h2>
+        <p class="body" data-reveal>Disciplined packaging removal, material segregation and recycling partnerships meant almost nothing from this job ended up in the ground.</p>
+        <div class="grid-2" data-reveal>
+          <div class="tile" style="min-height:0"><span class="label">Recycled</span><p class="num" style="font-size:3rem">107<em>kg</em></p><p class="small">Packaging, cable offcuts, plastic wrap and foam protectors</p></div>
+          <div class="tile" style="min-height:0"><span class="label">Landfill</span><p class="num" style="font-size:3rem">1<em>kg</em></p><p class="small">Contaminated and mixed materials</p></div>
+        </div>
+        <div class="row" data-reveal><span class="pill pill--accent">TOTIKA · certification in progress</span><span class="pill pill--accent">SEANZ · membership in progress</span></div>
+      </div>
     </div>
   </div>
 </section>
 </main>
-<footer class="footer">
-  <div class="wrap">
-    <div class="footer__top">
-      <div class="footer__brand">
-        <img src="assets/img/logos/wordmark-silver.webp" alt="Watthaus Strategy" width="200" height="47" loading="lazy">
-        <p>Powering New Zealand's transition to clean energy, one installation at a time.</p>
-        <div class="footer__social">
+<footer class="site-footer">
+  <div class="footer-card">
+    <div class="footer-cta">
+      <div>
+        <span class="label label--dot label--live">Your home next?</span>
+        <p class="h-xl mt-m" data-lines>Let's engineer<br><em>your system.</em></p>
+        <p class="lede">We'll assess your roof, model your savings and send a fixed quote. No pressure.</p>
+      </div>
+      <a class="footer-cta__btn" href="quote.html" data-magnetic><span>Get my<br>solar plan<svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+    </div>
+    <div class="footer-grid">
+      <div class="footer-col footer-col--intro">
+        <a class="brand" href="index.html"><svg class="brand__mark" aria-hidden="true"><use href="#mark"/></svg><span class="brand__name">Watthaus<em>strategy</em></span></a>
+        <p>Bridging real estate and renewable energy. Powering New Zealand's transition to clean energy, one installation at a time.</p>
+        <div class="footer-social">
           <a href="https://nz.linkedin.com/company/watthaus-strategy-ltd" target="_blank" rel="noopener" aria-label="Watthaus on LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a>
           <a href="https://www.instagram.com/watthaussolar" target="_blank" rel="noopener" aria-label="Watthaus Solar on Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
           <a href="mailto:inquiries@watthausstrategy.co.nz" aria-label="Email Watthaus"><svg aria-hidden="true"><use href="#i-mail"/></svg></a>
+          <a href="tel:+642109058051" aria-label="Call Watthaus"><svg aria-hidden="true"><use href="#i-phone"/></svg></a>
         </div>
       </div>
-      <div>
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="solar.html">Home Solar</a></li>
-          <li><a href="consultancy.html">Utility-scale Consultancy</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="about.html">About us</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Get started</h4>
-        <ul>
-          <li><a href="quote.html">Get my solar plan</a></li>
-          <li><a href="quote.html?path=land">Land &amp; project enquiry</a></li>
-          <li><a href="solar.html#calculator">Savings calculator</a></li>
-          <li><a href="solar.html#finance">Finance options</a></li>
-          <li><a href="contact.html#faq">FAQs</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Talk to us</h4>
-        <address>
-          <a href="tel:+642109058051">+64 21 090 58051</a>
-          <a href="mailto:inquiries@watthausstrategy.co.nz">inquiries@watthausstrategy.co.nz</a>
-          <a href="https://maps.google.com/?q=4/51+Point+England+Road,+Auckland+1072" target="_blank" rel="noopener">4/51 Point England Road<br>Auckland 1072, New Zealand</a>
-        </address>
-      </div>
+      <div class="footer-col"><h3>Explore</h3><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="solar.html">Home Solar</a></li>
+        <li><a href="consultancy.html">Consultancy</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h3>Get started</h3><ul>
+        <li><a href="quote.html">Solar planner</a></li>
+        <li><a href="quote.html?path=land">Land &amp; project enquiry</a></li>
+        <li><a href="solar.html#calculator">Savings calculator</a></li>
+        <li><a href="solar.html#finance">Finance options</a></li>
+        <li><a href="contact.html#faq">FAQs</a></li>
+      </ul></div>
+      <div class="footer-col"><h3>Talk to us</h3><ul>
+        <li><a href="tel:+642109058051">+64 21 090 58051</a></li>
+        <li><a href="mailto:inquiries@watthausstrategy.co.nz">inquiries@watthausstrategy.co.nz</a></li>
+        <li><a href="https://maps.google.com/?q=4/51+Point+England+Road,+Auckland+1072" target="_blank" rel="noopener">4/51 Point England Road<br>Auckland 1072, New Zealand</a></li>
+      </ul></div>
     </div>
-  </div>
-  <div class="footer__word" aria-hidden="true"><img src="assets/img/logos/wordmark-silver.webp" alt="" loading="lazy"></div>
-  <div class="wrap">
-    <div class="footer__bottom">
-      <span>© <span data-year>2026</span> Watthaus Strategy Ltd. All rights reserved.</span>
-      <span>Energy engineered forward · Auckland, Aotearoa</span>
+    <span class="footer-wordmark" aria-hidden="true">Watthaus</span>
+    <div class="footer-bottom">
+      <span class="label">© <span data-year>2026</span> Watthaus Strategy Ltd</span>
+      <span class="label">Energy engineered forward · Aotearoa</span>
+      <a class="label" href="#main" data-top>Back to top ↑</a>
     </div>
   </div>
 </footer>
 
-<nav class="mbar" aria-label="Quick actions" data-mbar>
-  <a class="mbar__call" href="tel:+642109058051" aria-label="Call Watthaus"><svg aria-hidden="true"><use href="#i-phone"/></svg></a>
-  <a class="mbar__quote" href="quote.html">Get my solar plan <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-</nav>
+<div class="sticky-cta" aria-label="Quick actions" data-sticky-cta>
+  <a class="btn btn--ghost btn--call" href="tel:+642109058051" aria-label="Call Watthaus"><svg aria-hidden="true"><use href="#i-phone"/></svg></a>
+  <a class="btn btn--gold btn--plain" href="quote.html">Get my solar plan</a>
+</div>
 
-<div class="cursor" aria-hidden="true"><div class="cursor__ring"><span>View</span></div><div class="cursor__dot"></div></div>
-
-<script src="assets/js/config.js?v=1792428914"></script>
-<script src="assets/js/main.js?v=1792428914" defer></script>
+<script src="assets/js/config.js?v=1792431243"></script>
+<script src="assets/js/main.js?v=1792431243" defer></script>
 </body>
 </html>

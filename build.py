@@ -32,19 +32,26 @@ LAYOUT = """<!doctype html>
 <meta property="og:url" content="{url}">
 <meta property="og:image" content="{site}/assets/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/css/main.css?v={ver}">
 {preload}<script>
-  document.documentElement.classList.add('js');
-  try {{ if (sessionStorage.getItem('wh-seen') || matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('no-loader'); }} catch (e) {{}}
+  (function (h) {{
+    h.classList.add('js');
+    try {{
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (sessionStorage.getItem('wh-nav')) {{ sessionStorage.removeItem('wh-nav'); h.classList.add('is-entering'); }}
+      else if (!sessionStorage.getItem('wh-seen')) h.classList.add('is-loading');
+    }} catch (e) {{}}
+  }})(document.documentElement);
 </script>
 {schema}</head>
 <body class="{body}">
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip-link" href="#main">Skip to content</a>
 {sprite}
 {header}
 <main id="main">
@@ -72,6 +79,21 @@ def parse(text):
     return data, body
 
 
+CTA_DEFAULTS = {
+    "cta_label": "Free site assessment",
+    "cta_title": "Let's power<br>what's <em>next.</em>",
+    "cta_lede": "Answer a few quick questions and get an indicative system, savings estimate and a booked site assessment.",
+    "cta_btn": "Get my<br>solar plan",
+    "cta_href": "quote.html",
+}
+
+
+def fill_footer(footer, meta):
+    for key, default in CTA_DEFAULTS.items():
+        footer = footer.replace("{{%s}}" % key, meta.get(key, default))
+    return footer
+
+
 def main():
     import time
     ver = str(int(time.time()))
@@ -96,7 +118,7 @@ def main():
             url=url, site=SITE_URL, ver=ver, preload=preload,
             schema=SCHEMA if name in ("index.html", "contact.html") else "",
             body=meta.get("body", ""), sprite=sprite, header=head,
-            content=body.strip(), footer=footer, scripts=scripts,
+            content=body.strip(), footer=fill_footer(footer, meta), scripts=scripts,
         )
         (OUT / name).write_text(out)
         print("built", name)

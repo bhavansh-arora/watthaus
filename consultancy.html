@@ -14,22 +14,30 @@
 <meta property="og:url" content="https://www.watthausstrategy.co.nz/consultancy.html">
 <meta property="og:image" content="https://www.watthausstrategy.co.nz/assets/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/css/main.css?v=1792428914">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/main.css?v=1792431243">
 <link rel="preload" as="image" href="assets/img/farm-aerial.webp">
 <script>
-  document.documentElement.classList.add('js');
-  try { if (sessionStorage.getItem('wh-seen') || matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('no-loader'); } catch (e) {}
+  (function (h) {
+    h.classList.add('js');
+    try {
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (sessionStorage.getItem('wh-nav')) { sessionStorage.removeItem('wh-nav'); h.classList.add('is-entering'); }
+      else if (!sessionStorage.getItem('wh-seen')) h.classList.add('is-loading');
+    } catch (e) {}
+  })(document.documentElement);
 </script>
 </head>
 <body class="page-consultancy t-green">
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip-link" href="#main">Skip to content</a>
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
   <defs>
+    <symbol id="mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="5.4" stroke-linejoin="miter" stroke-miterlimit="10"><path d="M5.2 16.8 21 55.6 32 29.6 43 55.6 58.8 16.8"/><path d="M20 34 32 5.8 44 34"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></symbol>
     <symbol id="i-arrow-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
     <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
@@ -65,129 +73,132 @@
   </defs>
 </svg>
 
-<div class="loader" aria-hidden="true">
-  <div class="loader__inner">
-    <img class="loader__mark" src="assets/img/logos/mark-silver.png" alt="" width="72" height="68">
-    <div class="loader__bar"><span></span></div>
-    <div class="loader__txt">Energy engineered forward</div>
+<div class="preloader" aria-hidden="true">
+  <div class="preloader__inner">
+    <svg class="preloader__mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linejoin="miter"><path pathLength="1" d="M5.2 16.8 21 55.6 32 29.6 43 55.6 58.8 16.8"/><path pathLength="1" d="M20 34 32 5.8 44 34"/></svg>
+    <p class="preloader__name"><span>Watthaus Strategy</span></p>
+    <p class="preloader__tag"><span>Energy engineered forward</span></p>
   </div>
+  <div class="preloader__foot"><span>Solar · Consultancy · Auckland</span><span class="preloader__count" data-count-loader>000</span></div>
+  <div class="preloader__bar"><span></span></div>
 </div>
+<div class="curtain" aria-hidden="true"><svg class="curtain__mark"><use href="#mark"/></svg></div>
+<div class="scroll-progress" aria-hidden="true"><span></span></div>
+<div class="cursor" aria-hidden="true"><span class="cursor__ring"><span class="cursor__label"></span></span><span class="cursor__dot"></span></div>
 
-<header class="nav" data-nav>
-  <div class="nav__inner wrap">
-    <a class="nav__brand" href="index.html" aria-label="Watthaus Strategy, home">
-      <img class="nav__mark" src="assets/img/logos/mark-silver.png" alt="" width="30" height="28">
-      <img class="nav__word" src="assets/img/logos/wordmark-silver.webp" alt="Watthaus Strategy" width="127" height="30">
-    </a>
-    <nav class="nav__links" aria-label="Primary">
-      <a href="solar.html">Home Solar</a>
-      <a href="consultancy.html" aria-current="page">Consultancy</a>
-      <a href="projects.html">Projects</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+<header class="site-header" data-header>
+  <div class="site-header__inner">
+    <a class="brand" href="index.html" aria-label="Watthaus Strategy, home"><svg class="brand__mark" aria-hidden="true"><use href="#mark"/></svg><span class="brand__name">Watthaus<em>strategy</em></span></a>
+    <nav class="nav" aria-label="Primary">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="solar.html">Home Solar</a></li>
+        <li><a class="nav__link" href="consultancy.html" aria-current="page">Consultancy</a></li>
+        <li><a class="nav__link" href="projects.html">Projects</a></li>
+        <li><a class="nav__link" href="about.html">About</a></li>
+        <li><a class="nav__link" href="contact.html">Contact</a></li>
+      </ul>
     </nav>
-    <div class="nav__actions">
-      <a class="nav__phone" href="tel:+642109058051"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>+64 21 090 58051</span></a>
+    <div class="header-actions">
+      <a class="header-phone" href="tel:+642109058051"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>+64 21 090 58051</span></a>
       <a class="btn btn--gold btn--sm" href="quote.html" data-magnetic>Get my solar plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-      <button class="nav__burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu" data-burger><span></span><span></span></button>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" data-menu-toggle>Menu<span class="menu-toggle__bars" aria-hidden="true"><span></span><span></span></span></button>
     </div>
   </div>
 </header>
 
-<div class="menu" id="menu" aria-label="Site menu">
-  <ul class="menu__links">
-    <li><a href="index.html"><span>00</span>Home</a></li>
-    <li><a href="solar.html"><span>01</span>Home Solar</a></li>
-    <li><a href="consultancy.html" aria-current="page"><span>02</span>Consultancy</a></li>
-    <li><a href="projects.html"><span>03</span>Projects</a></li>
-    <li><a href="about.html"><span>04</span>About</a></li>
-    <li><a href="contact.html"><span>05</span>Contact</a></li>
-  </ul>
-  <div class="menu__foot">
-    <a class="btn btn--gold" href="quote.html">Get my solar plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-    <div class="menu__contact">
-      <a href="tel:+642109058051">+64 21 090 58051</a>
-      <a href="mailto:inquiries@watthausstrategy.co.nz">inquiries@watthausstrategy.co.nz</a>
+<div class="mobile-menu" id="mobile-menu">
+  <nav aria-label="Mobile">
+    <ul class="mobile-menu__list">
+      <li><a href="index.html">Home<small>01</small></a></li>
+      <li><a href="solar.html">Home Solar<small>02</small></a></li>
+      <li><a href="consultancy.html" aria-current="page">Consultancy<small>03</small></a></li>
+      <li><a href="projects.html">Projects<small>04</small></a></li>
+      <li><a href="about.html">About<small>05</small></a></li>
+      <li><a href="contact.html">Contact<small>06</small></a></li>
+    </ul>
+  </nav>
+  <div class="mobile-menu__foot">
+    <a class="btn btn--gold btn--block" href="quote.html">Get my solar plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+    <div class="row">
+      <a class="pill" href="tel:+642109058051"><svg aria-hidden="true"><use href="#i-phone"/></svg>+64 21 090 58051</a>
+      <a class="pill" href="mailto:inquiries@watthausstrategy.co.nz"><svg aria-hidden="true"><use href="#i-mail"/></svg>Email us</a>
+      <a class="pill" href="https://www.instagram.com/watthaussolar" target="_blank" rel="noopener">Instagram</a>
+      <a class="pill" href="https://nz.linkedin.com/company/watthaus-strategy-ltd" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </div>
 </div>
 
 <main id="main">
-<section class="phero">
-  <div class="phero__media" data-parallax="0.12"><img src="assets/img/farm-aerial.webp" alt="Aerial view of a utility-scale solar farm beside native bush and farmland" fetchpriority="high"></div>
-  <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Consultancy</span></nav>
-    <div class="phero__grid">
-      <h1 class="display h1" data-split>From paddock<br><em class="green-text">to power.</em></h1>
-      <div class="phero__aside" data-reveal style="--d:.4s">
-        <p class="lead">We source, engineer, procure and build commercial and utility-scale solar, so every project starts on a bankable foundation and finishes energised.</p>
-        <div class="row-actions">
-          <a class="btn btn--green" href="quote.html?path=land" data-magnetic>Book a discovery call <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-          <a class="btn btn--ghost" href="#services">Our services <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow-r"/></svg></span></a>
+<section class="page-hero">
+  <div class="page-hero__frame">
+    <div class="page-hero__media"><img src="assets/img/farm-aerial.webp" alt="Aerial view of a utility-scale solar farm beside native bush and farmland" fetchpriority="high" data-parallax=".08"></div>
+    <div class="page-hero__inner">
+      <nav class="crumbs label" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Watthaus Consultancy</span></nav>
+      <h1 class="page-hero__title" data-lines>From paddock <em>to power.</em></h1>
+      <div class="page-hero__foot" data-reveal style="--d:.4s">
+        <p class="lede">We source, engineer, procure and build commercial and utility-scale solar, so every project starts on a bankable foundation and finishes energised.</p>
+        <div class="row">
+          <a class="btn btn--gold" href="quote.html?path=land" data-magnetic>Book a discovery call <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+          <a class="btn btn--glass btn--plain" href="#services">Our services</a>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- Who -->
-<section class="section">
-  <div class="grid-lines" aria-hidden="true"></div>
-  <div class="wrap rel">
-    <div class="statement-wrap">
-      <div><span class="eyebrow">Who we work with</span></div>
-      <p class="statement" data-scrub>We partner with landowners, investors and developers to unlock high-potential land, delivering strategic guidance from feasibility and due diligence to PPA structuring and execution.</p>
-    </div>
-    <div class="cards mt-l">
-      <article class="card" data-reveal><div class="card__ic"><svg aria-hidden="true"><use href="#i-land"/></svg></div><h3>Landowners</h3><p>Find out whether your land has solar-farm potential, and turn it into a long-term income stream with a partner who negotiates straight.</p></article>
-      <article class="card" data-reveal style="--d:.1s"><div class="card__ic"><svg aria-hidden="true"><use href="#i-chart"/></svg></div><h3>Investors</h3><p>Bankable, de-risked projects with clear technical due diligence, yield modelling and procurement certainty.</p></article>
-      <article class="card" data-reveal style="--d:.2s"><div class="card__ic"><svg aria-hidden="true"><use href="#i-building"/></svg></div><h3>Developers</h3><p>A Master EPC coordinator that can take a project from site screening to grid connection and O&amp;M handover.</p></article>
-    </div>
-  </div>
-</section>
-
-<!-- Services tabs -->
-<section class="section section--ink2" id="services">
-  <div class="wrap">
-    <div class="head">
-      <div class="head__title">
-        <span class="eyebrow">What we deliver</span>
-        <h2 class="display h2" data-split>Our services, <em>in detail.</em></h2>
+      <div class="facts" data-reveal style="--d:.55s">
+        <div><span class="label">Scope</span><b>4 <em>stages</em></b></div>
+        <div><span class="label">Role</span><b>Master <em>EPC</em></b></div>
+        <div><span class="label">Equipment</span><b>Tier <em>1</em></b></div>
+        <div><span class="label">Standards</span><b>NZ / <em>AU</em></b></div>
       </div>
-      <p class="lead" data-reveal>Four stages, one accountable team. Engage us for a single stage or the whole journey.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 01 Who -->
+<section class="section">
+  <div class="container">
+    <div class="head__top" style="margin-bottom:clamp(28px,3.6vw,48px)"><span class="label">(01) — Who we work with</span><span class="label">Landowners · Investors · Developers</span></div>
+    <p class="statement" data-scrub>We partner with landowners <span class="ipill"><img src="assets/img/farm-rows.webp" alt=""></span> investors and developers to unlock high-potential land, delivering strategic guidance from feasibility and due diligence <span class="ipill"><img src="assets/img/install-roof.webp" alt=""></span> to PPA structuring and <em>execution.</em></p>
+    <div class="grid-3 mt-l">
+      <article class="card" data-reveal><div class="card__top"><span class="card__ic"><svg aria-hidden="true"><use href="#i-land"/></svg></span><span class="label">01</span></div><h3>Landowners</h3><p>Find out whether your land has solar-farm potential, and turn it into a long-term income stream with a partner who negotiates straight.</p></article>
+      <article class="card" data-reveal style="--d:.08s"><div class="card__top"><span class="card__ic"><svg aria-hidden="true"><use href="#i-chart"/></svg></span><span class="label">02</span></div><h3>Investors</h3><p>Bankable, de-risked projects with clear technical due diligence, yield modelling and procurement certainty.</p></article>
+      <article class="card" data-reveal style="--d:.16s"><div class="card__top"><span class="card__ic"><svg aria-hidden="true"><use href="#i-building"/></svg></span><span class="label">03</span></div><h3>Developers</h3><p>A Master EPC coordinator to take your project from site screening to grid connection and O&amp;M handover.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- 02 Services -->
+<section class="section section--flush" id="services">
+  <div class="container">
+    <div class="head head--split">
+      <div class="head__top"><span class="label">(02) — What we deliver</span><span class="label">Engage one stage or all four</span></div>
+      <h2 class="h-xl" data-lines>Our services, <em>in detail.</em></h2>
+      <p class="lede" data-reveal>From identifying the right land to commissioning the final installation, one accountable team manages every stage.</p>
     </div>
     <div class="tabs" data-tabs>
       <div class="tabs__list" role="tablist" aria-label="Consultancy services">
-        <button class="tabs__btn" role="tab" id="t-land" data-key="land" aria-controls="p-land" aria-selected="true"><span class="idx">01</span><b>Land Acquisition</b><svg aria-hidden="true"><use href="#i-arrow-r"/></svg></button>
-        <button class="tabs__btn" role="tab" id="t-eng" data-key="engineering" aria-controls="p-eng" aria-selected="false" tabindex="-1"><span class="idx">02</span><b>Engineering</b><svg aria-hidden="true"><use href="#i-arrow-r"/></svg></button>
-        <button class="tabs__btn" role="tab" id="t-proc" data-key="procurement" aria-controls="p-proc" aria-selected="false" tabindex="-1"><span class="idx">03</span><b>Procurement</b><svg aria-hidden="true"><use href="#i-arrow-r"/></svg></button>
-        <button class="tabs__btn" role="tab" id="t-con" data-key="construction" aria-controls="p-con" aria-selected="false" tabindex="-1"><span class="idx">04</span><b>Construction</b><svg aria-hidden="true"><use href="#i-arrow-r"/></svg></button>
+        <button class="tabs__btn" role="tab" id="t-land" data-key="land" aria-controls="p-land" aria-selected="true"><span class="label">01</span><b>Land acquisition</b><svg aria-hidden="true"><use href="#i-arrow-r"/></svg></button>
+        <button class="tabs__btn" role="tab" id="t-eng" data-key="engineering" aria-controls="p-eng" aria-selected="false" tabindex="-1"><span class="label">02</span><b>Engineering</b><svg aria-hidden="true"><use href="#i-arrow-r"/></svg></button>
+        <button class="tabs__btn" role="tab" id="t-proc" data-key="procurement" aria-controls="p-proc" aria-selected="false" tabindex="-1"><span class="label">03</span><b>Procurement</b><svg aria-hidden="true"><use href="#i-arrow-r"/></svg></button>
+        <button class="tabs__btn" role="tab" id="t-con" data-key="construction" aria-controls="p-con" aria-selected="false" tabindex="-1"><span class="label">04</span><b>Construction</b><svg aria-hidden="true"><use href="#i-arrow-r"/></svg></button>
       </div>
       <div>
         <div class="tabpanel is-active" role="tabpanel" id="p-land" aria-labelledby="t-land">
-          <div class="frame frame--wide"><img src="assets/img/farm-hero.webp" alt="Solar farm across rolling New Zealand farmland" loading="lazy"></div>
-          <div class="tabpanel__top">
-            <div><span class="eyebrow eyebrow--plain" style="color:var(--green)">Identify. Secure. De-risk.</span><h3 class="display h3 mt-s">We source, evaluate and secure high-quality land for utility-scale solar.</h3></div>
-            <p class="muted">We manage the full engagement and due diligence process to ensure each project begins with a bankable foundation.</p>
-          </div>
-          <ul class="ticks" style="display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+          <div class="media media--wide"><img src="assets/img/farm-hero.webp" alt="Solar farm across rolling New Zealand farmland" loading="lazy"><span class="pill pill--glass">Identify. Secure. De-risk.</span></div>
+          <div class="tabpanel__head"><h3 class="h-md">We source, evaluate and secure high-quality land for <em>utility-scale solar.</em></h3><p class="body">We manage the full engagement and due diligence process so each project begins with a bankable foundation.</p></div>
+          <ul class="ticks ticks--cols">
             <li>Identifying land with optimal solar potential and grid proximity</li>
             <li>Engaging and negotiating directly with landowners</li>
             <li>Preparing and securing land term sheets, HOAs and exclusivity agreements</li>
             <li>Assessing planning, zoning, overlays and environmental constraints</li>
-            <li>Initial site screenings: geotechnical, soil, flood and ecological checks</li>
+            <li>Site screenings: geotechnical, soil, flood and ecological checks</li>
             <li>High-level network capacity and feasibility assessments</li>
             <li>A complete handover package for engineering and design</li>
           </ul>
-          <div class="outcome"><b>Outcome</b>Bankable, development-ready land secured with strong landowner relationships and minimal early-stage risk.</div>
+          <div class="outcome"><span class="label label--accent">Outcome</span><p>Bankable, development-ready land secured with strong landowner relationships and minimal early-stage risk.</p></div>
         </div>
         <div class="tabpanel" role="tabpanel" id="p-eng" aria-labelledby="t-eng" hidden>
-          <div class="frame frame--wide"><img src="assets/img/install-roof.webp" alt="Engineers reviewing a solar installation on site" loading="lazy"></div>
-          <div class="tabpanel__top">
-            <div><span class="eyebrow eyebrow--plain" style="color:var(--green)">Design. Optimise. De-risk.</span><h3 class="display h3 mt-s">Robust engineering, from concept design to grid connection.</h3></div>
-            <p class="muted">Our engineering team makes sure every project is feasible, efficient and compliant, with full technical support at every step.</p>
-          </div>
-          <ul class="ticks" style="display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+          <div class="media media--wide"><img src="assets/img/install-roof.webp" alt="Engineers reviewing a solar installation on site" loading="lazy"><span class="pill pill--glass">Design. Optimise. De-risk.</span></div>
+          <div class="tabpanel__head"><h3 class="h-md">Robust engineering, from concept design <em>to grid connection.</em></h3><p class="body">Our engineering team makes sure every project is feasible, efficient and compliant, with full technical support at every step.</p></div>
+          <ul class="ticks ticks--cols">
             <li>Preliminary engineering, site layouts and solar yield modelling</li>
             <li>Concept, detailed and IFC-level system design</li>
             <li>DC/AC, MV/HV and SCADA integration design</li>
@@ -195,31 +206,25 @@
             <li>Constructability analysis and engineering risk assessments</li>
             <li>QA/QC, design governance and compliance with NZ/AU standards</li>
           </ul>
-          <div class="outcome"><b>Outcome</b>Optimised, compliant and technically validated designs that reduce risk and maximise long-term performance.</div>
+          <div class="outcome"><span class="label label--accent">Outcome</span><p>Optimised, compliant and technically validated designs that reduce risk and maximise long-term performance.</p></div>
         </div>
         <div class="tabpanel" role="tabpanel" id="p-proc" aria-labelledby="t-proc" hidden>
-          <div class="frame frame--wide"><img src="assets/img/shipping.webp" alt="Container ship transporting equipment" loading="lazy"></div>
-          <div class="tabpanel__top">
-            <div><span class="eyebrow eyebrow--plain" style="color:var(--green)">Source. Secure. Deliver.</span><h3 class="display h3 mt-s">Tier 1 equipment, cost certainty and reliable timelines.</h3></div>
-            <p class="muted">As a Master EPC coordinator, Watthaus Strategy manages the full procurement process from tender to site delivery.</p>
-          </div>
-          <ul class="ticks" style="display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+          <div class="media media--wide"><img src="assets/img/shipping.webp" alt="Container ship transporting equipment" loading="lazy"><span class="pill pill--glass">Source. Secure. Deliver.</span></div>
+          <div class="tabpanel__head"><h3 class="h-md">Tier 1 equipment, cost certainty and <em>reliable timelines.</em></h3><p class="body">As a Master EPC coordinator, Watthaus Strategy manages the full procurement process, from tender to site delivery.</p></div>
+          <ul class="ticks ticks--cols">
             <li>Global sourcing of panels, inverters, trackers, transformers and BESS</li>
             <li>Supplier due diligence, competitive tenders and RFP management</li>
-            <li>Contract negotiation, including warranties, guarantees and service levels</li>
+            <li>Contract negotiation: warranties, guarantees and service levels</li>
             <li>International logistics, customs clearance and delivery coordination</li>
             <li>Supply chain management and just-in-time site delivery</li>
             <li>Cost optimisation and value engineering to reduce CAPEX</li>
           </ul>
-          <div class="outcome"><b>Outcome</b>High-quality equipment at competitive prices, delivered with precision and supply-chain certainty.</div>
+          <div class="outcome"><span class="label label--accent">Outcome</span><p>High-quality equipment at competitive prices, delivered with precision and supply-chain certainty.</p></div>
         </div>
         <div class="tabpanel" role="tabpanel" id="p-con" aria-labelledby="t-con" hidden>
-          <div class="frame frame--wide"><img src="assets/img/install-panel.webp" alt="Installers placing a solar panel on a mounting frame" loading="lazy"></div>
-          <div class="tabpanel__top">
-            <div><span class="eyebrow eyebrow--plain" style="color:var(--green)">Execute. Commission. Energise.</span><h3 class="display h3 mt-s">Full construction management for commercial and utility-scale solar.</h3></div>
-            <p class="muted">Safe, efficient, high-quality execution, from civil works through to grid compliance and handover.</p>
-          </div>
-          <ul class="ticks" style="display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+          <div class="media media--wide"><img src="assets/img/install-panel.webp" alt="Installers placing a solar panel on a mounting frame" loading="lazy"><span class="pill pill--glass">Execute. Commission. Energise.</span></div>
+          <div class="tabpanel__head"><h3 class="h-md">Full construction management for <em>commercial and utility-scale solar.</em></h3><p class="body">Safe, efficient, high-quality execution, from civil works through to grid compliance and handover.</p></div>
+          <ul class="ticks ticks--cols">
             <li>Site establishment, civil works and access development</li>
             <li>Mechanical and electrical installation of all solar and BOS systems</li>
             <li>Subcontractor management and on-site supervision</li>
@@ -227,33 +232,28 @@
             <li>Testing, commissioning and grid compliance verification</li>
             <li>Final handover with as-built documentation and O&amp;M onboarding</li>
           </ul>
-          <div class="outcome"><b>Outcome</b>Predictable timelines, consistent build quality and smooth energisation into long-term operation.</div>
+          <div class="outcome"><span class="label label--accent">Outcome</span><p>Predictable timelines, consistent build quality and smooth energisation into long-term operation.</p></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Word marquee -->
-<section class="section--tight" style="padding-block:clamp(48px,6vw,96px);border-block:1px solid var(--line)" aria-hidden="true">
-  <div class="marquee marquee-words">
-    <div class="marquee__track"><span>Feasibility</span><span><em>Due diligence</em></span><span>Grid connection</span><span><em>PPA structuring</em></span><span>Commissioning</span></div>
-    <div class="marquee__track"><span>Feasibility</span><span><em>Due diligence</em></span><span>Grid connection</span><span><em>PPA structuring</em></span><span>Commissioning</span></div>
-  </div>
-</section>
+<div class="marquee words mt-l" aria-hidden="true">
+  <div class="marquee__track"><span>Feasibility</span><span>Due diligence</span><span>Grid connection</span><span>PPA structuring</span><span>Commissioning</span><span>O&amp;M onboarding</span></div>
+  <div class="marquee__track"><span>Feasibility</span><span>Due diligence</span><span>Grid connection</span><span>PPA structuring</span><span>Commissioning</span><span>O&amp;M onboarding</span></div>
+</div>
 
-<!-- Process -->
+<!-- 03 Process -->
 <section class="section">
-  <div class="wrap">
-    <div class="head">
-      <div class="head__title">
-        <span class="eyebrow">The consultation process</span>
-        <h2 class="display h2" data-split>Clear steps. <em>No surprises.</em></h2>
-      </div>
-      <p class="lead" data-reveal>Our consultation covers every stage, from understanding your goals and acquiring suitable land to legal support, tailored solutions and product recommendations, with ongoing support until your project is performing at its best.</p>
+  <div class="container">
+    <div class="head head--split">
+      <div class="head__top"><span class="label">(03) — The consultation process</span><span class="label">Clear, structured, supported</span></div>
+      <h2 class="h-xl" data-lines>Clear steps. <em>No surprises.</em></h2>
+      <p class="lede" data-reveal>Our consultation covers every stage: your energy goals, acquiring suitable land, legal support, tailored solutions and product recommendations, with support until your project is performing at its best.</p>
     </div>
     <div class="steps" data-reveal="fade">
-      <div class="step"><span class="step__bar"></span><span class="step__n">01</span><h3>Discovery session</h3><p>Understanding your goals, challenges and needs to craft the right plan.</p></div>
+      <div class="step"><span class="step__bar"></span><span class="step__n">01</span><h3>Discovery session</h3><p>Understanding goals, challenges and needs to craft the right plan.</p></div>
       <div class="step"><span class="step__bar" style="--d:.2s"></span><span class="step__n">02</span><h3>Terms of engagement</h3><p>Formalising collaboration with clear timelines, deliverables and responsibilities.</p></div>
       <div class="step"><span class="step__bar" style="--d:.4s"></span><span class="step__n">03</span><h3>Statement of work</h3><p>Executing with precision through structured plans and measurable milestones.</p></div>
       <div class="step"><span class="step__bar" style="--d:.6s"></span><span class="step__n">04</span><h3>Ongoing support</h3><p>Continuous guidance and monitoring until successful project completion.</p></div>
@@ -261,94 +261,90 @@
   </div>
 </section>
 
-<!-- Image band -->
-<section class="section section--tight" style="padding-top:0">
-  <div class="wrap">
-    <div class="split">
-      <div class="frame frame--wide" data-reveal="clip"><img src="assets/img/farm-rows.webp" alt="Solar arrays across farmland in Marlborough, New Zealand" loading="lazy" data-parallax="0.05"></div>
-      <div class="stack">
-        <span class="eyebrow">Real estate × renewables</span>
-        <h2 class="display h3" data-split>Land is the first engineering decision. We treat it that way.</h2>
-        <p class="muted" data-reveal>Through our network of landowners, real estate partners (including The WORX) and regional councils, we identify suitable sites and run full feasibility on grid proximity, topography, irradiance and consent pathways before recommending anything. We then manage resource consents, grid connection applications and building consents with councils, lines companies and Transpower.</p>
-        <div data-reveal><a class="link-arrow" href="contact.html#faq">Read the FAQs <svg aria-hidden="true"><use href="#i-arrow-r"/></svg></a></div>
+<!-- 04 Land first -->
+<section class="section section--flush">
+  <div class="container">
+    <div class="head__top" style="margin-bottom:clamp(32px,4vw,56px)"><span class="label">(04) — Real estate × renewables</span><span class="label">Sourcing &amp; consents</span></div>
+    <div class="bento">
+      <div class="tile tile--media s-7" data-reveal>
+        <div class="tile__img"><img src="assets/img/farm-rows.webp" alt="Solar arrays across farmland in New Zealand" loading="lazy"></div>
+        <div class="tile__top"><span class="pill pill--glass">How we source land</span></div>
+        <div class="tile__body"><div><h3 class="h-lg">Land is the first <em>engineering decision.</em></h3><p>Through our network of landowners, real estate partners (including The WORX) and regional councils, we identify suitable sites and run full feasibility on grid proximity, topography, irradiance and consent pathways before recommending anything.</p></div></div>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="cta">
-  <div class="cta__rays" aria-hidden="true"></div>
-  <div class="cta__sun" aria-hidden="true" style="background:radial-gradient(circle at 50% 50%, rgba(166,232,179,.8) 0%, rgba(68,192,99,.55) 18%, rgba(68,192,99,.18) 36%, rgba(68,192,99,0) 56%)"></div>
-  <div class="wrap rel">
-    <span class="eyebrow">Let's talk</span>
-    <h2 class="display h1 mt-m" data-split>Have a project <em>in mind?</em></h2>
-    <p class="lead" data-reveal>Tell us about your land or development goals and we'll give you a straight assessment.</p>
-    <div class="cta__actions" data-reveal>
-      <a class="btn btn--green" href="quote.html?path=land" data-magnetic>Book a discovery call <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-      <a class="btn btn--ghost" href="mailto:inquiries@watthausstrategy.co.nz">Email the team <span class="btn__icon"><svg aria-hidden="true"><use href="#i-mail"/></svg></span></a>
+      <div class="tile s-5" data-reveal style="--d:.08s">
+        <div class="tile__head"><span class="label">The regulatory pathway</span><span class="pill">Handled end to end</span></div>
+        <div>
+          <h3 class="h-md">Compliant from <em>day one.</em></h3>
+          <p class="small muted mt-s" style="max-width:44ch">We manage the full regulatory pathway and work closely with the people who decide whether a project connects.</p>
+          <ul class="ticks mt-m"><li>Resource consents</li><li>Grid connection applications</li><li>Building consents where required</li><li>Close work with councils, lines companies and Transpower</li></ul>
+        </div>
+      </div>
+      <div class="s-12 clist clist--3" data-reveal>
+        <a href="tel:+642109058051"><span class="ic"><svg aria-hidden="true"><use href="#i-phone"/></svg></span><div><small>Call the team</small><span>+64 21 090 58051</span></div><svg class="arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a href="mailto:inquiries@watthausstrategy.co.nz"><span class="ic"><svg aria-hidden="true"><use href="#i-mail"/></svg></span><div><small>Email</small><span>inquiries@watthausstrategy.co.nz</span></div><svg class="arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a href="https://maps.google.com/?q=4/51+Point+England+Road,+Auckland+1072" target="_blank" rel="noopener"><span class="ic"><svg aria-hidden="true"><use href="#i-pin"/></svg></span><div><small>Office</small><span>4/51 Point England Road, Auckland</span></div><svg class="arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
     </div>
   </div>
 </section>
 </main>
-<footer class="footer">
-  <div class="wrap">
-    <div class="footer__top">
-      <div class="footer__brand">
-        <img src="assets/img/logos/wordmark-silver.webp" alt="Watthaus Strategy" width="200" height="47" loading="lazy">
-        <p>Powering New Zealand's transition to clean energy, one installation at a time.</p>
-        <div class="footer__social">
+<footer class="site-footer">
+  <div class="footer-card">
+    <div class="footer-cta">
+      <div>
+        <span class="label label--dot label--live">Let's talk</span>
+        <p class="h-xl mt-m" data-lines>Have a project<br><em>in mind?</em></p>
+        <p class="lede">Tell us about your land or development goals. We'll give you a straight assessment.</p>
+      </div>
+      <a class="footer-cta__btn" href="quote.html?path=land" data-magnetic><span>Book a<br>discovery call<svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+    </div>
+    <div class="footer-grid">
+      <div class="footer-col footer-col--intro">
+        <a class="brand" href="index.html"><svg class="brand__mark" aria-hidden="true"><use href="#mark"/></svg><span class="brand__name">Watthaus<em>strategy</em></span></a>
+        <p>Bridging real estate and renewable energy. Powering New Zealand's transition to clean energy, one installation at a time.</p>
+        <div class="footer-social">
           <a href="https://nz.linkedin.com/company/watthaus-strategy-ltd" target="_blank" rel="noopener" aria-label="Watthaus on LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a>
           <a href="https://www.instagram.com/watthaussolar" target="_blank" rel="noopener" aria-label="Watthaus Solar on Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
           <a href="mailto:inquiries@watthausstrategy.co.nz" aria-label="Email Watthaus"><svg aria-hidden="true"><use href="#i-mail"/></svg></a>
+          <a href="tel:+642109058051" aria-label="Call Watthaus"><svg aria-hidden="true"><use href="#i-phone"/></svg></a>
         </div>
       </div>
-      <div>
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="solar.html">Home Solar</a></li>
-          <li><a href="consultancy.html">Utility-scale Consultancy</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="about.html">About us</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Get started</h4>
-        <ul>
-          <li><a href="quote.html">Get my solar plan</a></li>
-          <li><a href="quote.html?path=land">Land &amp; project enquiry</a></li>
-          <li><a href="solar.html#calculator">Savings calculator</a></li>
-          <li><a href="solar.html#finance">Finance options</a></li>
-          <li><a href="contact.html#faq">FAQs</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Talk to us</h4>
-        <address>
-          <a href="tel:+642109058051">+64 21 090 58051</a>
-          <a href="mailto:inquiries@watthausstrategy.co.nz">inquiries@watthausstrategy.co.nz</a>
-          <a href="https://maps.google.com/?q=4/51+Point+England+Road,+Auckland+1072" target="_blank" rel="noopener">4/51 Point England Road<br>Auckland 1072, New Zealand</a>
-        </address>
-      </div>
+      <div class="footer-col"><h3>Explore</h3><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="solar.html">Home Solar</a></li>
+        <li><a href="consultancy.html">Consultancy</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h3>Get started</h3><ul>
+        <li><a href="quote.html">Solar planner</a></li>
+        <li><a href="quote.html?path=land">Land &amp; project enquiry</a></li>
+        <li><a href="solar.html#calculator">Savings calculator</a></li>
+        <li><a href="solar.html#finance">Finance options</a></li>
+        <li><a href="contact.html#faq">FAQs</a></li>
+      </ul></div>
+      <div class="footer-col"><h3>Talk to us</h3><ul>
+        <li><a href="tel:+642109058051">+64 21 090 58051</a></li>
+        <li><a href="mailto:inquiries@watthausstrategy.co.nz">inquiries@watthausstrategy.co.nz</a></li>
+        <li><a href="https://maps.google.com/?q=4/51+Point+England+Road,+Auckland+1072" target="_blank" rel="noopener">4/51 Point England Road<br>Auckland 1072, New Zealand</a></li>
+      </ul></div>
     </div>
-  </div>
-  <div class="footer__word" aria-hidden="true"><img src="assets/img/logos/wordmark-silver.webp" alt="" loading="lazy"></div>
-  <div class="wrap">
-    <div class="footer__bottom">
-      <span>© <span data-year>2026</span> Watthaus Strategy Ltd. All rights reserved.</span>
-      <span>Energy engineered forward · Auckland, Aotearoa</span>
+    <span class="footer-wordmark" aria-hidden="true">Watthaus</span>
+    <div class="footer-bottom">
+      <span class="label">© <span data-year>2026</span> Watthaus Strategy Ltd</span>
+      <span class="label">Energy engineered forward · Aotearoa</span>
+      <a class="label" href="#main" data-top>Back to top ↑</a>
     </div>
   </div>
 </footer>
 
-<nav class="mbar" aria-label="Quick actions" data-mbar>
-  <a class="mbar__call" href="tel:+642109058051" aria-label="Call Watthaus"><svg aria-hidden="true"><use href="#i-phone"/></svg></a>
-  <a class="mbar__quote" href="quote.html">Get my solar plan <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-</nav>
+<div class="sticky-cta" aria-label="Quick actions" data-sticky-cta>
+  <a class="btn btn--ghost btn--call" href="tel:+642109058051" aria-label="Call Watthaus"><svg aria-hidden="true"><use href="#i-phone"/></svg></a>
+  <a class="btn btn--gold btn--plain" href="quote.html">Get my solar plan</a>
+</div>
 
-<div class="cursor" aria-hidden="true"><div class="cursor__ring"><span>View</span></div><div class="cursor__dot"></div></div>
-
-<script src="assets/js/config.js?v=1792428914"></script>
-<script src="assets/js/main.js?v=1792428914" defer></script>
+<script src="assets/js/config.js?v=1792431243"></script>
+<script src="assets/js/main.js?v=1792431243" defer></script>
 </body>
 </html>

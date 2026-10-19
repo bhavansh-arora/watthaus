@@ -247,7 +247,7 @@
      Render
      ------------------------------------------------------------------ */
   const head = (st) => `
-    <span class="q-step__k">${esc(st.kicker || "")}</span>
+    <span class="label label--accent q-step__k">${esc(st.kicker || "")}</span>
     <h2>${st.title}</h2>
     ${st.sub ? `<p class="q-step__sub">${esc(st.sub)}</p>` : ""}`;
 
@@ -281,7 +281,7 @@
       if (S.a[k] == null) S.a[k] = st.def;
       return head(st) + `
         <div class="billbox">
-          <div class="field-label"><span>${esc(st.fieldLabel)}</span><output data-range-out></output></div>
+          <div class="field-head"><span>${esc(st.fieldLabel)}</span><output data-range-out></output></div>
           <input class="range" type="range" min="${st.min}" max="${st.max}" step="${st.step}" value="${S.a[k]}" aria-label="${esc(st.fieldLabel)}" data-range>
           <div class="range-scale"><span>$${fmt(st.min)}</span><span>$${fmt((st.min + st.max) / 2)}</span><span>$${fmt(st.max)}+</span></div>
           <div class="q-live" data-range-live></div>
@@ -292,30 +292,30 @@
       const roofNote = { "Tile": "Tile roofs need a tile-specific mounting system. We'll include it in your fixed quote.", "Decramastic": "Decramastic roofs need specialist mounting. We'll include it in your fixed quote.", "Membrane or flat": "Flat roofs use tilt frames to angle panels to the sun. We'll design this at your assessment.", "Not sure": "No problem. We'll check your roof type from aerial imagery before we visit." }[a.roof];
       const pref = a.pref && WH.packages[a.pref] && a.pref !== e.id ? WH.packages[a.pref].name : "";
       return `
-        <span class="q-step__k">Your indicative plan</span>
-        <h2>We'd start you with <em class="gold-text">${esc(p.name)}.</em></h2>
+        <span class="label label--accent q-step__k">Your indicative plan</span>
+        <h2>We'd start you with <em>${esc(p.name)}.</em></h2>
         <p class="q-step__sub">Based on a ${esc(answerText("bill"))} bill${wantsBattery() ? " and your interest in backup and evening power" : ""}. Your engineer will fine-tune it at a free site assessment.</p>
         <div class="result">
           <div class="result__hero">
             <img src="${p.img}" alt="">
             <div>
-              <span class="eyebrow">Recommended for you</span>
-              <h3>${esc(p.name)}</h3>
+              <span class="label label--dot">Recommended for you</span>
+              <h3 class="h-md">${esc(p.name)}</h3>
               <p class="muted small">${p.panels} × 510W JA Solar · ${p.kwp} kWp<br>${esc(p.inverter)}${p.battery ? `<br>${p.battery} kWh SigenStor battery` : ""}</p>
-              <div class="pill-list">
-                <span class="chip">${icon("shield")}CEC-certified</span>
-                <span class="chip">${icon("clock")}10-yr workmanship</span>
+              <div class="row">
+                <span class="pill">${icon("shield")}CEC-certified</span>
+                <span class="pill">${icon("clock")}10-yr workmanship</span>
               </div>
             </div>
           </div>
           <div class="result__grid">
-            <div><span>Est. yearly saving</span><b>$${fmt(Math.round(e.savings / 10) * 10)}</b></div>
-            <div><span>Generation / year</span><b>${fmt(e.production)} <small style="font-size:.45em">kWh</small></b></div>
-            <div><span>Bill covered</span><b>${Math.round(e.coverage * 100)}%</b></div>
+            <div class="tile tile--gold"><span class="label">Est. yearly saving</span><p class="num">$${fmt(Math.round(e.savings / 10) * 10)}</p></div>
+            <div class="tile"><span class="label">Generation / year</span><p class="num">${fmt(e.production)}<em>kWh</em></p></div>
+            <div class="tile"><span class="label">Bill covered</span><p class="num">${Math.round(e.coverage * 100)}<em>%</em></p></div>
           </div>
-          ${roofNote ? `<div class="chip" style="border-radius:14px;padding:12px 16px;line-height:1.45">${icon("question")}${esc(roofNote)}</div>` : ""}
-          ${pref ? `<div class="chip" style="border-radius:14px;padding:12px 16px">${icon("check")}You looked at ${esc(pref)} too. We'll price both so you can compare.</div>` : ""}
-          <div class="chip" style="border-radius:14px;padding:12px 16px;line-height:1.45">${icon("dollar")}Spread the cost: interest-free and 1% green loans from Westpac, ANZ, ASB, BNZ, Kiwibank and Q Card. <a class="link-arrow" href="solar.html#finance" style="margin-left:6px">Finance options</a></div>
+          ${roofNote ? `<div class="note">${icon("question")}<span>${esc(roofNote)}</span></div>` : ""}
+          ${pref ? `<div class="note">${icon("check")}<span>You looked at ${esc(pref)} too. We'll price both so you can compare.</span></div>` : ""}
+          <div class="note">${icon("dollar")}<span>Spread the cost: interest-free and 1% green loans from Westpac, ANZ, ASB, BNZ, Kiwibank and Q Card. <a class="link" href="solar.html#finance">Finance options</a></span></div>
           <p class="fine">Indicative estimate using $0.33/kWh import, $0.12/kWh export and 1,360 kWh per kWp per year (our Auckland Residence result). Your fixed quote follows the site assessment.</p>
         </div>`;
     },
@@ -323,7 +323,7 @@
       const c = S.c, land = S.path === "land", biz = S.path === "business";
       const sl = slots();
       return `
-        <span class="q-step__k">${land ? "Book a discovery call" : "Book your free site assessment"}</span>
+        <span class="label label--accent q-step__k">${land ? "Book a discovery call" : "Book your free site assessment"}</span>
         <h2>${land ? "Who should we <em>call?</em>" : "Where should we <em>send your plan?</em>"}</h2>
         <p class="q-step__sub">${land ? "A 30-minute discovery session with our team. We'll confirm the time within one business day." : "We'll confirm your assessment within one business day, then send a fixed quote and savings model."}</p>
         <form class="q-form" novalidate data-q-form>
@@ -338,7 +338,7 @@
           ${biz || land ? `<div class="input"><input id="q-company" name="company" placeholder=" " autocomplete="organization" value="${esc(c.company)}"><label for="q-company">Company (optional)</label></div>` : ""}
           <div class="input"><input id="q-address" name="address" placeholder=" " autocomplete="street-address" value="${esc(c.address)}"><label for="q-address">${land ? "Site location (optional)" : "Property address"}</label></div>
           <div>
-            <div class="field-label" style="margin:10px 0 12px"><span>${land ? "Preferred day for a call" : "Preferred assessment day"}</span><span class="muted small" style="text-transform:none;letter-spacing:0;font-family:var(--sans)">Optional</span></div>
+            <div class="field-head" style="margin:10px 0 12px"><span>${land ? "Preferred day for a call" : "Preferred assessment day"}</span><span class="muted small" style="text-transform:none;letter-spacing:0;font-family:var(--sans)">Optional</span></div>
             <div class="slots" role="radiogroup" aria-label="Preferred day">
               ${sl.map((s) => `<button type="button" class="slot" role="radio" aria-checked="${S.slot === s.iso}" data-slot="${s.iso}"><span>${s.wd}</span><b>${s.day}</b><span>${s.mon}</span></button>`).join("")}
             </div>
@@ -347,7 +347,7 @@
             </div>
           </div>
           <div class="input"><textarea id="q-notes" name="notes" placeholder=" " maxlength="300">${esc(c.notes)}</textarea><label for="q-notes">Anything we should know? (optional)</label></div>
-          <p class="fine">We'll only use your details to prepare your plan and contact you about it. Prefer to talk? Call <a href="tel:+642109058051" class="link-arrow">+64 21 090 58051</a></p>
+          <p class="fine">We'll only use your details to prepare your plan and contact you about it. Prefer to talk? Call <a href="tel:+642109058051" class="link">+64 21 090 58051</a></p>
           <button type="submit" hidden></button>
         </form>`;
     },
@@ -356,10 +356,10 @@
       return `
         <div class="done">
           <div class="done__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></div>
-          <span class="q-step__k">You're all set${S.c.first ? `, ${esc(S.c.first)}` : ""}</span>
+          <span class="label label--accent q-step__k">You're all set${S.c.first ? `, ${esc(S.c.first)}` : ""}</span>
           <h2>${land ? "Thanks. Your enquiry is with <em>our team.</em>" : "Thanks. Your solar plan is with <em>our team.</em>"}</h2>
           <p class="q-step__sub">We'll call you within one business day to confirm ${esc(slotText())}.</p>
-          ${S.via === "email" ? `<p class="chip" style="border-radius:14px;padding:12px 16px;margin-bottom:8px">${icon("mail")}Your email app has opened with your details. Just press send to reach us.</p>` : ""}
+          ${S.via === "email" ? `<p class="note" style="margin-bottom:8px">${icon("mail")}<span>Your email app has opened with your details. Just press send to reach us.</span></p>` : ""}
           <ol class="next-steps">
             ${land ? `
               <li><span>01</span><div><b>Discovery call</b><p>We'll talk through your goals, the site and timelines.</p></div></li>
@@ -369,11 +369,11 @@
               <li><span>02</span><div><b>Free site assessment</b><p>We check your roof, switchboard and usage. About 45 minutes.</p></div></li>
               <li><span>03</span><div><b>Fixed quote &amp; savings model</b><p>Your exact system, price and expected ROI, with no pressure to sign.</p></div></li>`}
           </ol>
-          <div class="row-actions">
+          <div class="row">
             ${S.slot ? `<button type="button" class="btn btn--gold" data-ics>Add to calendar <span class="btn__icon">${icon("calendar")}</span></button>` : ""}
             <a class="btn btn--ghost" href="index.html">Back to home <span class="btn__icon">${icon("arrow")}</span></a>
           </div>
-          <p class="ref mt-m">Reference ${esc(S.ref || "")}</p>
+          <p class="label mt-m">Reference ${esc(S.ref || "")}</p>
         </div>`;
     }
   };
@@ -434,10 +434,10 @@
         out.textContent = st.show(v, st.max).replace("/mo", "");
         if (k === "bill") {
           const e = WH.estimate({ bill: v, battery: false });
-          live.innerHTML = `<span class="chip">≈ <b>${fmt(e.usage)}</b> kWh / year</span><span class="chip">Likely system <b>${e.pkg.kwp} kWp</b></span><span class="chip">Up to <b>$${fmt(Math.round(e.savings / 10) * 10)}</b> / yr back</span>`;
+          live.innerHTML = `<span class="pill">≈ <b>${fmt(e.usage)}</b> kWh / year</span><span class="pill">Likely system <b>${e.pkg.kwp} kWp</b></span><span class="pill">Up to <b>$${fmt(Math.round(e.savings / 10) * 10)}</b> / yr back</span>`;
         } else {
           const kwh = Math.max(0, v * 12 / 0.26);
-          live.innerHTML = `<span class="chip">≈ <b>${fmt(kwh)}</b> kWh / year</span><span class="chip">Indicative <b>${fmt(Math.max(20, Math.round(kwh / 1360 * 0.7 / 5) * 5))} kWp</b> system</span>`;
+          live.innerHTML = `<span class="pill">≈ <b>${fmt(kwh)}</b> kWh / year</span><span class="pill">Indicative <b>${fmt(Math.max(20, Math.round(kwh / 1360 * 0.7 / 5) * 5))} kWp</b> system</span>`;
         }
         renderSummary();
       };

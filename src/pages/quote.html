@@ -4,43 +4,45 @@ active: quote
 body: q-body
 scripts: quote.js
 ---
-<section class="q" data-quote>
-  <aside class="q__side">
-    <div class="q__side-img" aria-hidden="true"><img src="assets/img/roof-hills.webp" alt="" data-q-img></div>
-    <div>
-      <span class="eyebrow">Solar planner</span>
-      <h1>Your solar plan, <em class="gold-text">in about a minute.</em></h1>
-      <p class="muted q__desk">A few quick questions. You'll get an indicative system and savings estimate, then pick a time for a free site assessment. No pressure.</p>
-    </div>
-    <div>
-      <div class="hr-label mono muted">Your plan so far</div>
-      <dl class="q__summary" data-q-summary><div class="empty">Your answers will appear here</div></dl>
-      <div class="q__trust">
-        <span class="chip"><svg aria-hidden="true"><use href="#i-shield"/></svg>CEC-certified</span>
-        <span class="chip"><svg aria-hidden="true"><use href="#i-clock"/></svg>Reply in 1 business day</span>
-        <span class="chip"><svg aria-hidden="true"><use href="#i-check"/></svg>No obligation</span>
+<div class="q-wrap">
+  <section class="q" data-quote>
+    <aside class="q__side">
+      <div class="q__side-img" aria-hidden="true"><img src="assets/img/roof-hills.webp" alt="" data-q-img></div>
+      <div>
+        <span class="label label--dot">Solar planner · Free site assessment</span>
+        <h1 class="h-lg">Your solar plan, <em>in about a minute.</em></h1>
+        <p class="body q__desk">Tell us about your home and we'll model your savings and send you a fixed quote. No pressure.</p>
       </div>
-    </div>
-  </aside>
+      <div>
+        <div class="head__top" style="margin-bottom:12px"><span class="label">Your plan so far</span></div>
+        <dl class="q__summary" data-q-summary><div class="empty">Your answers will appear here</div></dl>
+        <div class="q__trust">
+          <span class="pill pill--glass"><svg aria-hidden="true"><use href="#i-shield"/></svg>CEC-certified</span>
+          <span class="pill pill--glass"><svg aria-hidden="true"><use href="#i-clock"/></svg>Reply in 1 business day</span>
+          <span class="pill pill--glass"><svg aria-hidden="true"><use href="#i-check"/></svg>No obligation</span>
+        </div>
+      </div>
+    </aside>
 
-  <div class="q__main">
-    <div class="q__progress">
-      <span class="q__count" data-q-count>Step 1</span>
-      <div class="q__bar" role="progressbar" aria-label="Planner progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-q-progress><i data-q-bar></i></div>
-      <span class="q__saved" data-q-saved>✓ Progress saved</span>
-    </div>
-    <div class="q__stage">
-      <div class="resume" data-q-resume role="region" aria-label="Resume your plan">
-        <span><b>Welcome back.</b> Pick up your solar plan where you left off?</span>
-        <div><button type="button" class="yes" data-q-resume-yes>Resume</button><button type="button" class="no" data-q-resume-no>Start over</button></div>
+    <div class="q__main">
+      <div class="q__progress">
+        <span class="q__count" data-q-count>Step 1</span>
+        <div class="q__bar" role="progressbar" aria-label="Planner progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-q-progress><i data-q-bar></i></div>
+        <span class="q__saved" data-q-saved>✓ Progress saved</span>
       </div>
-      <div data-q-steps aria-live="polite"></div>
+      <div class="q__stage">
+        <div class="resume" data-q-resume role="region" aria-label="Resume your plan">
+          <span><b>Welcome back.</b> Pick up your solar plan where you left off?</span>
+          <div><button type="button" class="yes" data-q-resume-yes>Resume</button><button type="button" class="no" data-q-resume-no>Start over</button></div>
+        </div>
+        <div data-q-steps aria-live="polite"></div>
+      </div>
+      <div class="q__nav">
+        <button type="button" class="q__back" data-q-back disabled><svg aria-hidden="true"><use href="#i-arrow-r"/></svg>Back</button>
+        <span class="q__hint" data-q-hint>Press Enter ↵ to continue</span>
+        <button type="button" class="btn btn--gold q__next" data-q-next>Continue <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
+      </div>
     </div>
-    <div class="q__nav">
-      <button type="button" class="q__back" data-q-back disabled><svg aria-hidden="true"><use href="#i-arrow-r"/></svg>Back</button>
-      <span class="q__hint" data-q-hint>Press <b>Enter ↵</b> to continue</span>
-      <button type="button" class="btn btn--gold q__next" data-q-next>Continue <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
-    </div>
-  </div>
-</section>
-<noscript><div class="wrap section"><p class="lead">The solar planner needs JavaScript. You can call us on <a href="tel:+642109058051">+64 21 090 58051</a> or email <a href="mailto:inquiries@watthausstrategy.co.nz">inquiries@watthausstrategy.co.nz</a>.</p></div></noscript>
+  </section>
+</div>
+<noscript><div class="container section"><p class="lede">The solar planner needs JavaScript. Call us on <a href="tel:+642109058051">+64 21 090 58051</a> or email <a href="mailto:inquiries@watthausstrategy.co.nz">inquiries@watthausstrategy.co.nz</a>.</p></div></noscript>

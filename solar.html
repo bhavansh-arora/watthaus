@@ -14,22 +14,30 @@
 <meta property="og:url" content="https://www.watthausstrategy.co.nz/solar.html">
 <meta property="og:image" content="https://www.watthausstrategy.co.nz/assets/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/css/main.css?v=1792428914">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/main.css?v=1792431243">
 <link rel="preload" as="image" href="assets/img/family.webp">
 <script>
-  document.documentElement.classList.add('js');
-  try { if (sessionStorage.getItem('wh-seen') || matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('no-loader'); } catch (e) {}
+  (function (h) {
+    h.classList.add('js');
+    try {
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (sessionStorage.getItem('wh-nav')) { sessionStorage.removeItem('wh-nav'); h.classList.add('is-entering'); }
+      else if (!sessionStorage.getItem('wh-seen')) h.classList.add('is-loading');
+    } catch (e) {}
+  })(document.documentElement);
 </script>
 </head>
 <body class="page-solar">
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip-link" href="#main">Skip to content</a>
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
   <defs>
+    <symbol id="mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="5.4" stroke-linejoin="miter" stroke-miterlimit="10"><path d="M5.2 16.8 21 55.6 32 29.6 43 55.6 58.8 16.8"/><path d="M20 34 32 5.8 44 34"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></symbol>
     <symbol id="i-arrow-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
     <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
@@ -65,153 +73,152 @@
   </defs>
 </svg>
 
-<div class="loader" aria-hidden="true">
-  <div class="loader__inner">
-    <img class="loader__mark" src="assets/img/logos/mark-silver.png" alt="" width="72" height="68">
-    <div class="loader__bar"><span></span></div>
-    <div class="loader__txt">Energy engineered forward</div>
+<div class="preloader" aria-hidden="true">
+  <div class="preloader__inner">
+    <svg class="preloader__mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linejoin="miter"><path pathLength="1" d="M5.2 16.8 21 55.6 32 29.6 43 55.6 58.8 16.8"/><path pathLength="1" d="M20 34 32 5.8 44 34"/></svg>
+    <p class="preloader__name"><span>Watthaus Strategy</span></p>
+    <p class="preloader__tag"><span>Energy engineered forward</span></p>
   </div>
+  <div class="preloader__foot"><span>Solar · Consultancy · Auckland</span><span class="preloader__count" data-count-loader>000</span></div>
+  <div class="preloader__bar"><span></span></div>
 </div>
+<div class="curtain" aria-hidden="true"><svg class="curtain__mark"><use href="#mark"/></svg></div>
+<div class="scroll-progress" aria-hidden="true"><span></span></div>
+<div class="cursor" aria-hidden="true"><span class="cursor__ring"><span class="cursor__label"></span></span><span class="cursor__dot"></span></div>
 
-<header class="nav" data-nav>
-  <div class="nav__inner wrap">
-    <a class="nav__brand" href="index.html" aria-label="Watthaus Strategy, home">
-      <img class="nav__mark" src="assets/img/logos/mark-silver.png" alt="" width="30" height="28">
-      <img class="nav__word" src="assets/img/logos/wordmark-silver.webp" alt="Watthaus Strategy" width="127" height="30">
-    </a>
-    <nav class="nav__links" aria-label="Primary">
-      <a href="solar.html" aria-current="page">Home Solar</a>
-      <a href="consultancy.html">Consultancy</a>
-      <a href="projects.html">Projects</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+<header class="site-header" data-header>
+  <div class="site-header__inner">
+    <a class="brand" href="index.html" aria-label="Watthaus Strategy, home"><svg class="brand__mark" aria-hidden="true"><use href="#mark"/></svg><span class="brand__name">Watthaus<em>strategy</em></span></a>
+    <nav class="nav" aria-label="Primary">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="solar.html" aria-current="page">Home Solar</a></li>
+        <li><a class="nav__link" href="consultancy.html">Consultancy</a></li>
+        <li><a class="nav__link" href="projects.html">Projects</a></li>
+        <li><a class="nav__link" href="about.html">About</a></li>
+        <li><a class="nav__link" href="contact.html">Contact</a></li>
+      </ul>
     </nav>
-    <div class="nav__actions">
-      <a class="nav__phone" href="tel:+642109058051"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>+64 21 090 58051</span></a>
+    <div class="header-actions">
+      <a class="header-phone" href="tel:+642109058051"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>+64 21 090 58051</span></a>
       <a class="btn btn--gold btn--sm" href="quote.html" data-magnetic>Get my solar plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-      <button class="nav__burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu" data-burger><span></span><span></span></button>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" data-menu-toggle>Menu<span class="menu-toggle__bars" aria-hidden="true"><span></span><span></span></span></button>
     </div>
   </div>
 </header>
 
-<div class="menu" id="menu" aria-label="Site menu">
-  <ul class="menu__links">
-    <li><a href="index.html"><span>00</span>Home</a></li>
-    <li><a href="solar.html" aria-current="page"><span>01</span>Home Solar</a></li>
-    <li><a href="consultancy.html"><span>02</span>Consultancy</a></li>
-    <li><a href="projects.html"><span>03</span>Projects</a></li>
-    <li><a href="about.html"><span>04</span>About</a></li>
-    <li><a href="contact.html"><span>05</span>Contact</a></li>
-  </ul>
-  <div class="menu__foot">
-    <a class="btn btn--gold" href="quote.html">Get my solar plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-    <div class="menu__contact">
-      <a href="tel:+642109058051">+64 21 090 58051</a>
-      <a href="mailto:inquiries@watthausstrategy.co.nz">inquiries@watthausstrategy.co.nz</a>
+<div class="mobile-menu" id="mobile-menu">
+  <nav aria-label="Mobile">
+    <ul class="mobile-menu__list">
+      <li><a href="index.html">Home<small>01</small></a></li>
+      <li><a href="solar.html" aria-current="page">Home Solar<small>02</small></a></li>
+      <li><a href="consultancy.html">Consultancy<small>03</small></a></li>
+      <li><a href="projects.html">Projects<small>04</small></a></li>
+      <li><a href="about.html">About<small>05</small></a></li>
+      <li><a href="contact.html">Contact<small>06</small></a></li>
+    </ul>
+  </nav>
+  <div class="mobile-menu__foot">
+    <a class="btn btn--gold btn--block" href="quote.html">Get my solar plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+    <div class="row">
+      <a class="pill" href="tel:+642109058051"><svg aria-hidden="true"><use href="#i-phone"/></svg>+64 21 090 58051</a>
+      <a class="pill" href="mailto:inquiries@watthausstrategy.co.nz"><svg aria-hidden="true"><use href="#i-mail"/></svg>Email us</a>
+      <a class="pill" href="https://www.instagram.com/watthaussolar" target="_blank" rel="noopener">Instagram</a>
+      <a class="pill" href="https://nz.linkedin.com/company/watthaus-strategy-ltd" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </div>
 </div>
 
 <main id="main">
-<section class="phero">
-  <div class="phero__media" data-parallax="0.12"><img src="assets/img/family.webp" alt="A father and daughter smiling beside the solar panels on their home" fetchpriority="high"></div>
-  <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Home Solar</span></nav>
-    <div class="phero__grid">
-      <h1 class="display h1" data-split>Your power.<br><em>Your choice.</em><br><span class="gold-text">Your future.</span></h1>
-      <div class="phero__aside" data-reveal style="--d:.4s">
-        <p class="lead">Quality solar packages for New Zealand homes. JA Solar panels and Sigenergy inverters, fully installed by our Auckland-based team.</p>
-        <div class="row-actions">
+<section class="page-hero">
+  <div class="page-hero__frame">
+    <div class="page-hero__media"><img src="assets/img/family.webp" alt="A father and daughter smiling beside the solar panels on their home" fetchpriority="high" data-parallax=".08"></div>
+    <div class="page-hero__inner">
+      <nav class="crumbs label" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Home Solar</span></nav>
+      <h1 class="page-hero__title" data-lines>Your power. Your choice. <em>Your future.</em></h1>
+      <div class="page-hero__foot" data-reveal style="--d:.4s">
+        <p class="lede">Quality solar packages for New Zealand homes. JA Solar panels and Sigenergy inverters, fully installed by our Auckland-based team.</p>
+        <div class="row">
           <a class="btn btn--gold" href="quote.html" data-magnetic>Get my solar plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-          <a class="btn btn--ghost" href="#calculator">Estimate savings <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow-r"/></svg></span></a>
+          <a class="btn btn--glass btn--plain" href="#calculator">Estimate my savings</a>
         </div>
-        <div class="pill-list"><span class="chip"><svg aria-hidden="true"><use href="#i-shield"/></svg>CEC-certified</span><span class="chip">10-yr workmanship</span><span class="chip">0% finance options</span></div>
+      </div>
+      <div class="facts" data-reveal style="--d:.55s">
+        <div><span class="label">Panels</span><b>JA Solar <em>510W</em></b></div>
+        <div><span class="label">Inverters</span><b>Sigenergy</b></div>
+        <div><span class="label">Warranty</span><b>10 <em>years</em></b></div>
+        <div><span class="label">Finance</span><b>From <em>0%</em></b></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Why -->
+<!-- 01 Why -->
 <section class="section">
-  <div class="wrap">
-    <div class="head">
-      <div class="head__title">
-        <span class="eyebrow">Why Watthaus</span>
-        <h2 class="display h2" data-split>We're not just installing solar. <em>We're building smarter homes.</em></h2>
-      </div>
-      <p class="lead" data-reveal>We bring a commercial-grade mindset to every residential job: bankable hardware, honest modelling, and installers who care about the finish as much as the output.</p>
+  <div class="container">
+    <div class="head head--split">
+      <div class="head__top"><span class="label">(01) — Why choose Watthaus</span><span class="label">Smarter, sustainable homes</span></div>
+      <h2 class="h-xl" data-lines>Not just solar. <em>Smarter homes.</em></h2>
+      <p class="lede" data-reveal>We bring a commercial-grade mindset to every residential project: bankable hardware, honest modelling and a team that puts quality first.</p>
     </div>
-    <div class="cards">
-      <article class="card card--num" data-n="01" data-reveal>
-        <div class="card__ic"><svg aria-hidden="true"><use href="#i-panel"/></svg></div>
-        <h3>JA Solar panels</h3>
-        <p>Tier 1, 510W JA Solar modules, specified for long-term reliability and warranty depth, not margin.</p>
-      </article>
-      <article class="card card--num" data-n="02" data-reveal style="--d:.1s">
-        <div class="card__ic"><svg aria-hidden="true"><use href="#i-bolt"/></svg></div>
-        <h3>Sigenergy inverters</h3>
-        <p>Sigenergy controllers and SigenStor batteries for efficiency, backup resilience and time-of-use optimisation.</p>
-      </article>
-      <article class="card card--num" data-n="03" data-reveal style="--d:.2s">
-        <div class="card__ic"><svg aria-hidden="true"><use href="#i-home"/></svg></div>
-        <h3>Designed for you</h3>
-        <p>Modelled for your roof, orientation and usage, including future EV charging. No templates, and no upselling hardware you don't need.</p>
-      </article>
+    <div class="grid-3">
+      <article class="card" data-reveal><div class="card__top"><span class="card__ic"><svg aria-hidden="true"><use href="#i-panel"/></svg></span><span class="label">01</span></div><h3>JA Solar panels for reliability</h3><p>Tier 1, 510W JA Solar modules, specified for long-term reliability and warranty depth, not margin.</p></article>
+      <article class="card" data-reveal style="--d:.08s"><div class="card__top"><span class="card__ic"><svg aria-hidden="true"><use href="#i-bolt"/></svg></span><span class="label">02</span></div><h3>Sigenergy inverters for efficiency</h3><p>Sigenergy controllers and SigenStor batteries for efficiency, backup resilience and time-of-use optimisation.</p></article>
+      <article class="card" data-reveal style="--d:.16s"><div class="card__top"><span class="card__ic"><svg aria-hidden="true"><use href="#i-home"/></svg></span><span class="label">03</span></div><h3>Fully customisable for your lifestyle</h3><p>Modelled for your roof, orientation and usage, including future EV charging. No templates, and no upselling hardware you don't need.</p></article>
     </div>
   </div>
 </section>
 
-<!-- Calculator -->
-<section class="section section--ink2" id="calculator">
-  <div class="wrap">
-    <div class="head">
-      <div class="head__title">
-        <span class="eyebrow">Savings calculator</span>
-        <h2 class="display h2" data-split>What could the sun <em class="gold-text">save you?</em></h2>
-      </div>
-      <p class="lead" data-reveal>Slide to your average monthly power bill. We'll match you to a package and show an indicative yearly saving, based on real Auckland production.</p>
+<!-- 02 Calculator -->
+<section class="section section--flush" id="calculator">
+  <div class="container">
+    <div class="head head--split">
+      <div class="head__top"><span class="label">(02) — Savings calculator</span><span class="label">Indicative · Auckland yield</span></div>
+      <h2 class="h-xl" data-lines>What could the sun <em>save you?</em></h2>
+      <p class="lede" data-reveal>Slide to your average monthly power bill. We'll match a package and show an indicative yearly saving, based on real Auckland production.</p>
     </div>
     <div class="calc" data-calc>
       <div class="panel calc__in" data-reveal>
         <div>
-          <div class="field-label"><span>Average monthly power bill</span><output data-out="bill">$250</output></div>
+          <div class="field-head"><span class="label">Average monthly power bill</span><output data-out="bill">$250</output></div>
           <input class="range" type="range" min="100" max="800" step="10" value="250" aria-label="Average monthly power bill in NZ dollars">
           <div class="range-scale"><span>$100</span><span>$450</span><span>$800+</span></div>
         </div>
         <div>
-          <div class="field-label"><span>Add a battery?</span></div>
+          <div class="field-head"><span class="label">Add a battery?</span></div>
           <div class="seg">
             <button type="button" data-battery="0" aria-pressed="true"><b>Solar only</b><span>Grid-tie, lowest upfront</span></button>
             <button type="button" data-battery="1" aria-pressed="false"><b>Solar + battery</b><span>Evening power &amp; backup</span></button>
           </div>
         </div>
-        <p class="fine">Indicative only. Assumes $0.33/kWh import, $0.12/kWh export and 1,360 kWh per kWp per year (our Auckland Residence result). Your fixed quote follows a free site assessment.</p>
+        <div>
+          <div class="field-head"><span class="label">Every package includes</span></div>
+          <ul class="ticks ticks--cols"><li>CEC-certified install</li><li>Commissioning</li><li>Performance monitoring</li><li>10-year workmanship warranty</li></ul>
+        </div>
+        <div class="note" style="margin-top:auto"><svg aria-hidden="true"><use href="#i-question"/></svg><span>Indicative only. Assumes $0.33/kWh import, $0.12/kWh export and 1,360 kWh per kWp per year (our Auckland Residence result). Your fixed quote follows a free site assessment.</span></div>
       </div>
-      <div class="calc__out" data-reveal style="--d:.1s">
-        <div class="wide calc__rec">
-          <div><span>Recommended package</span><h3 data-out="pkg">Bright Start</h3><p class="small muted" data-out="pkgspec"></p></div>
+      <div class="calc__out" data-reveal style="--d:.08s">
+        <div class="tile calc__rec">
+          <div style="flex:1;min-width:220px"><span class="label">Recommended package</span><h3 class="h-md mt-s" data-out="pkg">Bright Start</h3><p class="small muted" data-out="pkgspec"></p></div>
           <a class="btn btn--gold btn--sm" data-out="link" href="quote.html">Get this plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
         </div>
-        <div><span>Est. yearly saving</span><b data-out="savings">$0</b></div>
-        <div><span>That's about / month</span><b data-out="monthly">$0</b></div>
-        <div><span>Generation (kWh / yr)</span><b data-out="production">0</b></div>
-        <div><span>CO₂ avoided (t / yr)</span><b data-out="co2">0</b></div>
-        <div class="wide"><span>Share of your bill covered</span><b data-out="coverage">0%</b><div class="meter"><i data-out="meter"></i></div></div>
+        <div class="tile tile--gold"><span class="label">Est. yearly saving</span><p class="num">$<span data-out="savings">0</span></p></div>
+        <div class="tile"><span class="label">About per month</span><p class="num">$<span data-out="monthly">0</span></p></div>
+        <div class="tile"><span class="label">Generation</span><p class="num"><span data-out="production">0</span><em>kWh/yr</em></p></div>
+        <div class="tile"><span class="label">CO₂ avoided</span><p class="num"><span data-out="co2">0</span><em>t/yr</em></p></div>
+        <div class="tile" style="grid-column:1/-1"><div class="tile__head"><span class="label">Share of your bill covered</span><p class="num" style="font-size:2.4rem;color:var(--ink)"><span data-out="coverage">0</span><em>%</em></p></div><div class="meter"><i data-out="meter"></i></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Packages -->
-<section class="section section--bone" id="packages" data-toggle-scope>
-  <div class="wrap">
-    <div class="head">
-      <div class="head__title">
-        <span class="eyebrow">Choose your package</span>
-        <h2 class="display h2" data-split>Four packages. <em>One standard.</em></h2>
-      </div>
-      <div class="stack" style="justify-items:start" data-reveal>
-        <p class="lead">Fully installed and CEC-certified. All packages include commissioning, performance monitoring and a 10-year workmanship warranty.</p>
+<!-- 03 Packages -->
+<section class="section" id="packages" data-toggle-scope>
+  <div class="container">
+    <div class="head head--split">
+      <div class="head__top"><span class="label">(03) — Solar packages</span><span class="label">Fully installed · CEC-certified</span></div>
+      <h2 class="h-xl" data-lines>Four packages. <em>One standard.</em></h2>
+      <div class="stack" data-reveal>
+        <p class="lede">All packages include commissioning, performance monitoring and a 10-year workmanship warranty. Pricing is GST-inclusive and confirmed after your site assessment.</p>
         <div class="toggle" data-toggle role="group" aria-label="Package type">
           <span class="toggle__pill" aria-hidden="true"></span>
           <button type="button" data-target="grid" aria-pressed="true">Grid-tie</button>
@@ -219,259 +226,210 @@
         </div>
       </div>
     </div>
-
-    <div class="pkgs pkg-set is-active" data-set="grid">
+    <div class="pkgs is-active" data-set="grid">
       <article class="pkg" data-reveal>
-        <div class="pkg__img"><img src="assets/img/roof-aerial.webp" alt="Aerial view of a home with rooftop solar" loading="lazy"><span class="pkg__flag">Grid-tie</span></div>
+        <div class="pkg__img"><img src="assets/img/roof-aerial.webp" alt="Aerial view of a home with rooftop solar" loading="lazy"><div class="row"><span class="pill pill--glass">Grid-tie</span><span class="pill pill--glass">8.16 kWp</span></div></div>
         <div class="pkg__body">
-          <div class="pkg__name"><h3>Bright Start</h3><span class="pkg__kw">8.16 kWp</span></div>
-          <div class="pkg__specs"><div><b>16</b><span>JA Solar panels</span></div><div><b>510W</b><span>Per panel, Tier 1</span></div><div><b>5kW</b><span>Sigenergy controller</span></div></div>
-          <ul class="pkg__list">
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>5kW Sigenergy Controller &amp; Gateway</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Ideal for smaller households and daytime use</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Battery-ready, so you can add storage later</li>
-          </ul>
-          <div class="pkg__cta"><a class="btn btn--ink btn--sm" href="quote.html?package=bright-start">Get this plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a><span class="small" style="color:var(--char-mute)">Enquire for pricing</span></div>
+          <div class="pkg__name"><h3 class="h-md">Bright <em>Start</em></h3><span class="label">Package 01</span></div>
+          <div class="pkg__specs"><div><b>16</b><span>JA Solar panels</span></div><div><b>510<em>W</em></b><span>Per panel, Tier 1</span></div><div><b>5<em>kW</em></b><span>Sigenergy controller</span></div></div>
+          <ul class="ticks"><li>5kW Sigenergy Controller &amp; Gateway</li><li>Ideal for smaller households and daytime use</li><li>Battery-ready, so you can add storage later</li></ul>
+          <div class="pkg__cta"><a class="btn btn--sm" href="quote.html?package=bright-start">Get this plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a><span class="label">Enquire for pricing</span></div>
         </div>
       </article>
-      <article class="pkg" data-reveal style="--d:.1s">
-        <div class="pkg__img"><img src="assets/img/roof-boost.webp" alt="Large rooftop solar array on a family home" loading="lazy"><span class="pkg__flag pkg__flag--gold">Most generation</span></div>
+      <article class="pkg" data-reveal style="--d:.08s">
+        <div class="pkg__img"><img src="assets/img/roof-boost.webp" alt="Large rooftop solar array on a family home" loading="lazy"><div class="row"><span class="pill pill--glass">Most generation</span><span class="pill pill--glass">15.3 kWp</span></div></div>
         <div class="pkg__body">
-          <div class="pkg__name"><h3>Bright Boost</h3><span class="pkg__kw">15.3 kWp</span></div>
-          <div class="pkg__specs"><div><b>30</b><span>JA Solar panels</span></div><div><b>510W</b><span>Per panel, Tier 1</span></div><div><b>10kW</b><span>Sigenergy controller</span></div></div>
-          <ul class="pkg__list">
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>10kW Sigenergy Controller &amp; Gateway</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Built for larger homes, heat pumps and EVs</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Battery-ready, so you can add storage later</li>
-          </ul>
-          <div class="pkg__cta"><a class="btn btn--ink btn--sm" href="quote.html?package=bright-boost">Get this plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a><span class="small" style="color:var(--char-mute)">Enquire for pricing</span></div>
+          <div class="pkg__name"><h3 class="h-md">Bright <em>Boost</em></h3><span class="label">Package 02</span></div>
+          <div class="pkg__specs"><div><b>30</b><span>JA Solar panels</span></div><div><b>510<em>W</em></b><span>Per panel, Tier 1</span></div><div><b>10<em>kW</em></b><span>Sigenergy controller</span></div></div>
+          <ul class="ticks"><li>10kW Sigenergy Controller &amp; Gateway</li><li>Built for larger homes, heat pumps and EVs</li><li>Battery-ready, so you can add storage later</li></ul>
+          <div class="pkg__cta"><a class="btn btn--sm" href="quote.html?package=bright-boost">Get this plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a><span class="label">Enquire for pricing</span></div>
         </div>
       </article>
     </div>
-    <div class="pkgs pkg-set" data-set="hybrid">
+    <div class="pkgs" data-set="hybrid">
       <article class="pkg">
-        <div class="pkg__img"><img src="assets/img/battery-install.webp" alt="SigenStor battery installed on the side of a home" loading="lazy"><span class="pkg__flag">Hybrid + battery</span></div>
+        <div class="pkg__img"><img src="assets/img/battery-install.webp" alt="SigenStor battery installed on the side of a home" loading="lazy"><div class="row"><span class="pill pill--glass">Hybrid + battery</span><span class="pill pill--glass">8.16 kWp · 6 kWh</span></div></div>
         <div class="pkg__body">
-          <div class="pkg__name"><h3>Sunny Reserve</h3><span class="pkg__kw">8.16 kWp · 6 kWh</span></div>
-          <div class="pkg__specs"><div><b>16</b><span>JA Solar panels</span></div><div><b>5kW</b><span>Sigenergy controller</span></div><div><b>6kWh</b><span>SigenStor battery</span></div></div>
-          <ul class="pkg__list">
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Store daytime sun for the evening peak</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Time-of-use optimisation through the Sigen app</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Backup-ready for grid outages</li>
-          </ul>
-          <div class="pkg__cta"><a class="btn btn--ink btn--sm" href="quote.html?package=sunny-reserve&amp;battery=1">Get this plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a><span class="small" style="color:var(--char-mute)">Enquire for pricing</span></div>
+          <div class="pkg__name"><h3 class="h-md">Sunny <em>Reserve</em></h3><span class="label">Package 03</span></div>
+          <div class="pkg__specs"><div><b>16</b><span>JA Solar panels</span></div><div><b>5<em>kW</em></b><span>Sigenergy controller</span></div><div><b>6<em>kWh</em></b><span>SigenStor battery</span></div></div>
+          <ul class="ticks"><li>Store daytime sun for the evening peak</li><li>Time-of-use optimisation through the Sigen app</li><li>Backup-ready for grid outages</li></ul>
+          <div class="pkg__cta"><a class="btn btn--sm" href="quote.html?package=sunny-reserve&amp;battery=1">Get this plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a><span class="label">Enquire for pricing</span></div>
         </div>
       </article>
       <article class="pkg">
-        <div class="pkg__img"><img src="assets/img/roof-topdown.webp" alt="Top-down drone view of rooftop solar" loading="lazy"><span class="pkg__flag pkg__flag--gold">Most independence</span></div>
+        <div class="pkg__img"><img src="assets/img/roof-topdown.webp" alt="Top-down drone view of rooftop solar" loading="lazy"><div class="row"><span class="pill pill--glass">Most independence</span><span class="pill pill--glass">15.3 kWp · 10 kWh</span></div></div>
         <div class="pkg__body">
-          <div class="pkg__name"><h3>Sunny Reserve Plus</h3><span class="pkg__kw">15.3 kWp · 10 kWh</span></div>
-          <div class="pkg__specs"><div><b>30</b><span>JA Solar panels</span></div><div><b>10kW</b><span>Sigenergy controller</span></div><div><b>10kWh</b><span>SigenStor battery</span></div></div>
-          <ul class="pkg__list">
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Maximum self-consumption, day and night</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Whole-home resilience during outages</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Expandable SigenStor stack</li>
-          </ul>
-          <div class="pkg__cta"><a class="btn btn--ink btn--sm" href="quote.html?package=sunny-reserve-plus&amp;battery=1">Get this plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a><span class="small" style="color:var(--char-mute)">Enquire for pricing</span></div>
+          <div class="pkg__name"><h3 class="h-md">Sunny <em>Reserve Plus</em></h3><span class="label">Package 04</span></div>
+          <div class="pkg__specs"><div><b>30</b><span>JA Solar panels</span></div><div><b>10<em>kW</em></b><span>Sigenergy controller</span></div><div><b>10<em>kWh</em></b><span>SigenStor battery</span></div></div>
+          <ul class="ticks"><li>Maximum self-consumption, day and night</li><li>Whole-home resilience during outages</li><li>Expandable SigenStor stack</li></ul>
+          <div class="pkg__cta"><a class="btn btn--sm" href="quote.html?package=sunny-reserve-plus&amp;battery=1">Get this plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a><span class="label">Enquire for pricing</span></div>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- Hardware -->
-<section class="section">
-  <div class="wrap">
+<!-- 04 Hardware -->
+<section class="section section--flush">
+  <div class="container">
+    <div class="head__top" style="margin-bottom:clamp(32px,4vw,56px)"><span class="label">(04) — Hardware we trust</span><span class="label">JA Solar · Sigenergy</span></div>
     <div class="split">
-      <div class="frame frame--sq" data-reveal="clip" style="background:#000">
-        <img src="assets/img/sigenstor-dark.webp" alt="Sigenergy SigenStor 5-in-1 home battery system" loading="lazy" style="object-fit:cover;object-position:0% center">
-      </div>
-      <div class="stack">
-        <span class="eyebrow">Hardware we trust</span>
-        <h2 class="display h2" data-split>Battery-first <em>thinking.</em></h2>
-        <p class="lead" data-reveal>SigenStor is a 5-in-1 energy system: inverter, battery, EV-ready DC charging and energy management in one stack. Store your midday sun, run the house through the evening peak, and ride through outages.</p>
-        <div class="kv kv--dark" data-reveal>
-          <div><span class="k">Panels</span><span class="v">JA Solar 510W</span></div>
-          <div><span class="k">Inverters</span><span class="v">Sigenergy</span></div>
-          <div><span class="k">Battery</span><span class="v">SigenStor</span></div>
-          <div><span class="k">Monitoring</span><span class="v">Sigen app</span></div>
+      <div class="media media--land" data-reveal="clip" style="background:#000"><img src="assets/img/sigenstor-product.webp" alt="Sigenergy SigenStor 5-in-1 home battery system" loading="lazy" style="object-position:center"><span class="pill pill--glass">SigenStor 5-in-1</span></div>
+      <div class="stack" style="--stack:24px">
+        <h2 class="h-lg" data-lines>Battery-first <em>thinking.</em></h2>
+        <p class="body" data-reveal>The JA Solar JAM54D40 series and the Sigenergy SigenStor platform are specified for long-term reliability and warranty depth. SigenStor combines inverter, battery and energy management in one stack, so you can store your midday sun, run the house through the evening peak and ride through outages.</p>
+        <div class="grid-2" data-reveal>
+          <div class="tile" style="min-height:0"><span class="label">Panels</span><p class="h-sm">JA Solar 510W, Tier 1</p></div>
+          <div class="tile" style="min-height:0"><span class="label">Inverters</span><p class="h-sm">Sigenergy controllers</p></div>
+          <div class="tile" style="min-height:0"><span class="label">Battery</span><p class="h-sm">SigenStor, expandable</p></div>
+          <div class="tile" style="min-height:0"><span class="label">Monitoring</span><p class="h-sm">Sigen app, real time</p></div>
         </div>
-        <p class="small muted" data-reveal>Manufacturer warranties of 10–25 years, plus our own 10-year workmanship guarantee.</p>
+        <p class="fine" data-reveal>Manufacturer warranties of 10–25 years, plus our own 10-year workmanship guarantee.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Process -->
-<section class="section section--ink2">
-  <div class="wrap">
-    <div class="head">
-      <div class="head__title">
-        <span class="eyebrow">How it works</span>
-        <h2 class="display h2" data-split>From enquiry <em>to energised.</em></h2>
-      </div>
-      <p class="lead" data-reveal>Straightforward, and no pressure. You'll know exactly what you're getting, and what it will cost, before anything goes on your roof.</p>
+<!-- 05 Process -->
+<section class="section">
+  <div class="container">
+    <div class="head head--split">
+      <div class="head__top"><span class="label">(05) — How it works</span><span class="label">Get a custom quote</span></div>
+      <h2 class="h-xl" data-lines>From enquiry <em>to energised.</em></h2>
+      <p class="lede" data-reveal>Tell us about your home and we'll model your savings and send you a fixed quote. You'll know exactly what you're getting before anything goes on your roof.</p>
     </div>
     <div class="steps" data-reveal="fade">
-      <div class="step"><span class="step__bar"></span><span class="step__n">01</span><h3>Site assessment</h3><p>We review your roof, switchboard and power usage, in person or from aerial imagery first.</p></div>
+      <div class="step"><span class="step__bar"></span><span class="step__n">01</span><h3>Site assessment</h3><p>Your roof, switchboard and power usage, in person or from aerial imagery first.</p></div>
       <div class="step"><span class="step__bar" style="--d:.2s"></span><span class="step__n">02</span><h3>Tailored design</h3><p>A system modelled for your roof planes and usage, with a fixed quote and realistic ROI.</p></div>
-      <div class="step"><span class="step__bar" style="--d:.4s"></span><span class="step__n">03</span><h3>Professional install</h3><p>CEC-certified installers, a site-specific safety plan, and a clean, respectful site.</p></div>
+      <div class="step"><span class="step__bar" style="--d:.4s"></span><span class="step__n">03</span><h3>Professional install</h3><p>CEC-certified installers, a site-specific safety plan and a clean, respectful site.</p></div>
       <div class="step"><span class="step__bar" style="--d:.6s"></span><span class="step__n">04</span><h3>Long-term monitoring</h3><p>Live data in the Sigen app, plus annual performance reviews from commissioning day.</p></div>
     </div>
   </div>
 </section>
 
-<!-- Finance -->
-<section class="section section--bone" id="finance">
-  <div class="wrap">
-    <div class="head">
-      <div class="head__title">
-        <span class="eyebrow">Make it affordable</span>
-        <h2 class="display h2" data-split>Flexible finance, <em>simple ownership.</em></h2>
-      </div>
-      <p class="lead" data-reveal>We work alongside New Zealand's leading banks and green finance programmes, so you can go solar with zero upfront stress.</p>
+<!-- 06 Finance -->
+<section class="section section--flush" id="finance">
+  <div class="container">
+    <div class="head head--split">
+      <div class="head__top"><span class="label">(06) — Make it affordable</span><span class="label">Partner banks &amp; programmes</span></div>
+      <h2 class="h-xl" data-lines>Flexible finance, <em>simple ownership.</em></h2>
+      <p class="lede" data-reveal>We've partnered with trusted finance providers and New Zealand's leading banks so you can go solar with zero upfront stress.</p>
     </div>
-    <div class="cards">
-      <article class="card card--num" data-n="01" data-reveal><div class="card__ic"><svg aria-hidden="true"><use href="#i-sun"/></svg></div><h3>Pay as you save</h3><p>No upfront payment required. Your solar savings help cover the repayments, so you benefit from day one.</p></article>
-      <article class="card card--num" data-n="02" data-reveal style="--d:.1s"><div class="card__ic"><svg aria-hidden="true"><use href="#i-dollar"/></svg></div><h3>Low-interest plans</h3><p>Spread the cost over 3–5 years at preferential rates through partner banks and green finance programmes.</p></article>
-      <article class="card card--num" data-n="03" data-reveal style="--d:.2s"><div class="card__ic"><svg aria-hidden="true"><use href="#i-home"/></svg></div><h3>Full ownership</h3><p>Pay upfront and own your system outright from day one, for maximum lifetime savings.</p></article>
+    <div class="grid-3">
+      <article class="card" data-reveal><div class="card__top"><span class="card__ic"><svg aria-hidden="true"><use href="#i-sun"/></svg></span><span class="label">01</span></div><h3>Pay as you save</h3><p>No upfront payment required. Your solar savings cover the repayments, so you benefit from day one.</p></article>
+      <article class="card" data-reveal style="--d:.08s"><div class="card__top"><span class="card__ic"><svg aria-hidden="true"><use href="#i-dollar"/></svg></span><span class="label">02</span></div><h3>Low-interest plans</h3><p>Spread payments over 3–5 years at preferential rates through partner banks and green finance programmes.</p></article>
+      <article class="card" data-reveal style="--d:.16s"><div class="card__top"><span class="card__ic"><svg aria-hidden="true"><use href="#i-home"/></svg></span><span class="label">03</span></div><h3>Full ownership</h3><p>Pay upfront and own your system outright from day one, for maximum lifetime savings and no ongoing obligations.</p></article>
     </div>
-    <div class="hr-label mono mt-l" style="color:var(--char-mute)">Partner banks &amp; programmes</div>
+    <div class="head__top mt-l" style="margin-bottom:clamp(18px,2vw,26px)"><span class="label">Partner banks &amp; programmes</span><span class="label">Six options</span></div>
     <div class="loans">
-      <a class="loan" href="https://www.westpac.co.nz/home-loans-mortgages/options/greater-choices-home-loan/" target="_blank" rel="noopener" data-reveal><img src="assets/img/logos/westpac.webp" alt="Westpac" loading="lazy"><b>Greater Choices Home Loan</b><span>Westpac</span><div class="loan__terms"><span>Interest free for 5 years</span><strong>Up to $50k</strong></div></a>
-      <a class="loan" href="https://www.anz.co.nz/personal/home-loans-mortgages/loan-types/good-energy/" target="_blank" rel="noopener" data-reveal style="--d:.05s"><img src="assets/img/logos/anz.webp" alt="ANZ" loading="lazy"><b>Good Energy Home Loan</b><span>ANZ</span><div class="loan__terms"><span>1% p.a. for 3 years</span><strong>Up to $80k</strong></div></a>
-      <a class="loan" href="https://www.asb.co.nz/home-loans-mortgages/better-homes-top-up.html" target="_blank" rel="noopener" data-reveal style="--d:.1s"><img src="assets/img/logos/asb.webp" alt="ASB" loading="lazy"><b>Better Homes Top Up</b><span>ASB</span><div class="loan__terms"><span>3-year fixed rate</span><strong>Up to $80k</strong></div></a>
-      <a class="loan" href="https://www.bnz.co.nz/personal-banking/home-loans/manage-your-loan/top-ups/green-home-loan-top-ups" target="_blank" rel="noopener" data-reveal style="--d:.15s"><img src="assets/img/logos/bnz.webp" alt="BNZ" loading="lazy"><b>Green Home Loan Top-Ups</b><span>BNZ</span><div class="loan__terms"><span>1% p.a. for 3 years</span><strong>Up to $80k</strong></div></a>
-      <a class="loan" href="tel:0800786797" data-reveal style="--d:.2s"><img src="assets/img/logos/q.webp" alt="Q Card" loading="lazy"><b>Interest Free Finance</b><span>Q Card · 0800 786 797</span><div class="loan__terms"><span>36 months interest-free</span><strong>Over $1,000</strong></div></a>
-      <a class="loan" href="https://www.kiwibank.co.nz/personal-banking/home-loans/managing-your-loan/sustainable-energy-loan/" target="_blank" rel="noopener" data-reveal style="--d:.25s"><img src="assets/img/logos/kiwibank.webp" alt="Kiwibank" loading="lazy"><b>Sustainable Energy Loan</b><span>Kiwibank</span><div class="loan__terms"><span>4-year term</span><strong>Up to $20k</strong></div></a>
+      <a class="loan" href="https://www.westpac.co.nz/home-loans-mortgages/options/greater-choices-home-loan/" target="_blank" rel="noopener" data-reveal><div class="loan__top"><img src="assets/img/logos/mono/westpac.webp" alt="Westpac" loading="lazy"><span class="tile__go"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></div><h3>Greater Choices Home Loan</h3><div class="loan__terms"><span>Interest free for 5 years</span><b>Up to $50k</b></div></a>
+      <a class="loan" href="https://www.anz.co.nz/personal/home-loans-mortgages/loan-types/good-energy/" target="_blank" rel="noopener" data-reveal style="--d:.05s"><div class="loan__top"><img src="assets/img/logos/mono/anz.webp" alt="ANZ" loading="lazy"><span class="tile__go"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></div><h3>Good Energy Home Loan</h3><div class="loan__terms"><span>1% p.a. for 3 years</span><b>Up to $80k</b></div></a>
+      <a class="loan" href="https://www.asb.co.nz/home-loans-mortgages/better-homes-top-up.html" target="_blank" rel="noopener" data-reveal style="--d:.1s"><div class="loan__top"><img src="assets/img/logos/mono/asb.webp" alt="ASB" loading="lazy"><span class="tile__go"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></div><h3>Better Homes Top Up</h3><div class="loan__terms"><span>3-year fixed rate</span><b>Up to $80k</b></div></a>
+      <a class="loan" href="https://www.bnz.co.nz/personal-banking/home-loans/manage-your-loan/top-ups/green-home-loan-top-ups" target="_blank" rel="noopener" data-reveal style="--d:.15s"><div class="loan__top"><img src="assets/img/logos/mono/bnz.webp" alt="BNZ" loading="lazy"><span class="tile__go"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></div><h3>Green Home Loan Top-Ups</h3><div class="loan__terms"><span>1% p.a. for 3 years</span><b>Up to $80k</b></div></a>
+      <a class="loan" href="tel:0800786797" data-reveal style="--d:.2s"><div class="loan__top"><span class="logo-type">Q Card</span><span class="tile__go"><svg aria-hidden="true"><use href="#i-phone"/></svg></span></div><h3>Interest Free Finance</h3><div class="loan__terms"><span>36 months interest-free · 0800 786 797</span><b>Over $1k</b></div></a>
+      <a class="loan" href="https://www.kiwibank.co.nz/personal-banking/home-loans/managing-your-loan/sustainable-energy-loan/" target="_blank" rel="noopener" data-reveal style="--d:.25s"><div class="loan__top"><img src="assets/img/logos/mono/kiwibank.webp" alt="Kiwibank" loading="lazy"><span class="tile__go"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></div><h3>Sustainable Energy Loan</h3><div class="loan__terms"><span>4-year term</span><b>Up to $20k</b></div></a>
     </div>
     <p class="fine mt-s">Finance is provided by the lenders above, subject to their lending criteria, terms and fees. Check current rates with each provider.</p>
   </div>
 </section>
 
-<!-- Things to know -->
+<!-- 07 Things to know -->
 <section class="section">
-  <div class="wrap">
-    <div class="head">
-      <div class="head__title">
-        <span class="eyebrow">Important information</span>
-        <h2 class="display h2" data-split>Things to know <em>before you book.</em></h2>
-      </div>
-      <div class="stack" data-reveal>
-        <p class="lead">Transparent pricing means no hidden surprises. Here's exactly what's included, and what can change after a site assessment.</p>
-        <p class="quote" style="font-size:1.5rem">Our goal is to make sure there are no surprises, only clean, affordable energy.</p>
-      </div>
+  <div class="container">
+    <div class="head head--split">
+      <div class="head__top"><span class="label">(07) — Important information</span><span class="label">Transparent pricing</span></div>
+      <h2 class="h-xl" data-lines>Things to know <em>before you book.</em></h2>
+      <p class="lede" data-reveal>“Our goal is to make sure there are no surprises, only clean, affordable energy.” Read through exactly what's included.</p>
     </div>
     <div class="acc" data-reveal>
+      <details open>
+        <summary><span class="label">01</span><h3>Offer details</h3><span class="acc__plus" aria-hidden="true"></span></summary>
+        <div class="acc__body"><div class="acc__inner"><ul class="ticks">
+          <li>Offers apply exclusively to our Bright Start, Bright Boost, Bright Max, Sunny Reserve and Sunny Reserve Plus packages, for residential properties only.</li>
+          <li>All prices are GST-inclusive. Offers cannot be combined with any other promotions or discounts.</li>
+          <li>All installations are subject to Watthaus Strategy's standard Terms of Service.</li>
+          <li>If additional work or costs are identified after the site assessment, a customised quote is provided for your approval before any work begins.</li>
+          <li>Timeframes may vary with product availability, site conditions and local council approvals (where applicable).</li>
+        </ul></div></div>
+      </details>
       <details>
-        <summary><span class="idx">01</span><h3>Offer details</h3><span class="acc__plus" aria-hidden="true"></span></summary>
-        <div class="acc__body"><div class="acc__inner">
-          <ul class="ticks" style="display:grid;gap:10px">
-            <li>Offers apply exclusively to our Bright Start, Bright Boost, Bright Max, Sunny Reserve and Sunny Reserve Plus packages, for residential properties only.</li>
-            <li>All prices are GST-inclusive.</li>
-            <li>Offers cannot be combined with any other promotions or discounts.</li>
-            <li>All installations are subject to Watthaus Strategy's standard Terms of Service.</li>
-            <li>If additional work or costs are identified after the site assessment, a customised quote will be provided for your approval before any work begins.</li>
-            <li>Timeframes may vary with product availability, site conditions and local council approvals (where applicable).</li>
-          </ul>
+        <summary><span class="label">02</span><h3>Roof requirements</h3><span class="acc__plus" aria-hidden="true"></span></summary>
+        <div class="acc__body"><div class="acc__inner acc__cols">
+          <div><h4>Roof pitch</h4><p>Standard pricing covers roofs with a pitch of up to 25°. Steeper roofs may need tailored mounting and additional safety and labour charges.</p></div>
+          <div><h4>Roof type</h4><p>Prices are based on corrugated iron roofs. Tile, decramastic or membrane roofs may need special mounting systems or extra labour.</p></div>
+          <div><h4>Scaffolding</h4><p>If scaffolding is required, it's charged as an additional cost after the initial site inspection, with a clear breakdown before installation.</p></div>
         </div></div>
       </details>
       <details>
-        <summary><span class="idx">02</span><h3>Roof requirements</h3><span class="acc__plus" aria-hidden="true"></span></summary>
-        <div class="acc__body"><div class="acc__inner acc__inner--cols">
-          <div><h4 style="color:var(--silver)">Roof pitch</h4><p>Standard pricing covers roofs with a pitch of up to 25°. Steeper roofs may need tailored mounting and additional safety and labour charges.</p></div>
-          <div><h4 style="color:var(--silver)">Roof type</h4><p>Prices are based on corrugated iron roofs. Tile, decramastic or membrane roofs may need special mounting systems or extra labour.</p></div>
-          <div><h4 style="color:var(--silver)">Scaffolding</h4><p>If scaffolding is required, it's charged as an additional cost after the initial site inspection, with a clear breakdown before installation.</p></div>
-        </div></div>
+        <summary><span class="label">03</span><h3>Switchboard &amp; cabling</h3><span class="acc__plus" aria-hidden="true"></span></summary>
+        <div class="acc__body"><div class="acc__inner"><ul class="ticks">
+          <li>Standard pricing includes a maximum 5-metre cable run from the switchboard to the inverter or battery.</li>
+          <li>If your switchboard doesn't meet current safety standards, upgrades may be required, especially for whole-home backup in hybrid systems.</li>
+          <li>Extra cabling, trenching or protective conduit runs (if required) are quoted separately.</li>
+          <li>All wiring and components are installed in accordance with New Zealand regulations, for long-term reliability.</li>
+        </ul></div></div>
       </details>
-      <details>
-        <summary><span class="idx">03</span><h3>Switchboard &amp; cabling</h3><span class="acc__plus" aria-hidden="true"></span></summary>
-        <div class="acc__body"><div class="acc__inner">
-          <ul class="ticks" style="display:grid;gap:10px">
-            <li>Standard pricing includes a maximum 5-metre cable run from the switchboard to the inverter or battery.</li>
-            <li>If your switchboard doesn't meet current safety standards, upgrades may be required, especially for whole-home backup in hybrid systems.</li>
-            <li>Extra cabling, trenching or protective conduit runs (if required) are quoted separately.</li>
-            <li>All wiring and components are installed in accordance with New Zealand regulations.</li>
-          </ul>
-        </div></div>
-      </details>
-    </div>
-  </div>
-</section>
-
-<section class="cta">
-  <div class="cta__rays" aria-hidden="true"></div>
-  <div class="cta__sun" aria-hidden="true"></div>
-  <div class="wrap rel">
-    <span class="eyebrow">Ready to start?</span>
-    <h2 class="display h1 mt-m" data-split>Get a fixed quote. <em>No pressure.</em></h2>
-    <p class="lead" data-reveal>Tell us about your home. We'll assess your roof, model your savings and send a fixed quote.</p>
-    <div class="cta__actions" data-reveal>
-      <a class="btn btn--gold" href="quote.html" data-magnetic>Get my solar plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-      <a class="btn btn--ghost" href="tel:+642109058051">Call us <span class="btn__icon"><svg aria-hidden="true"><use href="#i-phone"/></svg></span></a>
     </div>
   </div>
 </section>
 </main>
-<footer class="footer">
-  <div class="wrap">
-    <div class="footer__top">
-      <div class="footer__brand">
-        <img src="assets/img/logos/wordmark-silver.webp" alt="Watthaus Strategy" width="200" height="47" loading="lazy">
-        <p>Powering New Zealand's transition to clean energy, one installation at a time.</p>
-        <div class="footer__social">
+<footer class="site-footer">
+  <div class="footer-card">
+    <div class="footer-cta">
+      <div>
+        <span class="label label--dot label--live">No pressure, no hidden costs</span>
+        <p class="h-xl mt-m" data-lines>Get a fixed quote,<br><em>no pressure.</em></p>
+        <p class="lede">Talk to our team. We'll assess your roof, model your savings and give you a fixed quote.</p>
+      </div>
+      <a class="footer-cta__btn" href="quote.html" data-magnetic><span>Get a custom<br>quote<svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+    </div>
+    <div class="footer-grid">
+      <div class="footer-col footer-col--intro">
+        <a class="brand" href="index.html"><svg class="brand__mark" aria-hidden="true"><use href="#mark"/></svg><span class="brand__name">Watthaus<em>strategy</em></span></a>
+        <p>Bridging real estate and renewable energy. Powering New Zealand's transition to clean energy, one installation at a time.</p>
+        <div class="footer-social">
           <a href="https://nz.linkedin.com/company/watthaus-strategy-ltd" target="_blank" rel="noopener" aria-label="Watthaus on LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a>
           <a href="https://www.instagram.com/watthaussolar" target="_blank" rel="noopener" aria-label="Watthaus Solar on Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
           <a href="mailto:inquiries@watthausstrategy.co.nz" aria-label="Email Watthaus"><svg aria-hidden="true"><use href="#i-mail"/></svg></a>
+          <a href="tel:+642109058051" aria-label="Call Watthaus"><svg aria-hidden="true"><use href="#i-phone"/></svg></a>
         </div>
       </div>
-      <div>
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="solar.html">Home Solar</a></li>
-          <li><a href="consultancy.html">Utility-scale Consultancy</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="about.html">About us</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Get started</h4>
-        <ul>
-          <li><a href="quote.html">Get my solar plan</a></li>
-          <li><a href="quote.html?path=land">Land &amp; project enquiry</a></li>
-          <li><a href="solar.html#calculator">Savings calculator</a></li>
-          <li><a href="solar.html#finance">Finance options</a></li>
-          <li><a href="contact.html#faq">FAQs</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Talk to us</h4>
-        <address>
-          <a href="tel:+642109058051">+64 21 090 58051</a>
-          <a href="mailto:inquiries@watthausstrategy.co.nz">inquiries@watthausstrategy.co.nz</a>
-          <a href="https://maps.google.com/?q=4/51+Point+England+Road,+Auckland+1072" target="_blank" rel="noopener">4/51 Point England Road<br>Auckland 1072, New Zealand</a>
-        </address>
-      </div>
+      <div class="footer-col"><h3>Explore</h3><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="solar.html">Home Solar</a></li>
+        <li><a href="consultancy.html">Consultancy</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h3>Get started</h3><ul>
+        <li><a href="quote.html">Solar planner</a></li>
+        <li><a href="quote.html?path=land">Land &amp; project enquiry</a></li>
+        <li><a href="solar.html#calculator">Savings calculator</a></li>
+        <li><a href="solar.html#finance">Finance options</a></li>
+        <li><a href="contact.html#faq">FAQs</a></li>
+      </ul></div>
+      <div class="footer-col"><h3>Talk to us</h3><ul>
+        <li><a href="tel:+642109058051">+64 21 090 58051</a></li>
+        <li><a href="mailto:inquiries@watthausstrategy.co.nz">inquiries@watthausstrategy.co.nz</a></li>
+        <li><a href="https://maps.google.com/?q=4/51+Point+England+Road,+Auckland+1072" target="_blank" rel="noopener">4/51 Point England Road<br>Auckland 1072, New Zealand</a></li>
+      </ul></div>
     </div>
-  </div>
-  <div class="footer__word" aria-hidden="true"><img src="assets/img/logos/wordmark-silver.webp" alt="" loading="lazy"></div>
-  <div class="wrap">
-    <div class="footer__bottom">
-      <span>© <span data-year>2026</span> Watthaus Strategy Ltd. All rights reserved.</span>
-      <span>Energy engineered forward · Auckland, Aotearoa</span>
+    <span class="footer-wordmark" aria-hidden="true">Watthaus</span>
+    <div class="footer-bottom">
+      <span class="label">© <span data-year>2026</span> Watthaus Strategy Ltd</span>
+      <span class="label">Energy engineered forward · Aotearoa</span>
+      <a class="label" href="#main" data-top>Back to top ↑</a>
     </div>
   </div>
 </footer>
 
-<nav class="mbar" aria-label="Quick actions" data-mbar>
-  <a class="mbar__call" href="tel:+642109058051" aria-label="Call Watthaus"><svg aria-hidden="true"><use href="#i-phone"/></svg></a>
-  <a class="mbar__quote" href="quote.html">Get my solar plan <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-</nav>
+<div class="sticky-cta" aria-label="Quick actions" data-sticky-cta>
+  <a class="btn btn--ghost btn--call" href="tel:+642109058051" aria-label="Call Watthaus"><svg aria-hidden="true"><use href="#i-phone"/></svg></a>
+  <a class="btn btn--gold btn--plain" href="quote.html">Get my solar plan</a>
+</div>
 
-<div class="cursor" aria-hidden="true"><div class="cursor__ring"><span>View</span></div><div class="cursor__dot"></div></div>
-
-<script src="assets/js/config.js?v=1792428914"></script>
-<script src="assets/js/main.js?v=1792428914" defer></script>
+<script src="assets/js/config.js?v=1792431243"></script>
+<script src="assets/js/main.js?v=1792431243" defer></script>
 </body>
 </html>

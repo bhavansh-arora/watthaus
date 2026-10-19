@@ -14,24 +14,32 @@
 <meta property="og:url" content="https://www.watthausstrategy.co.nz/contact.html">
 <meta property="og:image" content="https://www.watthausstrategy.co.nz/assets/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/css/main.css?v=1792428914">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/main.css?v=1792431243">
 <script>
-  document.documentElement.classList.add('js');
-  try { if (sessionStorage.getItem('wh-seen') || matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('no-loader'); } catch (e) {}
+  (function (h) {
+    h.classList.add('js');
+    try {
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (sessionStorage.getItem('wh-nav')) { sessionStorage.removeItem('wh-nav'); h.classList.add('is-entering'); }
+      else if (!sessionStorage.getItem('wh-seen')) h.classList.add('is-loading');
+    } catch (e) {}
+  })(document.documentElement);
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LocalBusiness","name":"Watthaus Strategy Ltd","url":"https://www.watthausstrategy.co.nz","telephone":"+64 21 090 58051","email":"inquiries@watthausstrategy.co.nz","image":"https://www.watthausstrategy.co.nz/assets/img/og.jpg","address":{"@type":"PostalAddress","streetAddress":"4/51 Point England Road","addressLocality":"Auckland","postalCode":"1072","addressCountry":"NZ"},"areaServed":"New Zealand","sameAs":["https://nz.linkedin.com/company/watthaus-strategy-ltd","https://www.instagram.com/watthaussolar"]}
 </script>
 </head>
 <body class="page-contact">
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip-link" href="#main">Skip to content</a>
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
   <defs>
+    <symbol id="mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="5.4" stroke-linejoin="miter" stroke-miterlimit="10"><path d="M5.2 16.8 21 55.6 32 29.6 43 55.6 58.8 16.8"/><path d="M20 34 32 5.8 44 34"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></symbol>
     <symbol id="i-arrow-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
     <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
@@ -67,111 +75,122 @@
   </defs>
 </svg>
 
-<div class="loader" aria-hidden="true">
-  <div class="loader__inner">
-    <img class="loader__mark" src="assets/img/logos/mark-silver.png" alt="" width="72" height="68">
-    <div class="loader__bar"><span></span></div>
-    <div class="loader__txt">Energy engineered forward</div>
+<div class="preloader" aria-hidden="true">
+  <div class="preloader__inner">
+    <svg class="preloader__mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linejoin="miter"><path pathLength="1" d="M5.2 16.8 21 55.6 32 29.6 43 55.6 58.8 16.8"/><path pathLength="1" d="M20 34 32 5.8 44 34"/></svg>
+    <p class="preloader__name"><span>Watthaus Strategy</span></p>
+    <p class="preloader__tag"><span>Energy engineered forward</span></p>
   </div>
+  <div class="preloader__foot"><span>Solar · Consultancy · Auckland</span><span class="preloader__count" data-count-loader>000</span></div>
+  <div class="preloader__bar"><span></span></div>
 </div>
+<div class="curtain" aria-hidden="true"><svg class="curtain__mark"><use href="#mark"/></svg></div>
+<div class="scroll-progress" aria-hidden="true"><span></span></div>
+<div class="cursor" aria-hidden="true"><span class="cursor__ring"><span class="cursor__label"></span></span><span class="cursor__dot"></span></div>
 
-<header class="nav" data-nav>
-  <div class="nav__inner wrap">
-    <a class="nav__brand" href="index.html" aria-label="Watthaus Strategy, home">
-      <img class="nav__mark" src="assets/img/logos/mark-silver.png" alt="" width="30" height="28">
-      <img class="nav__word" src="assets/img/logos/wordmark-silver.webp" alt="Watthaus Strategy" width="127" height="30">
-    </a>
-    <nav class="nav__links" aria-label="Primary">
-      <a href="solar.html">Home Solar</a>
-      <a href="consultancy.html">Consultancy</a>
-      <a href="projects.html">Projects</a>
-      <a href="about.html">About</a>
-      <a href="contact.html" aria-current="page">Contact</a>
+<header class="site-header" data-header>
+  <div class="site-header__inner">
+    <a class="brand" href="index.html" aria-label="Watthaus Strategy, home"><svg class="brand__mark" aria-hidden="true"><use href="#mark"/></svg><span class="brand__name">Watthaus<em>strategy</em></span></a>
+    <nav class="nav" aria-label="Primary">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="solar.html">Home Solar</a></li>
+        <li><a class="nav__link" href="consultancy.html">Consultancy</a></li>
+        <li><a class="nav__link" href="projects.html">Projects</a></li>
+        <li><a class="nav__link" href="about.html">About</a></li>
+        <li><a class="nav__link" href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
     </nav>
-    <div class="nav__actions">
-      <a class="nav__phone" href="tel:+642109058051"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>+64 21 090 58051</span></a>
+    <div class="header-actions">
+      <a class="header-phone" href="tel:+642109058051"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>+64 21 090 58051</span></a>
       <a class="btn btn--gold btn--sm" href="quote.html" data-magnetic>Get my solar plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-      <button class="nav__burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu" data-burger><span></span><span></span></button>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" data-menu-toggle>Menu<span class="menu-toggle__bars" aria-hidden="true"><span></span><span></span></span></button>
     </div>
   </div>
 </header>
 
-<div class="menu" id="menu" aria-label="Site menu">
-  <ul class="menu__links">
-    <li><a href="index.html"><span>00</span>Home</a></li>
-    <li><a href="solar.html"><span>01</span>Home Solar</a></li>
-    <li><a href="consultancy.html"><span>02</span>Consultancy</a></li>
-    <li><a href="projects.html"><span>03</span>Projects</a></li>
-    <li><a href="about.html"><span>04</span>About</a></li>
-    <li><a href="contact.html" aria-current="page"><span>05</span>Contact</a></li>
-  </ul>
-  <div class="menu__foot">
-    <a class="btn btn--gold" href="quote.html">Get my solar plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-    <div class="menu__contact">
-      <a href="tel:+642109058051">+64 21 090 58051</a>
-      <a href="mailto:inquiries@watthausstrategy.co.nz">inquiries@watthausstrategy.co.nz</a>
+<div class="mobile-menu" id="mobile-menu">
+  <nav aria-label="Mobile">
+    <ul class="mobile-menu__list">
+      <li><a href="index.html">Home<small>01</small></a></li>
+      <li><a href="solar.html">Home Solar<small>02</small></a></li>
+      <li><a href="consultancy.html">Consultancy<small>03</small></a></li>
+      <li><a href="projects.html">Projects<small>04</small></a></li>
+      <li><a href="about.html">About<small>05</small></a></li>
+      <li><a href="contact.html" aria-current="page">Contact<small>06</small></a></li>
+    </ul>
+  </nav>
+  <div class="mobile-menu__foot">
+    <a class="btn btn--gold btn--block" href="quote.html">Get my solar plan <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+    <div class="row">
+      <a class="pill" href="tel:+642109058051"><svg aria-hidden="true"><use href="#i-phone"/></svg>+64 21 090 58051</a>
+      <a class="pill" href="mailto:inquiries@watthausstrategy.co.nz"><svg aria-hidden="true"><use href="#i-mail"/></svg>Email us</a>
+      <a class="pill" href="https://www.instagram.com/watthaussolar" target="_blank" rel="noopener">Instagram</a>
+      <a class="pill" href="https://nz.linkedin.com/company/watthaus-strategy-ltd" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </div>
 </div>
 
 <main id="main">
-<section class="phero phero--short">
-  <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Contact</span></nav>
-    <div class="phero__grid">
-      <h1 class="display h1" data-split>Start your solar <em class="gold-text">journey today.</em></h1>
-      <div class="phero__aside" data-reveal style="--d:.4s">
-        <p class="lead">Whether you're a homeowner curious about rooftop solar or a developer with land, we'll give you straight answers and a clear plan.</p>
-        <span class="chip"><span class="dot-live"></span>We reply within one business day</span>
+<section class="page-hero page-hero--plain">
+  <div class="page-hero__frame">
+    <div class="page-hero__inner">
+      <nav class="crumbs label" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Contact</span></nav>
+      <h1 class="page-hero__title" data-lines>Start your solar <em>journey today.</em></h1>
+      <div class="page-hero__foot" data-reveal style="--d:.4s">
+        <p class="lede">Whether you're a homeowner curious about rooftop solar or a developer with land, we'll give you straight answers and a clear plan.</p>
+        <div class="row"><span class="pill"><span class="label label--dot label--live" style="color:inherit">We reply within one business day</span></span></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" style="padding-top:clamp(48px,6vw,96px)">
-  <div class="wrap">
-    <div class="contact">
-      <div class="stack">
+<!-- 01 Contact -->
+<section class="section">
+  <div class="container">
+    <div class="head__top" style="margin-bottom:clamp(28px,3.6vw,48px)"><span class="label">(01) — Our office</span><span class="label">Point England · Auckland</span></div>
+    <div class="contact-grid">
+      <div class="stack" style="--stack:12px">
+        <h2 class="h-lg" data-lines>We'd love to <em>hear from you.</em></h2>
+        <p class="body" data-reveal style="margin-bottom:12px">Talk to us about your project, ask a question or request a no-obligation quote.</p>
         <div class="clist" data-reveal>
           <a href="tel:+642109058051"><span class="ic"><svg aria-hidden="true"><use href="#i-phone"/></svg></span><div><small>Call us</small><span>+64 21 090 58051</span></div><svg class="arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           <a href="mailto:inquiries@watthausstrategy.co.nz"><span class="ic"><svg aria-hidden="true"><use href="#i-mail"/></svg></span><div><small>General enquiries</small><span>inquiries@watthausstrategy.co.nz</span></div><svg class="arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          <a href="https://maps.google.com/?q=4/51+Point+England+Road,+Auckland+1072" target="_blank" rel="noopener"><span class="ic"><svg aria-hidden="true"><use href="#i-pin"/></svg></span><div><small>Office</small><span>4/51 Point England Road, Auckland 1072</span></div><svg class="arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a href="https://maps.google.com/?q=4/51+Point+England+Road,+Auckland+1072" target="_blank" rel="noopener"><span class="ic"><svg aria-hidden="true"><use href="#i-pin"/></svg></span><div><small>Office address</small><span>4/51 Point England Road, Auckland 1072</span></div><svg class="arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           <a href="https://nz.linkedin.com/company/watthaus-strategy-ltd" target="_blank" rel="noopener"><span class="ic"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></span><div><small>LinkedIn</small><span>Watthaus Strategy Ltd</span></div><svg class="arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           <a href="https://www.instagram.com/watthaussolar" target="_blank" rel="noopener"><span class="ic"><svg aria-hidden="true"><use href="#i-instagram"/></svg></span><div><small>Instagram</small><span>@watthaussolar</span></div><svg class="arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
         <a class="mapcard" href="https://maps.google.com/?q=4/51+Point+England+Road,+Auckland+1072" target="_blank" rel="noopener" data-reveal aria-label="Open our office location in Google Maps">
           <span class="mapcard__pin" aria-hidden="true"></span>
-          <div class="row-actions" style="justify-content:space-between;width:100%">
-            <div><span class="mono muted">Point England · Auckland</span><div class="display" style="font-size:1.8rem;line-height:1.1">Visit the office</div></div>
-            <span class="btn btn--ghost btn--sm">Directions <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
-          </div>
+          <div class="row row--between" style="width:100%"><div><span class="label">Point England · Auckland</span><p class="h-sm">Visit the office</p></div><span class="btn btn--ghost btn--sm">Directions <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></span></div>
         </a>
       </div>
 
       <form class="form" data-form="contact" novalidate data-reveal style="--d:.1s">
-        <div>
-          <span class="eyebrow">Send us a message</span>
-          <h2 class="display h3 mt-s">Tell us about your project.</h2>
+        <div class="row row--between" style="margin-bottom:6px"><span class="label label--dot">Send us a message</span><span class="label">Reply in 1 business day</span></div>
+        <h3 class="h-md" style="margin-bottom:10px">Tell us about <em>your project.</em></h3>
+        <div class="form__row">
+          <div class="input"><input id="c-first" name="firstName" placeholder=" " autocomplete="given-name" required><label for="c-first">First name</label></div>
+          <div class="input"><input id="c-last" name="lastName" placeholder=" " autocomplete="family-name"><label for="c-last">Last name</label></div>
         </div>
         <div class="form__row">
-          <div class="input"><input id="c-name" name="name" placeholder=" " autocomplete="name" required><label for="c-name">Full name</label></div>
-          <div class="input"><input id="c-phone" name="phone" type="tel" placeholder=" " autocomplete="tel"><label for="c-phone">Phone</label></div>
+          <div class="input"><input id="c-phone" name="phone" type="tel" placeholder=" " autocomplete="tel"><label for="c-phone">Phone number</label></div>
+          <div class="input"><input id="c-email" name="email" type="email" placeholder=" " autocomplete="email" required><label for="c-email">Email address</label></div>
         </div>
-        <div class="input"><input id="c-email" name="email" type="email" placeholder=" " autocomplete="email" required><label for="c-email">Email address</label></div>
-        <div class="input">
-          <select id="c-topic" name="topic">
-            <option>Rooftop solar for my home</option>
-            <option>Adding a battery</option>
-            <option>Commercial / business solar</option>
-            <option>Land or utility-scale project</option>
-            <option>Partnership or something else</option>
-          </select>
-          <label for="c-topic">I'm interested in</label>
+        <div class="input"><input id="c-address" name="address" placeholder=" " autocomplete="street-address"><label for="c-address">Street address</label></div>
+        <div class="form__row">
+          <div class="input">
+            <select id="c-topic" name="topic"><option>Rooftop solar for my home</option><option>Adding a battery</option><option>Commercial / business solar</option><option>Land or utility-scale project</option><option>Partnership or something else</option></select>
+            <label for="c-topic">I'm interested in</label>
+          </div>
+          <div class="input">
+            <select id="c-bill" name="monthlyBill"><option>Not sure</option><option>Under $150</option><option>$150–$250</option><option>$250–$400</option><option>$400–$600</option><option>$600+</option></select>
+            <label for="c-bill">Average monthly power bill</label>
+          </div>
         </div>
-        <div class="input"><textarea id="c-msg" name="message" placeholder=" " maxlength="600"></textarea><label for="c-msg">Message (optional)</label></div>
-        <div class="row-actions" style="justify-content:space-between">
+        <div class="input input--grow"><textarea id="c-msg" name="message" placeholder=" " maxlength="600"></textarea><label for="c-msg">Message (optional)</label></div>
+        <div class="row row--between">
           <button class="btn btn--gold" type="submit">Send message <span class="btn__icon"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
-          <a class="link-arrow small" href="quote.html">Want a solar quote? Use the planner <svg aria-hidden="true"><use href="#i-arrow-r"/></svg></a>
+          <a class="link" href="quote.html">Prefer the solar planner? <svg aria-hidden="true"><use href="#i-arrow-r"/></svg></a>
         </div>
         <p class="form__ok" role="status">Thanks, your message is on its way. We'll be in touch within one business day.</p>
       </form>
@@ -179,20 +198,19 @@
   </div>
 </section>
 
-<section class="section section--ink2">
-  <div class="wrap">
-    <div class="head">
-      <div class="head__title">
-        <span class="eyebrow">Your point of contact</span>
-        <h2 class="display h2" data-split>Talk to a <em>founder.</em></h2>
-      </div>
-      <p class="lead" data-reveal>Prefer to speak with someone directly? Reach Anjana for partnerships and projects, or Navin for anything technical.</p>
+<!-- 02 Founders -->
+<section class="section section--flush">
+  <div class="container">
+    <div class="head head--split">
+      <div class="head__top"><span class="label">(02) — Meet your point of contact</span><span class="label">Speak directly with our team</span></div>
+      <h2 class="h-xl" data-lines>Talk to a <em>founder.</em></h2>
+      <p class="lede" data-reveal>Reach Anjana for partnerships and projects, or Navin for anything technical.</p>
     </div>
-    <div class="team">
-      <article class="member" data-reveal>
-        <div class="member__img" style="aspect-ratio:5/4"><img src="assets/img/anjana.webp" alt="Portrait of Anjana Premashantha" loading="lazy" style="object-position:center 20%"></div>
+    <div class="grid-2">
+      <article class="member" data-reveal style="aspect-ratio:5/4">
+        <img src="assets/img/anjana.webp" alt="Portrait of Anjana Premashantha" loading="lazy">
         <div class="member__info">
-          <div><h3>Anjana</h3><p>Co-Founder &amp; Head of Strategic Partnerships</p></div>
+          <div><span class="label">Co-founder</span><h3 class="h-md mt-s">Anjana</h3><p>Head of Strategic Partnerships · +64 22 646 1996</p></div>
           <div class="member__links">
             <a href="tel:+64226461996" aria-label="Call Anjana"><svg aria-hidden="true"><use href="#i-phone"/></svg></a>
             <a href="mailto:anjana@watthausstrategy.co.nz" aria-label="Email Anjana"><svg aria-hidden="true"><use href="#i-mail"/></svg></a>
@@ -200,10 +218,10 @@
           </div>
         </div>
       </article>
-      <article class="member" data-reveal style="--d:.12s">
-        <div class="member__img" style="aspect-ratio:5/4"><img src="assets/img/navin.webp" alt="Portrait of Navin Perera" loading="lazy" style="object-position:center 20%"></div>
+      <article class="member" data-reveal style="aspect-ratio:5/4;--d:.1s">
+        <img src="assets/img/navin.webp" alt="Portrait of Navin Perera" loading="lazy">
         <div class="member__info">
-          <div><h3>Navin</h3><p>Co-Founder &amp; Technical Director</p></div>
+          <div><span class="label">Co-founder</span><h3 class="h-md mt-s">Navin</h3><p>Technical Director · Head of Engineering</p></div>
           <div class="member__links">
             <a href="tel:+642109058051" aria-label="Call Navin"><svg aria-hidden="true"><use href="#i-phone"/></svg></a>
             <a href="mailto:navin@watthausstrategy.co.nz" aria-label="Email Navin"><svg aria-hidden="true"><use href="#i-mail"/></svg></a>
@@ -215,99 +233,81 @@
   </div>
 </section>
 
+<!-- 03 FAQ -->
 <section class="section" id="faq">
-  <div class="wrap">
-    <div class="head">
-      <div class="head__title">
-        <span class="eyebrow">Common questions</span>
-        <h2 class="display h2" data-split>Frequently <em>asked.</em></h2>
-      </div>
-      <p class="lead" data-reveal>Can't see your question? Call us on +64 21 090 58051 and we'll give you a straight answer.</p>
+  <div class="container">
+    <div class="head head--split">
+      <div class="head__top"><span class="label">(03) — Common questions</span><span class="label">FAQ</span></div>
+      <h2 class="h-xl" data-lines>Frequently <em>asked.</em></h2>
+      <p class="lede" data-reveal>Can't see your question? Call +64 21 090 58051 and we'll give you a straight answer.</p>
     </div>
     <div class="acc" data-reveal>
-      <details open>
-        <summary><span class="idx">01</span><h3>What services does Watthaus Strategy offer?</h3><span class="acc__plus" aria-hidden="true"></span></summary>
-        <div class="acc__body"><div class="acc__inner"><p>Two main streams: residential rooftop solar for homeowners, and utility-scale solar consulting for developers, landowners and investors. Our consulting covers land acquisition, engineering, procurement and full construction management across New Zealand.</p></div></div>
-      </details>
-      <details>
-        <summary><span class="idx">02</span><h3>How do I get started with a residential solar quote?</h3><span class="acc__plus" aria-hidden="true"></span></summary>
-        <div class="acc__body"><div class="acc__inner"><p>Use our <a class="link-arrow" href="quote.html">solar planner</a> or call us directly. We'll have a brief chat about your household usage and roof, then send a detailed proposal, including system size, expected savings and ROI, within a few days, at no cost or obligation.</p></div></div>
-      </details>
-      <details>
-        <summary><span class="idx">03</span><h3>What solar products do you use for residential installations?</h3><span class="acc__plus" aria-hidden="true"></span></summary>
-        <div class="acc__body"><div class="acc__inner"><p>JA Solar Tier 1 panels (510W) and Sigenergy inverters for all residential installations, with SigenStor batteries for hybrid systems. Products carry manufacturer warranties of 10–25 years, and we add our own 10-year workmanship guarantee.</p></div></div>
-      </details>
-      <details>
-        <summary><span class="idx">04</span><h3>How do you source land for solar projects?</h3><span class="acc__plus" aria-hidden="true"></span></summary>
-        <div class="acc__body"><div class="acc__inner"><p>We draw on our network of landowners, real estate partners (including The WORX) and regional councils. Every site gets a full feasibility assessment covering grid proximity, topography, solar irradiance and consent pathways before we recommend it.</p></div></div>
-      </details>
-      <details>
-        <summary><span class="idx">05</span><h3>What legal and regulatory work is involved in utility-scale solar?</h3><span class="acc__plus" aria-hidden="true"></span></summary>
-        <div class="acc__body"><div class="acc__inner"><p>We manage the full regulatory pathway: resource consents, grid connection applications and building consents where required. We work closely with local councils, lines companies and Transpower so every project is compliant from day one.</p></div></div>
-      </details>
+      <details open><summary><span class="label">01</span><h3>What services does Watthaus Strategy offer?</h3><span class="acc__plus" aria-hidden="true"></span></summary><div class="acc__body"><div class="acc__inner"><p>Two main streams: residential rooftop solar installations for homeowners, and utility-scale solar consulting for developers, landowners and investors. Our consulting covers land acquisition, engineering, procurement and full construction management across New Zealand.</p></div></div></details>
+      <details><summary><span class="label">02</span><h3>How do I get started with a residential solar quote?</h3><span class="acc__plus" aria-hidden="true"></span></summary><div class="acc__body"><div class="acc__inner"><p>Use the <a class="link" href="quote.html">solar planner</a>, fill in the form above or call us directly. We'll arrange a brief call about your household usage and roof, then provide a detailed proposal, including system size, expected savings and ROI, within a few days, at no cost or obligation.</p></div></div></details>
+      <details><summary><span class="label">03</span><h3>What solar products do you use for residential installations?</h3><span class="acc__plus" aria-hidden="true"></span></summary><div class="acc__body"><div class="acc__inner"><p>JA Solar Tier 1 panels (510W) and Sigenergy inverters for all residential installations, with SigenStor batteries for hybrid systems. All products carry manufacturer warranties of 10–25 years, and we provide an additional 10-year workmanship guarantee.</p></div></div></details>
+      <details><summary><span class="label">04</span><h3>How do you source land for solar projects?</h3><span class="acc__plus" aria-hidden="true"></span></summary><div class="acc__body"><div class="acc__inner"><p>We draw on our network of landowners, real estate partners (including The WORX) and regional councils. Every site gets a full feasibility assessment covering grid proximity, topography, solar irradiance and consent pathways before we recommend it.</p></div></div></details>
+      <details><summary><span class="label">05</span><h3>What legal and regulatory work is involved in utility-scale solar?</h3><span class="acc__plus" aria-hidden="true"></span></summary><div class="acc__body"><div class="acc__inner"><p>We manage the full regulatory pathway: resource consents, grid connection applications and building consents where required. We work closely with local councils, lines companies and Transpower to ensure every project is compliant from day one.</p></div></div></details>
     </div>
   </div>
 </section>
 </main>
-<footer class="footer">
-  <div class="wrap">
-    <div class="footer__top">
-      <div class="footer__brand">
-        <img src="assets/img/logos/wordmark-silver.webp" alt="Watthaus Strategy" width="200" height="47" loading="lazy">
-        <p>Powering New Zealand's transition to clean energy, one installation at a time.</p>
-        <div class="footer__social">
+<footer class="site-footer">
+  <div class="footer-card">
+    <div class="footer-cta">
+      <div>
+        <span class="label label--dot label--live">Free site assessment</span>
+        <p class="h-xl mt-m" data-lines>Let's power<br>what's <em>next.</em></p>
+        <p class="lede">Answer a few quick questions and get an indicative system, savings estimate and a booked site assessment.</p>
+      </div>
+      <a class="footer-cta__btn" href="quote.html" data-magnetic><span>Get my<br>solar plan<svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+    </div>
+    <div class="footer-grid">
+      <div class="footer-col footer-col--intro">
+        <a class="brand" href="index.html"><svg class="brand__mark" aria-hidden="true"><use href="#mark"/></svg><span class="brand__name">Watthaus<em>strategy</em></span></a>
+        <p>Bridging real estate and renewable energy. Powering New Zealand's transition to clean energy, one installation at a time.</p>
+        <div class="footer-social">
           <a href="https://nz.linkedin.com/company/watthaus-strategy-ltd" target="_blank" rel="noopener" aria-label="Watthaus on LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a>
           <a href="https://www.instagram.com/watthaussolar" target="_blank" rel="noopener" aria-label="Watthaus Solar on Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
           <a href="mailto:inquiries@watthausstrategy.co.nz" aria-label="Email Watthaus"><svg aria-hidden="true"><use href="#i-mail"/></svg></a>
+          <a href="tel:+642109058051" aria-label="Call Watthaus"><svg aria-hidden="true"><use href="#i-phone"/></svg></a>
         </div>
       </div>
-      <div>
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="solar.html">Home Solar</a></li>
-          <li><a href="consultancy.html">Utility-scale Consultancy</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="about.html">About us</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Get started</h4>
-        <ul>
-          <li><a href="quote.html">Get my solar plan</a></li>
-          <li><a href="quote.html?path=land">Land &amp; project enquiry</a></li>
-          <li><a href="solar.html#calculator">Savings calculator</a></li>
-          <li><a href="solar.html#finance">Finance options</a></li>
-          <li><a href="contact.html#faq">FAQs</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Talk to us</h4>
-        <address>
-          <a href="tel:+642109058051">+64 21 090 58051</a>
-          <a href="mailto:inquiries@watthausstrategy.co.nz">inquiries@watthausstrategy.co.nz</a>
-          <a href="https://maps.google.com/?q=4/51+Point+England+Road,+Auckland+1072" target="_blank" rel="noopener">4/51 Point England Road<br>Auckland 1072, New Zealand</a>
-        </address>
-      </div>
+      <div class="footer-col"><h3>Explore</h3><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="solar.html">Home Solar</a></li>
+        <li><a href="consultancy.html">Consultancy</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h3>Get started</h3><ul>
+        <li><a href="quote.html">Solar planner</a></li>
+        <li><a href="quote.html?path=land">Land &amp; project enquiry</a></li>
+        <li><a href="solar.html#calculator">Savings calculator</a></li>
+        <li><a href="solar.html#finance">Finance options</a></li>
+        <li><a href="contact.html#faq">FAQs</a></li>
+      </ul></div>
+      <div class="footer-col"><h3>Talk to us</h3><ul>
+        <li><a href="tel:+642109058051">+64 21 090 58051</a></li>
+        <li><a href="mailto:inquiries@watthausstrategy.co.nz">inquiries@watthausstrategy.co.nz</a></li>
+        <li><a href="https://maps.google.com/?q=4/51+Point+England+Road,+Auckland+1072" target="_blank" rel="noopener">4/51 Point England Road<br>Auckland 1072, New Zealand</a></li>
+      </ul></div>
     </div>
-  </div>
-  <div class="footer__word" aria-hidden="true"><img src="assets/img/logos/wordmark-silver.webp" alt="" loading="lazy"></div>
-  <div class="wrap">
-    <div class="footer__bottom">
-      <span>© <span data-year>2026</span> Watthaus Strategy Ltd. All rights reserved.</span>
-      <span>Energy engineered forward · Auckland, Aotearoa</span>
+    <span class="footer-wordmark" aria-hidden="true">Watthaus</span>
+    <div class="footer-bottom">
+      <span class="label">© <span data-year>2026</span> Watthaus Strategy Ltd</span>
+      <span class="label">Energy engineered forward · Aotearoa</span>
+      <a class="label" href="#main" data-top>Back to top ↑</a>
     </div>
   </div>
 </footer>
 
-<nav class="mbar" aria-label="Quick actions" data-mbar>
-  <a class="mbar__call" href="tel:+642109058051" aria-label="Call Watthaus"><svg aria-hidden="true"><use href="#i-phone"/></svg></a>
-  <a class="mbar__quote" href="quote.html">Get my solar plan <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-</nav>
+<div class="sticky-cta" aria-label="Quick actions" data-sticky-cta>
+  <a class="btn btn--ghost btn--call" href="tel:+642109058051" aria-label="Call Watthaus"><svg aria-hidden="true"><use href="#i-phone"/></svg></a>
+  <a class="btn btn--gold btn--plain" href="quote.html">Get my solar plan</a>
+</div>
 
-<div class="cursor" aria-hidden="true"><div class="cursor__ring"><span>View</span></div><div class="cursor__dot"></div></div>
-
-<script src="assets/js/config.js?v=1792428914"></script>
-<script src="assets/js/main.js?v=1792428914" defer></script>
+<script src="assets/js/config.js?v=1792431243"></script>
+<script src="assets/js/main.js?v=1792431243" defer></script>
 </body>
 </html>

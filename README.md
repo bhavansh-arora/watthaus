@@ -13,6 +13,13 @@ Static HTML, CSS and vanilla JavaScript: no framework, no dependencies, fast on 
 
 <p align="center"><img src=".github/preview/phone.jpg" alt="Home page and planner on a phone" width="600"></p>
 
+## Design
+
+- **Single-colour logo.** The W mark is redrawn as a vector (`#mark` in `src/partials/sprite.svg`, plus `assets/img/favicon.svg`), so it stays crisp at any size and takes on the surrounding text colour. Partner and bank logos are converted to matching single-colour versions in `assets/img/logos/mono/`.
+- **Type.** Inter Tight for headlines and body, Instrument Serif italics for accent words, Geist Mono for small labels.
+- **Colour.** Carbon black, warm ivory and solar gold; the Consultancy page and cards switch the accent to green.
+- **Motion.** First-visit preloader, curtain transitions between pages, word-by-word headline reveals, a hero slideshow synced to a rotating word, pinned sideways services, stacking process cards and scroll-lit statements. All of it switches off for visitors who ask their device to reduce motion.
+
 ## Pages
 
 | Page | File | What it does |
