@@ -49,7 +49,7 @@
 
 /* ---------- reset ---------- */
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; background: var(--bg); scroll-padding-top: 96px; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; background: var(--bg); scroll-padding-top: 96px; -webkit-tap-highlight-color: transparent; }
 body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 1rem; line-height: 1.6; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; overflow-x: clip; min-height: 100vh; }
 img, video, svg, canvas { display: block; max-width: 100%; }
 img { height: auto; }
@@ -143,45 +143,53 @@ a.pill:hover { border-color: var(--ink); color: var(--ink); }
 .pill--accent { border-color: color-mix(in srgb, var(--accent) 45%, transparent); color: var(--accent-hi); }
 .icon { width: 20px; height: 20px; flex: none; }
 
-/* ---------- page veil: one transition for every page load ---------- */
+/* ---------- page veil: one transition for every page load ----------
+   Everything on the veil is SVG (no web fonts), so it paints identically on
+   the very first frame of the next page. Content is centred on the small
+   viewport (svh) so a phone's toolbar changing height never shifts it. */
 .veil { position: fixed; inset: 0; z-index: 990; pointer-events: none; }
-.veil__panel { position: absolute; inset: -2px 0; display: grid; place-items: center; will-change: transform;
-  background: radial-gradient(40% 40% at 50% 48%, rgba(226,178,94,.09), transparent 70%), #0d0d0f;
+.veil__panel { position: absolute; inset: -2px 0; overflow: hidden; will-change: transform; contain: strict;
+  background: radial-gradient(60vmax 60vmax at 50% 50svh, rgba(226,178,94,.09), transparent 60%), #0d0d0f;
   transform: translate3d(0, 102%, 0); border-radius: 50% 50% 0 0 / 16vh 16vh 0 0; }
 html.veil-in .veil__panel, html.veil-cover .veil__panel { transform: none; border-radius: 0; }
 html.veil-cover .veil__panel { pointer-events: all; transition: transform .7s var(--ease-io), border-radius .7s var(--ease-io); }
 html.veil-out .veil__panel { transform: translate3d(0, -102%, 0); border-radius: 0 0 50% 50% / 0 0 16vh 16vh; transition: transform 1s var(--ease-io), border-radius 1s var(--ease-io); }
-/* if scripts never run, never leave the page covered */
 html.veil-in:not(.veil-out) .veil__panel { animation: veilSafety .01s 5s forwards; }
 @keyframes veilSafety { to { transform: translate3d(0, -102%, 0); } }
-.veil__watermark { position: absolute; left: 50%; top: 50%; width: min(118vh, 130vw); height: auto; transform: translate(-50%, -52%); color: rgba(237,235,228,.05); pointer-events: none; }
-.veil__center { position: relative; display: grid; justify-items: center; text-align: center; transition: opacity .45s var(--ease-io), transform .7s var(--ease-io); }
+.veil__stage { position: absolute; left: 0; right: 0; top: 2px; height: 100vh; height: 100svh; display: grid; place-items: center; }
+.veil__watermark { position: absolute; left: 50%; top: 50%; width: min(118vh, 130vw); height: auto; transform: translate(-50%, -52%); color: rgba(237,235,228,.05); }
+.veil__center { position: relative; display: flex; flex-direction: column; align-items: center; transition: opacity .45s var(--ease-io), transform .7s var(--ease-io); }
 html.veil-out .veil__center, html.veil-out .veil__foot { opacity: 0; transform: translate3d(0, -28px, 0); }
 .veil__mark { width: 60px; height: 60px; color: var(--ink); overflow: visible; margin-bottom: 26px; }
-.veil__mark path { stroke-dasharray: 1; stroke-dashoffset: 1; }
-.veil__word { overflow: hidden; padding: .1em .12em .22em; margin: -.1em 0 -.22em; font-size: clamp(1.9rem, 1.4rem + 1.6vw, 2.7rem); font-weight: 600; letter-spacing: -0.045em; line-height: 1; color: var(--ink); }
-.veil__word em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; color: var(--gold-hi); margin-left: .14em; }
-.veil__tag { overflow: hidden; padding-bottom: .2em; margin-top: 14px; font-family: var(--mono); font-size: .7rem; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); }
-.veil__word span, .veil__tag span { display: inline-block; transform: translate3d(0, 120%, 0); }
-.veil__line { position: relative; width: 140px; height: 1px; margin-top: 22px; background: rgba(237,235,228,.14); overflow: hidden; }
+.veil__mark path { stroke-dashoffset: 1; stroke-dasharray: 1; }
+.veil__clip { display: block; overflow: hidden; padding: 2px 4px; }
+.veil__word { display: block; height: clamp(34px, 26px + 1.4vw, 46px); width: auto; transform: translate3d(0, 110%, 0); }
+.veil__word-a { fill: var(--ink); }
+.veil__word-b { fill: var(--gold-hi); }
+.veil__clip--tag { margin-top: 14px; }
+.veil__tag { display: block; height: 8px; width: auto; fill: var(--muted); transform: translate3d(0, 130%, 0); }
+.veil__line { position: relative; width: 140px; height: 1px; margin-top: 20px; background: rgba(237,235,228,.14); overflow: hidden; }
 .veil__line i { position: absolute; inset: 0; background: var(--gold-grad); transform-origin: left; transform: scaleX(var(--vp, 0)); transition: transform .35s var(--ease-out); }
+.veil__foot .label { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; }
 .veil__foot { position: absolute; left: var(--gutter); right: var(--gutter); bottom: calc(26px + env(safe-area-inset-bottom)); display: flex; justify-content: space-between; gap: 16px; transition: opacity .45s var(--ease-io), transform .7s var(--ease-io); }
 /* first visit: draw the mark, then the wordmark and tagline rise in */
 html.veil-in:not(.veil-nav) .veil__mark path { animation: veilDraw 1s var(--ease-io) .1s forwards; }
 html.veil-in:not(.veil-nav) .veil__mark path + path { animation-delay: .4s; }
-html.veil-in:not(.veil-nav) .veil__word span { animation: veilRise .9s var(--ease-out) .55s forwards; }
-html.veil-in:not(.veil-nav) .veil__tag span { animation: veilRise .9s var(--ease-out) .72s forwards; }
-/* arriving from another page: brand already composed */
-html.veil-nav .veil__mark path { stroke-dashoffset: 0; }
-html.veil-nav .veil__word span, html.veil-nav .veil__tag span { transform: none; }
-html.veil-nav .veil__line i { --vp: 1; }
-/* leaving a page: the panel sweeps up and the brand composes on it */
-html.veil-cover .veil__mark path { stroke-dashoffset: 1; animation: veilDraw .7s var(--ease-io) .12s forwards; }
-html.veil-cover .veil__mark path + path { animation-delay: .28s; }
-html.veil-cover .veil__word span { animation: veilRise .7s var(--ease-out) .3s forwards; }
-html.veil-cover .veil__tag span { animation: veilRise .7s var(--ease-out) .42s forwards; }
-html.veil-cover .veil__line i { animation: veilFill .7s var(--ease-out) .2s both; }
-@keyframes veilDraw { to { stroke-dashoffset: 0; } }
+html.veil-in:not(.veil-nav) .veil__word { animation: veilRise .9s var(--ease-out) .55s forwards; }
+html.veil-in:not(.veil-nav) .veil__tag { animation: veilRise .9s var(--ease-out) .72s forwards; }
+/* leaving a page: the panel sweeps up and the brand composes on it.
+   Every piece finishes by ~0.85s; navigation waits 0.9s, so the next page
+   opens on exactly the same, fully composed frame. */
+html.veil-cover .veil__mark path { animation: veilDraw .5s var(--ease-io) .1s forwards; }
+html.veil-cover .veil__mark path + path { animation-delay: .22s; }
+html.veil-cover .veil__word { animation: veilRise .55s var(--ease-out) .25s forwards; }
+html.veil-cover .veil__tag { animation: veilRise .5s var(--ease-out) .35s forwards; }
+html.veil-cover .veil__line i { animation: veilFill .55s var(--ease-out) .2s both; }
+/* arriving from another page: start fully composed, no animation */
+html.veil-nav .veil__mark path { stroke-dashoffset: 0; animation: none; }
+html.veil-nav .veil__word, html.veil-nav .veil__tag { transform: none; animation: none; }
+html.veil-nav .veil__line i { --vp: 1; transition: none; }
+@keyframes veilDraw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
 @keyframes veilRise { to { transform: none; } }
 @keyframes veilFill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 

@@ -189,7 +189,7 @@
       // destination so a click never lands on a stale cached page.
       const fresh = fetch(url.pathname, { cache: "reload", credentials: "same-origin" }).catch(() => {});
       const timeout = new Promise((r) => setTimeout(r, 1800));
-      const minimum = new Promise((r) => setTimeout(r, 760));
+      const minimum = new Promise((r) => setTimeout(r, 900));
       Promise.all([minimum, Promise.race([fresh, timeout])]).then(() => (location.href = url.href));
     });
     addEventListener("pageshow", (e) => { if (e.persisted) html.classList.remove("veil-cover", "veil-in", "veil-nav", "veil-out"); });
@@ -306,7 +306,12 @@
     if (toggle) { toggle.setAttribute("aria-expanded", String(open)); toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu"); }
   };
   toggle && toggle.addEventListener("click", () => setMenu(!d.body.classList.contains("menu-open")));
-  $$("#mobile-menu a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
+  // Links to another page keep the menu open: the veil sweeps over it, so
+  // the menu never collapses and reveals the old page mid-transition.
+  $$("#mobile-menu a").forEach((a) => a.addEventListener("click", () => {
+    if (!reduce && a.pathname !== location.pathname) return;
+    setMenu(false);
+  }));
   addEventListener("keydown", (e) => { if (e.key === "Escape") setMenu(false); });
   $$("[data-top]").forEach((a) => a.addEventListener("click", (e) => { e.preventDefault(); scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" }); }));
 
