@@ -1,8 +1,13 @@
 /* Watthaus solar planner — a branching, resumable quote funnel. */
 (() => {
   "use strict";
+  window.WH = window.WH || {};
+  // main.js calls this after swapping the planner in; on a direct load the
+  // planner starts itself at the bottom of this file.
+  window.WH.initQuote = function initQuote() {
   const root = document.querySelector("[data-quote]");
-  if (!root) return;
+  if (!root || root.dataset.ready) return;
+  root.dataset.ready = "1";
   const WH = window.WH;
   const $ = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
@@ -578,6 +583,7 @@
      Keyboard
      ------------------------------------------------------------------ */
   document.addEventListener("keydown", (e) => {
+    if (!document.body.contains(root)) return; // planner was swapped out
     if (e.metaKey || e.ctrlKey || e.altKey) return;
     const tag = (e.target.tagName || "").toLowerCase();
     const typing = ["input", "textarea", "select"].includes(tag) && e.target.type !== "range";
@@ -614,4 +620,6 @@
   }
   render(false);
   track("wh_quote_start");
+  };
+  if (document.querySelector("[data-quote]")) window.WH.initQuote();
 })();

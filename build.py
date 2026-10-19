@@ -114,8 +114,9 @@ def main():
         head = re.sub(r"\{\{cur:(\w+)\}\}",
                       lambda m: ' aria-current="page"' if m.group(1) == active else "",
                       header)
-        scripts = "".join(f'<script src="assets/js/{s.strip()}?v={ver}" defer></script>\n'
-                          for s in meta.get("scripts", "").split(",") if s.strip())
+        # quote.js is on every page so the planner can start after an in-place swap
+        names = ["quote.js"] + [x.strip() for x in meta.get("scripts", "").split(",") if x.strip() and x.strip() != "quote.js"]
+        scripts = "".join(f'<script src="assets/js/{n}?v={ver}" defer></script>\n' for n in names)
         preload = (f'<link rel="preload" as="image" href="{meta["preload"]}">\n'
                    if meta.get("preload") else "")
         name = page.name

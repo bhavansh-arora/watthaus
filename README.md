@@ -18,7 +18,8 @@ Static HTML, CSS and vanilla JavaScript: no framework, no dependencies, fast on 
 - **Single-colour logo.** The W mark is redrawn as a vector (`#mark` in `src/partials/sprite.svg`, plus `assets/img/favicon.svg`), so it stays crisp at any size and takes on the surrounding text colour. Partner and bank logos are converted to matching single-colour versions in `assets/img/logos/mono/`.
 - **Type.** Inter Tight for headlines and body, Instrument Serif italics for accent words, Geist Mono for small labels.
 - **Colour.** Carbon black, warm ivory and solar gold; the Consultancy page and cards switch the accent to green.
-- **Motion.** First-visit preloader, curtain transitions between pages, word-by-word headline reveals, a hero slideshow synced to a rotating word, pinned sideways services, stacking process cards and scroll-lit statements. All of it switches off for visitors who ask their device to reduce motion.
+- **Motion.** First-visit loader, word-by-word headline reveals, a hero slideshow synced to a rotating word, pinned sideways services, stacking process cards and scroll-lit statements. All of it switches off for visitors who ask their device to reduce motion.
+- **Page changes happen in place.** Clicking a link covers the screen with the branded panel, fetches the next page and swaps its content into the current document, then lifts the panel. The browser never loads a new document mid-transition, which avoids phone browsers (iPhone Chrome especially) re-measuring the screen and flickering. Back/forward, deep links and sharing still use the real page URLs, and anything unusual falls back to a normal page load. Page-level behaviour lives in `initPage()` in `assets/js/main.js`; anything added there must register a cleanup.
 
 ## Pages
 
