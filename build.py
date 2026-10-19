@@ -44,7 +44,7 @@ LAYOUT = """<!doctype html>
     h.classList.add('js');
     try {{
       if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      if (sessionStorage.getItem('wh-nav')) {{ sessionStorage.removeItem('wh-nav'); h.classList.add('is-entering'); }}
+      var n = sessionStorage.getItem('wh-nav'); if (n) {{ sessionStorage.removeItem('wh-nav'); h.classList.add('is-entering'); h.setAttribute('data-nav', n); }}
       else if (!sessionStorage.getItem('wh-seen')) h.classList.add('is-loading');
     }} catch (e) {{}}
   }})(document.documentElement);

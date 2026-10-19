@@ -20,14 +20,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="assets/css/main.css?v=1792431243">
+<link rel="stylesheet" href="assets/css/main.css?v=1792434584">
 <link rel="preload" as="image" href="assets/img/family.webp">
 <script>
   (function (h) {
     h.classList.add('js');
     try {
       if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      if (sessionStorage.getItem('wh-nav')) { sessionStorage.removeItem('wh-nav'); h.classList.add('is-entering'); }
+      var n = sessionStorage.getItem('wh-nav'); if (n) { sessionStorage.removeItem('wh-nav'); h.classList.add('is-entering'); h.setAttribute('data-nav', n); }
       else if (!sessionStorage.getItem('wh-seen')) h.classList.add('is-loading');
     } catch (e) {}
   })(document.documentElement);
@@ -85,7 +85,24 @@
   <div class="preloader__foot"><span>Solar · Consultancy · Auckland</span><span class="preloader__count" data-count-loader>000</span></div>
   <div class="preloader__bar"><span></span></div>
 </div>
-<div class="curtain" aria-hidden="true"><svg class="curtain__mark"><use href="#mark"/></svg></div>
+<div class="curtain" aria-hidden="true">
+  <div class="curtain__inner">
+    <div class="curtain__row"><span class="curtain__brand"><svg class="curtain__mark"><use href="#mark"/></svg><span class="label">Watthaus Strategy</span></span><span class="label">Loading</span></div>
+    <p class="curtain__title"><span data-curtain-title></span></p>
+    <div class="curtain__row"><span class="label label--dot" data-curtain-kicker>Energy engineered forward</span><span class="label">Auckland · Aotearoa</span></div>
+  </div>
+  <div class="curtain__bar"><span></span></div>
+</div>
+<script>
+  window.whCurtain = function (v) {
+    var p = String(v || '').split('|'), w = p[0].split(' '), last = w.pop(), t = document.querySelector('[data-curtain-title]'), k = document.querySelector('[data-curtain-kicker]');
+    if (!t) return;
+    t.textContent = w.length ? w.join(' ') + ' ' : '';
+    var em = document.createElement('em'); em.textContent = last + '.'; t.appendChild(em);
+    if (k && p[1]) k.textContent = p[1];
+  };
+  if (document.documentElement.getAttribute('data-nav')) window.whCurtain(document.documentElement.getAttribute('data-nav'));
+</script>
 <div class="scroll-progress" aria-hidden="true"><span></span></div>
 <div class="cursor" aria-hidden="true"><span class="cursor__ring"><span class="cursor__label"></span></span><span class="cursor__dot"></span></div>
 
@@ -531,7 +548,7 @@
   <a class="btn btn--gold btn--plain" href="quote.html">Get my solar plan</a>
 </div>
 
-<script src="assets/js/config.js?v=1792431243"></script>
-<script src="assets/js/main.js?v=1792431243" defer></script>
+<script src="assets/js/config.js?v=1792434584"></script>
+<script src="assets/js/main.js?v=1792434584" defer></script>
 </body>
 </html>

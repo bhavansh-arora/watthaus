@@ -158,13 +158,23 @@
     };
     requestAnimationFrame(tick);
   } else if (html.classList.contains("is-entering")) {
-    requestAnimationFrame(() => requestAnimationFrame(() => {
+    // hold the destination title briefly, then lift the curtain
+    setTimeout(() => {
       html.classList.add("is-entered");
       setTimeout(start, 200);
-      setTimeout(() => html.classList.remove("is-entering", "is-entered"), 1100);
-    }));
+      setTimeout(() => html.classList.remove("is-entering", "is-entered"), 1300);
+    }, 320);
   } else start();
 
+  const PAGES = {
+    "index.html": "Home|Energy engineered forward",
+    "solar.html": "Home Solar|Rooftop solar & batteries",
+    "consultancy.html": "Consultancy|Land to energisation",
+    "projects.html": "Our Projects|Auckland Residence case study",
+    "about.html": "About Us|The people behind the power",
+    "contact.html": "Let's Talk|Reply within one business day",
+    "quote.html": "Solar Planner|Your plan in about a minute"
+  };
   if (!reduce) {
     d.addEventListener("click", (e) => {
       const a = e.target.closest("a[href]");
@@ -173,9 +183,12 @@
       const url = new URL(a.getAttribute("href"), location.href);
       if (url.origin !== location.origin || !/(\.html|\/)$/.test(url.pathname) || url.pathname === location.pathname) return;
       e.preventDefault();
-      try { sessionStorage.setItem("wh-nav", "1"); } catch (err) {}
+      const page = url.pathname.split("/").pop() || "index.html";
+      const label = PAGES[page] || "Watthaus|Energy engineered forward";
+      if (window.whCurtain) window.whCurtain(label);
+      try { sessionStorage.setItem("wh-nav", label); } catch (err) {}
       html.classList.add("is-leaving");
-      setTimeout(() => (location.href = url.href), 680);
+      setTimeout(() => (location.href = url.href), 820);
     });
     addEventListener("pageshow", (e) => { if (e.persisted) html.classList.remove("is-leaving", "is-entering", "is-entered"); });
   }
