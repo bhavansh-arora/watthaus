@@ -42,11 +42,12 @@ LAYOUT = """<!doctype html>
 {preload}<script>
   (function (h) {{
     h.classList.add('js');
+    window.WH_BUILD = '{ver}';
     try {{
       if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       h.classList.add('veil-in');
-      if (sessionStorage.getItem('wh-nav') || sessionStorage.getItem('wh-seen')) h.classList.add('veil-nav');
-      sessionStorage.removeItem('wh-nav');
+      if (sessionStorage.getItem('wh-veil') || sessionStorage.getItem('wh-seen')) h.classList.add('veil-nav');
+      sessionStorage.removeItem('wh-veil');
     }} catch (e) {{}}
   }})(document.documentElement);
 </script>
@@ -101,6 +102,8 @@ def main():
     sprite = (SRC / "partials/sprite.svg").read_text()
     header = (SRC / "partials/header.html").read_text()
     footer = (SRC / "partials/footer.html").read_text()
+    # pages check this to reload themselves when a browser serves a stale copy
+    (OUT / "version.json").write_text('{"v": "%s"}\n' % ver)
     for page in sorted((SRC / "pages").glob("*.html")):
         meta, body = parse(page.read_text())
         active = meta.get("active", "")

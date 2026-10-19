@@ -154,20 +154,35 @@ html.veil-out .veil__panel { transform: translate3d(0, -102%, 0); border-radius:
 /* if scripts never run, never leave the page covered */
 html.veil-in:not(.veil-out) .veil__panel { animation: veilSafety .01s 5s forwards; }
 @keyframes veilSafety { to { transform: translate3d(0, -102%, 0); } }
-.veil__center { display: grid; justify-items: center; gap: 22px; transition: opacity .45s var(--ease-io), transform .7s var(--ease-io); }
-html.veil-out .veil__center { opacity: 0; transform: translate3d(0, -28px, 0); }
-.veil__mark { width: 58px; height: 58px; color: var(--ink); overflow: visible; }
+.veil__watermark { position: absolute; left: 50%; top: 50%; width: min(118vh, 130vw); height: auto; transform: translate(-50%, -52%); color: rgba(237,235,228,.05); pointer-events: none; }
+.veil__center { position: relative; display: grid; justify-items: center; text-align: center; transition: opacity .45s var(--ease-io), transform .7s var(--ease-io); }
+html.veil-out .veil__center, html.veil-out .veil__foot { opacity: 0; transform: translate3d(0, -28px, 0); }
+.veil__mark { width: 60px; height: 60px; color: var(--ink); overflow: visible; margin-bottom: 26px; }
 .veil__mark path { stroke-dasharray: 1; stroke-dashoffset: 1; }
+.veil__word { overflow: hidden; padding: .1em .12em .22em; margin: -.1em 0 -.22em; font-size: clamp(1.9rem, 1.4rem + 1.6vw, 2.7rem); font-weight: 600; letter-spacing: -0.045em; line-height: 1; color: var(--ink); }
+.veil__word em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; color: var(--gold-hi); margin-left: .14em; }
+.veil__tag { overflow: hidden; padding-bottom: .2em; margin-top: 14px; font-family: var(--mono); font-size: .7rem; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); }
+.veil__word span, .veil__tag span { display: inline-block; transform: translate3d(0, 120%, 0); }
+.veil__line { position: relative; width: 140px; height: 1px; margin-top: 22px; background: rgba(237,235,228,.14); overflow: hidden; }
+.veil__line i { position: absolute; inset: 0; background: var(--gold-grad); transform-origin: left; transform: scaleX(var(--vp, 0)); transition: transform .35s var(--ease-out); }
+.veil__foot { position: absolute; left: var(--gutter); right: var(--gutter); bottom: calc(26px + env(safe-area-inset-bottom)); display: flex; justify-content: space-between; gap: 16px; transition: opacity .45s var(--ease-io), transform .7s var(--ease-io); }
+/* first visit: draw the mark, then the wordmark and tagline rise in */
 html.veil-in:not(.veil-nav) .veil__mark path { animation: veilDraw 1s var(--ease-io) .1s forwards; }
 html.veil-in:not(.veil-nav) .veil__mark path + path { animation-delay: .4s; }
+html.veil-in:not(.veil-nav) .veil__word span { animation: veilRise .9s var(--ease-out) .55s forwards; }
+html.veil-in:not(.veil-nav) .veil__tag span { animation: veilRise .9s var(--ease-out) .72s forwards; }
+/* arriving from another page: brand already composed */
 html.veil-nav .veil__mark path { stroke-dashoffset: 0; }
-html.veil-cover .veil__mark path { stroke-dashoffset: 1; animation: veilDraw .7s var(--ease-io) .15s forwards; }
-html.veil-cover .veil__mark path + path { animation-delay: .32s; }
-@keyframes veilDraw { to { stroke-dashoffset: 0; } }
-.veil__line { position: relative; width: 96px; height: 1px; background: rgba(237,235,228,.14); overflow: hidden; }
-.veil__line i { position: absolute; inset: 0; background: var(--gold-grad); transform-origin: left; transform: scaleX(var(--vp, 0)); transition: transform .35s var(--ease-out); }
+html.veil-nav .veil__word span, html.veil-nav .veil__tag span { transform: none; }
 html.veil-nav .veil__line i { --vp: 1; }
-html.veil-cover .veil__line i { animation: veilFill .8s var(--ease-out) .15s both; }
+/* leaving a page: the panel sweeps up and the brand composes on it */
+html.veil-cover .veil__mark path { stroke-dashoffset: 1; animation: veilDraw .7s var(--ease-io) .12s forwards; }
+html.veil-cover .veil__mark path + path { animation-delay: .28s; }
+html.veil-cover .veil__word span { animation: veilRise .7s var(--ease-out) .3s forwards; }
+html.veil-cover .veil__tag span { animation: veilRise .7s var(--ease-out) .42s forwards; }
+html.veil-cover .veil__line i { animation: veilFill .7s var(--ease-out) .2s both; }
+@keyframes veilDraw { to { stroke-dashoffset: 0; } }
+@keyframes veilRise { to { transform: none; } }
 @keyframes veilFill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 
 .scroll-progress { position: fixed; left: 0; right: 0; top: 0; z-index: 700; height: 2px; pointer-events: none; }
@@ -278,7 +293,7 @@ html.veil-cover .veil__line i { animation: veilFill .8s var(--ease-out) .15s bot
 
 /* ---------- page hero ---------- */
 .page-hero { padding: var(--frame); }
-.page-hero__frame { position: relative; border-radius: var(--r-xl); overflow: hidden; isolation: isolate; min-height: min(86svh, 880px); display: flex; flex-direction: column; justify-content: flex-end; }
+.page-hero__frame { position: relative; border-radius: var(--r-xl); overflow: hidden; isolation: isolate; min-height: calc(100svh - var(--frame) * 2); display: flex; flex-direction: column; justify-content: flex-end; }
 .page-hero--plain .page-hero__frame { min-height: auto; background: radial-gradient(80% 120% at 88% 0%, var(--accent-glow), transparent 60%), var(--bg-2); border: 1px solid var(--line); }
 .page-hero__media { position: absolute; inset: 0; z-index: -2; overflow: hidden; }
 .page-hero__media img { width: 100%; height: 112%; object-fit: cover; }

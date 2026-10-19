@@ -56,6 +56,22 @@
   };
 
   /* ------------------------------------------------------------------
+     Stale-copy guard: browsers may keep old pages for up to 10 minutes
+     after a deploy. If a newer build is live, reload once (behind the veil).
+     ------------------------------------------------------------------ */
+  if (window.WH_BUILD && location.protocol.startsWith("http")) {
+    fetch(`version.json?t=${Date.now()}`, { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((j) => {
+        if (!j || !j.v || j.v === window.WH_BUILD) return;
+        const key = "wh-reloaded-" + j.v;
+        try { if (sessionStorage.getItem(key)) return; sessionStorage.setItem(key, "1"); } catch (e) { return; }
+        location.reload();
+      })
+      .catch(() => {});
+  }
+
+  /* ------------------------------------------------------------------
      Split headings into masked words (descender-safe, see .w in CSS)
      ------------------------------------------------------------------ */
   function splitWords(el) {
@@ -167,9 +183,14 @@
       const url = new URL(a.getAttribute("href"), location.href);
       if (url.origin !== location.origin || !/(\.html|\/)$/.test(url.pathname) || url.pathname === location.pathname) return;
       e.preventDefault();
-      try { sessionStorage.setItem("wh-nav", "1"); } catch (err) {}
+      try { sessionStorage.setItem("wh-veil", "1"); } catch (err) {}
       html.classList.add("veil-cover");
-      setTimeout(() => (location.href = url.href), 760);
+      // While the veil covers the screen, refresh the browser's copy of the
+      // destination so a click never lands on a stale cached page.
+      const fresh = fetch(url.pathname, { cache: "reload", credentials: "same-origin" }).catch(() => {});
+      const timeout = new Promise((r) => setTimeout(r, 1800));
+      const minimum = new Promise((r) => setTimeout(r, 760));
+      Promise.all([minimum, Promise.race([fresh, timeout])]).then(() => (location.href = url.href));
     });
     addEventListener("pageshow", (e) => { if (e.persisted) html.classList.remove("veil-cover", "veil-in", "veil-nav", "veil-out"); });
   }

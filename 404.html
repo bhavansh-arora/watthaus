@@ -20,15 +20,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="assets/css/main.css?v=1792434932">
+<link rel="stylesheet" href="assets/css/main.css?v=1792435408">
 <script>
   (function (h) {
     h.classList.add('js');
+    window.WH_BUILD = '1792435408';
     try {
       if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       h.classList.add('veil-in');
-      if (sessionStorage.getItem('wh-nav') || sessionStorage.getItem('wh-seen')) h.classList.add('veil-nav');
-      sessionStorage.removeItem('wh-nav');
+      if (sessionStorage.getItem('wh-veil') || sessionStorage.getItem('wh-seen')) h.classList.add('veil-nav');
+      sessionStorage.removeItem('wh-veil');
     } catch (e) {}
   })(document.documentElement);
 </script>
@@ -75,10 +76,14 @@
 
 <div class="veil" aria-hidden="true">
   <div class="veil__panel">
+    <svg class="veil__watermark" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width=".35" stroke-linejoin="miter"><path d="M5.2 16.8 21 55.6 32 29.6 43 55.6 58.8 16.8"/><path d="M20 34 32 5.8 44 34"/></svg>
     <div class="veil__center">
       <svg class="veil__mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linejoin="miter"><path pathLength="1" d="M5.2 16.8 21 55.6 32 29.6 43 55.6 58.8 16.8"/><path pathLength="1" d="M20 34 32 5.8 44 34"/></svg>
+      <p class="veil__word"><span>Watthaus<em>strategy</em></span></p>
       <span class="veil__line"><i></i></span>
+      <p class="veil__tag"><span>Energy engineered forward</span></p>
     </div>
+    <div class="veil__foot"><span class="label">Solar · Consultancy</span><span class="label">Auckland, Aotearoa</span></div>
   </div>
 </div>
 <div class="scroll-progress" aria-hidden="true"><span></span></div>
@@ -128,7 +133,7 @@
 
 <main id="main">
 <section class="page-hero">
-  <div class="page-hero__frame" style="min-height:70svh">
+  <div class="page-hero__frame">
     <div class="page-hero__media"><img src="assets/img/sky-dusk.webp" alt="" fetchpriority="high"></div>
     <div class="page-hero__inner">
       <span class="label label--dot">Error 404</span>
@@ -200,7 +205,7 @@
   <a class="btn btn--gold btn--plain" href="quote.html">Get my solar plan</a>
 </div>
 
-<script src="assets/js/config.js?v=1792434932"></script>
-<script src="assets/js/main.js?v=1792434932" defer></script>
+<script src="assets/js/config.js?v=1792435408"></script>
+<script src="assets/js/main.js?v=1792435408" defer></script>
 </body>
 </html>
