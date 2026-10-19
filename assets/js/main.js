@@ -189,7 +189,12 @@
       const url = new URL(a.getAttribute("href"), location.href);
       if (url.origin !== location.origin || !/(\.html|\/)$/.test(url.pathname) || url.pathname === location.pathname) return;
       e.preventDefault();
-      try { sessionStorage.setItem("wh-veil", "1"); } catch (err) {}
+      // Pin the veil to the real screen height and hand that number to the next
+      // page, so its first frame lays out identically even if the phone briefly
+      // mis-sizes the viewport while loading (seen on iPhone Chrome).
+      const vh = Math.round(window.innerHeight);
+      html.style.setProperty("--veil-h", vh + "px");
+      try { sessionStorage.setItem("wh-veil", "1"); sessionStorage.setItem("wh-vh", String(vh)); } catch (err) {}
       html.classList.add("veil-cover");
       // While the veil covers the screen, refresh the browser's copy of the
       // destination so a click never lands on a stale cached page.

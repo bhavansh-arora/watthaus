@@ -50,6 +50,8 @@ LAYOUT = """<!doctype html>
       h.classList.add('veil-in');
       if (sessionStorage.getItem('wh-veil') || sessionStorage.getItem('wh-seen')) h.classList.add('veil-nav');
       sessionStorage.removeItem('wh-veil');
+      var vh = +sessionStorage.getItem('wh-vh');
+      if (vh > 200) h.style.setProperty('--veil-h', vh + 'px');
     }} catch (e) {{}}
   }})(document.documentElement);
 </script>

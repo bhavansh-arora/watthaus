@@ -22,16 +22,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="assets/css/main.css?v=1792438045">
+<link rel="stylesheet" href="assets/css/main.css?v=1792444382">
 <script>
   (function (h) {
     h.classList.add('js');
-    window.WH_BUILD = '1792438045';
+    window.WH_BUILD = '1792444382';
     try {
       if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       h.classList.add('veil-in');
       if (sessionStorage.getItem('wh-veil') || sessionStorage.getItem('wh-seen')) h.classList.add('veil-nav');
       sessionStorage.removeItem('wh-veil');
+      var vh = +sessionStorage.getItem('wh-vh');
+      if (vh > 200) h.style.setProperty('--veil-h', vh + 'px');
     } catch (e) {}
   })(document.documentElement);
 </script>
@@ -315,7 +317,7 @@
   <a class="btn btn--gold btn--plain" href="quote.html">Get my solar plan</a>
 </div>
 
-<script src="assets/js/config.js?v=1792438045"></script>
-<script src="assets/js/main.js?v=1792438045" defer></script>
+<script src="assets/js/config.js?v=1792444382"></script>
+<script src="assets/js/main.js?v=1792444382" defer></script>
 </body>
 </html>
