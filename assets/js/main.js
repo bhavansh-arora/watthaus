@@ -181,13 +181,6 @@
     requestAnimationFrame(tick);
   } else start();
 
-  // Cross-document view transitions (Chrome 126+, Safari 18.2+): the browser
-  // keeps the old frame until the new page is ready, then swaps. Both frames
-  // are the same composed veil, so the swap is seamless. Skip it for anything
-  // that isn't our own veil hand-off (back/forward, reloads).
-  addEventListener("pageswap", (e) => { if (e.viewTransition && !html.classList.contains("veil-cover")) e.viewTransition.skipTransition(); });
-  addEventListener("pagereveal", (e) => { if (e.viewTransition && !html.classList.contains("veil-nav")) e.viewTransition.skipTransition(); });
-
   if (!reduce) {
     d.addEventListener("click", (e) => {
       const a = e.target.closest("a[href]");
