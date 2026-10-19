@@ -148,10 +148,12 @@ a.pill:hover { border-color: var(--ink); color: var(--ink); }
    the very first frame of the next page. Content is centred on the small
    viewport (svh) so a phone's toolbar changing height never shifts it. */
 .veil { position: fixed; inset: 0; z-index: 990; pointer-events: none; }
-.veil__panel { position: absolute; inset: -2px 0; overflow: hidden; will-change: transform; contain: strict;
+.veil__panel { position: absolute; inset: -2px 0; overflow: hidden; will-change: transform;
   background: radial-gradient(60vmax 60vmax at 50% 50svh, rgba(226,178,94,.09), transparent 60%), #0d0d0f;
   transform: translate3d(0, 102%, 0); border-radius: 50% 50% 0 0 / 16vh 16vh 0 0; }
 html.veil-in .veil__panel, html.veil-cover .veil__panel { transform: none; border-radius: 0; }
+html.veil-in:not(.veil-out) .veil__panel { will-change: auto; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .12s; animation-timing-function: linear; }
 html.veil-cover .veil__panel { pointer-events: all; transition: transform .7s var(--ease-io), border-radius .7s var(--ease-io); }
 html.veil-out .veil__panel { transform: translate3d(0, -102%, 0); border-radius: 0 0 50% 50% / 0 0 16vh 16vh; transition: transform 1s var(--ease-io), border-radius 1s var(--ease-io); }
 html.veil-in:not(.veil-out) .veil__panel { animation: veilSafety .01s 5s forwards; }

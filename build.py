@@ -23,7 +23,9 @@ LAYOUT = """<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{title}</title>
 <meta name="description" content="{description}">
-<meta name="theme-color" content="#09090a">
+<meta name="theme-color" content="#0d0d0f">
+<meta name="color-scheme" content="dark">
+<style>html{{background:#0d0d0f;color-scheme:dark}}@view-transition{{navigation:auto}}</style>
 <link rel="canonical" href="{url}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Watthaus Strategy">

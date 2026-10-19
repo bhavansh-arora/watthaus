@@ -59,17 +59,23 @@
      Stale-copy guard: browsers may keep old pages for up to 10 minutes
      after a deploy. If a newer build is live, reload once (behind the veil).
      ------------------------------------------------------------------ */
-  if (window.WH_BUILD && location.protocol.startsWith("http")) {
-    fetch(`version.json?t=${Date.now()}`, { cache: "no-store" })
-      .then((r) => (r.ok ? r.json() : null))
-      .then((j) => {
-        if (!j || !j.v || j.v === window.WH_BUILD) return;
-        const key = "wh-reloaded-" + j.v;
-        try { if (sessionStorage.getItem(key)) return; sessionStorage.setItem(key, "1"); } catch (e) { return; }
-        location.reload();
-      })
-      .catch(() => {});
-  }
+  // Resolves true if the page is about to reload. The veil waits for this
+  // (at most 600ms), so a reload never happens after the page is revealed.
+  const versionCheck = (window.WH_BUILD && location.protocol.startsWith("http"))
+    ? Promise.race([
+        fetch(`version.json?t=${Date.now()}`, { cache: "no-store" })
+          .then((r) => (r.ok ? r.json() : null))
+          .then((j) => {
+            if (!j || !j.v || j.v === window.WH_BUILD) return false;
+            const key = "wh-reloaded-" + j.v;
+            try { if (sessionStorage.getItem(key)) return false; sessionStorage.setItem(key, "1"); } catch (e) { return false; }
+            location.reload();
+            return true;
+          })
+          .catch(() => false),
+        new Promise((r) => setTimeout(() => r(false), 600))
+      ])
+    : Promise.resolve(false);
 
   /* ------------------------------------------------------------------
      Split headings into masked words (descender-safe, see .w in CSS)
@@ -167,13 +173,20 @@
       if (line && !quick) line.style.setProperty("--vp", shown.toFixed(3));
       if (ready && el >= MIN && shown > .96) {
         if (line) line.style.setProperty("--vp", 1);
-        setTimeout(lift, 160);
+        versionCheck.then((reloading) => { if (!reloading) setTimeout(lift, 160); });
         return;
       }
       requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
   } else start();
+
+  // Cross-document view transitions (Chrome 126+, Safari 18.2+): the browser
+  // keeps the old frame until the new page is ready, then swaps. Both frames
+  // are the same composed veil, so the swap is seamless. Skip it for anything
+  // that isn't our own veil hand-off (back/forward, reloads).
+  addEventListener("pageswap", (e) => { if (e.viewTransition && !html.classList.contains("veil-cover")) e.viewTransition.skipTransition(); });
+  addEventListener("pagereveal", (e) => { if (e.viewTransition && !html.classList.contains("veil-nav")) e.viewTransition.skipTransition(); });
 
   if (!reduce) {
     d.addEventListener("click", (e) => {
