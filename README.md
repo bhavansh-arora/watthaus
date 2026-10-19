@@ -3,6 +3,16 @@
 A multi-page marketing site and solar quote planner for [Watthaus Strategy](https://www.watthausstrategy.co.nz), Auckland.
 Static HTML, CSS and vanilla JavaScript: no framework, no dependencies, fast on any host.
 
+**Live preview: https://bhavansh-arora.github.io/watthaus/**
+
+![Home page](.github/preview/home.jpg)
+
+| Home Solar | Solar planner |
+| --- | --- |
+| ![Home Solar page](.github/preview/solar.jpg) | ![Solar planner recommendation](.github/preview/planner.jpg) |
+
+<p align="center"><img src=".github/preview/phone.jpg" alt="Home page and planner on a phone" width="600"></p>
+
 ## Pages
 
 | Page | File | What it does |
@@ -30,7 +40,7 @@ Built to stop good enquiries leaking out between "interested" and "booked site v
 
 ## Where leads go
 
-Open `public/assets/js/config.js` and set `formEndpoint` to any URL that accepts a JSON `POST`
+Open `docs/assets/js/config.js` and set `formEndpoint` to any URL that accepts a JSON `POST`
 (Formspree, Web3Forms, Basin, a Make/Zapier webhook, or a CRM). Each lead includes name, phone, email,
 address, every answer, the recommended package and estimate, preferred booking slot, page, referrer and UTM tags.
 
@@ -43,28 +53,29 @@ The savings assumptions (price per kWh, export rate, yield) also live in `config
 
 - Page content: `src/pages/*.html` (a few `key: value` lines at the top, then the page).
 - Shared header, menu, footer and icons: `src/partials/`.
-- Styles: `public/assets/css/main.css` (design tokens at the top).
-- Behaviour: `public/assets/js/main.js` and `public/assets/js/quote.js`.
+- Styles: `docs/assets/css/main.css` (design tokens at the top).
+- Behaviour: `docs/assets/js/main.js` and `docs/assets/js/quote.js`.
 
 After editing anything in `src/`, rebuild:
 
 ```bash
-python3 build.py      # writes the finished pages into public/
+python3 build.py      # writes the finished pages into docs/
 ```
 
 Preview locally:
 
 ```bash
-cd public && python3 -m http.server 8000   # then open http://localhost:8000
+cd docs && python3 -m http.server 8000   # then open http://localhost:8000
 ```
 
 ## Deploying
 
-Deploy the `public/` folder to any static host.
+Deploy the `docs/` folder to any static host.
 
-- **Netlify:** connect the repo; `netlify.toml` is already set up (publish `public`).
-- **Vercel / Cloudflare Pages:** framework "Other", build command `python3 build.py`, output directory `public`.
-- **Any web server / cPanel:** upload the contents of `public/`.
+- **GitHub Pages:** Settings → Pages → Source "Deploy from a branch" → branch `main`, folder `/docs` → Save.
+- **Netlify:** connect the repo; `netlify.toml` is already set up (publish `docs`).
+- **Vercel / Cloudflare Pages:** framework "Other", build command `python3 build.py`, output directory `docs`.
+- **Any web server / cPanel:** upload the contents of `docs/`.
 
 ## Built in
 

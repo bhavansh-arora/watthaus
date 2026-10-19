@@ -3,7 +3,7 @@
 
 Each file in src/pages/ starts with a few `key: value` lines, then a line
 with `---`, then the page body. Shared header, footer and icons live in
-src/partials/. Output goes to public/, which is what you deploy.
+src/partials/. Output goes to docs/, which is what you deploy.
 
     python3 build.py
 """
@@ -13,7 +13,7 @@ import re
 
 ROOT = pathlib.Path(__file__).parent
 SRC = ROOT / "src"
-OUT = ROOT / "public"
+OUT = ROOT / "docs"
 SITE_URL = "https://www.watthausstrategy.co.nz"
 
 LAYOUT = """<!doctype html>

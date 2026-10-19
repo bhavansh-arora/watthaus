@@ -1,5 +1,5 @@
 [build]
-  publish = "public"
+  publish = "docs"
   command = "python3 build.py"
 
 [[redirects]]
